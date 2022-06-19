@@ -29,14 +29,11 @@
           buildDocument = { name, src, filename, buildInputs ? [ ] }: pkgs.stdenv.mkDerivation {
             inherit src name;
             buildPhase = ''
-              cp -r $src /work
-              chmod +w /work
-              cd /work
               satysfi ${filename} --output document.pdf --config $SATYSFI_LIBPATH
             '';
             installPhase = ''
               mkdir -p $out/docs
-              cp /work/document.pdf $out/docs/
+              cp document.pdf $out/docs/
             '';
             buildInputs = [ pkgs.satysfi ] ++ buildInputs;
           };
