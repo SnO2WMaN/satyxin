@@ -1,0 +1,9 @@
+@require: stdjareport
+@require: satysfi-uline/uline
+
+document (|
+  title = {Demo};
+  author = {Aumy};
+|) '<
+  +p {\uline{Hello, world!}}
+>
