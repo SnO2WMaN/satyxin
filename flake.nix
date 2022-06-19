@@ -1,8 +1,15 @@
 {
   description = "Build SATySFi documents using Nix";
 
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
 
+    uline = {
+      url = "github:puripuri2100/SATySFi-uline";
+      flake = false;
+    };
+  };
 
   outputs = { self, nixpkgs, flake-utils, uline }:
     flake-utils.lib.eachDefaultSystem (system:
@@ -34,6 +41,22 @@
             buildInputs = [ pkgs.satysfi ] ++ buildInputs;
           };
         };
+
+        packages = {
+          uline = lib.buildPackage {
+            name = "satysfi-uline";
+            src = uline;
+            path = "uline.satyh";
+          };
+          demo = lib.buildDocument {
+            name = "satyxin-demo";
+            src = ./example;
+            filename = "demo.saty";
+            buildInputs = [ packages.uline ];
+          };
+        };
+
+        defaultPackage = packages.demo;
       }
     );
 }
