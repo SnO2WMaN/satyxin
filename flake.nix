@@ -12,48 +12,35 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, uline }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
-      rec {
-        lib = {
-          buildPackage = { name, src, path }: pkgs.stdenv.mkDerivation {
-            inherit src name;
-            installPhase = ''
-              mkdir -p $out/lib/satysfi/dist/packages/$name/
-              cp $src/${path} $out/lib/satysfi/dist/packages/$name/
-            '';
-            setupHook = pkgs.writeText "setuphook-satysfi-package" ''
-              SATYSFI_LIBPATH+=:$1/lib/satysfi
-            '';
-          };
-          buildDocument = { name, src, filename, buildInputs ? [ ] }: pkgs.stdenv.mkDerivation {
-            inherit src name;
-            buildPhase = ''
-              satysfi ${filename} --output document.pdf --config $SATYSFI_LIBPATH
-            '';
-            installPhase = ''
-              mkdir -p $out/docs
-              cp document.pdf $out/docs/
-            '';
-            buildInputs = [ pkgs.satysfi ] ++ buildInputs;
-          };
+    rec {
+      overlays.default = (import ./overlay.nix);
+      overlay = overlays.default;
+    } //
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            (import ./overlay.nix)
+          ];
         };
-
-        packages = {
-          uline = lib.buildPackage {
-            name = "satysfi-uline";
-            src = uline;
-            path = "uline.satyh";
+        in
+        rec {
+          packages = {
+            uline = pkgs.satyxin.buildPackage {
+              name = "satysfi-uline";
+              src = uline;
+              path = "uline.satyh";
+            };
+            demo = pkgs.satyxin.buildDocument {
+              name = "satyxin-demo";
+              src = ./example;
+              filename = "demo.saty";
+              buildInputs = [ packages.uline ];
+            };
           };
-          demo = lib.buildDocument {
-            name = "satyxin-demo";
-            src = ./example;
-            filename = "demo.saty";
-            buildInputs = [ packages.uline ];
-          };
-        };
 
-        defaultPackage = packages.demo;
-      }
-    );
+          defaultPackage = packages.demo;
+        }
+      );
 }
