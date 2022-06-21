@@ -39,14 +39,17 @@
     },
     "satyxin": {
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-lpEibzdiaTiOA/YXa4zf2Du+hkqCmsmrNr9N+mQ5R4Y=",
-        "path": "../",
-        "type": "path"
+        "lastModified": 1655791463,
+        "narHash": "sha256-UCx7uI1vcUyIOSXavz8Zqgmm5fVb/0ueTh+aN6D5phE=",
+        "owner": "SnO2WMaN",
+        "repo": "satyxin",
+        "rev": "4403975aeb1a6e4e1fba012cd6a52eb385217895",
+        "type": "github"
       },
       "original": {
-        "path": "../",
-        "type": "path"
+        "owner": "SnO2WMaN",
+        "repo": "satyxin",
+        "type": "github"
       }
     },
     "uline": {

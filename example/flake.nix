@@ -1,6 +1,6 @@
 {
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.satyxin.url = "path:../";
+  inputs.satyxin.url = "github:SnO2WMaN/satyxin";
   inputs.uline = {
     url = "github:puripuri2100/SATySFi-uline";
     flake = false;
