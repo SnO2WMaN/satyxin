@@ -40,7 +40,7 @@
             satyxin.overlay
           ];
         };
-      in rec {
+      in {
         devShell = pkgs.devshell.mkShell {
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)

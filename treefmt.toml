@@ -6,8 +6,3 @@ includes = ["*.nix"]
 command = "dprint"
 options = ["fmt"]
 includes = ["*.json", "*.toml", "*.md"]
-
-[formatter.satysfi-fmt]
-command = "satysfi-fmt"
-options = ["--write"]
-includes = ["*.saty"]
