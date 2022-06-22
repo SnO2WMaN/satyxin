@@ -6,7 +6,7 @@ in
     path,
   }: {pkgs}:
     pkgs.satyxin.buildPackage {
-      name = "uline";
+      name = name;
       src = with lock.nodes."satysfi-${name}".locked;
         pkgs.fetchFromGitHub {
           inherit owner repo rev;
