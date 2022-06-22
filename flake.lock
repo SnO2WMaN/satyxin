@@ -105,6 +105,7 @@
         "nixpkgs": "nixpkgs_2",
         "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
+        "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
         "satysfi-uline": "satysfi-uline",
         "satyxin": "satyxin"
@@ -139,6 +140,22 @@
       "original": {
         "owner": "namachan10777",
         "repo": "BiByFi",
+        "type": "github"
+      }
+    },
+    "satysfi-fonts-junicode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653109723,
+        "narHash": "sha256-id4xQWsVpYjYxyVXQHhMMOWv0YqzvmJ+sYS2NrhTVi8=",
+        "owner": "na4zagin3",
+        "repo": "SATySFi-fonts-junicode",
+        "rev": "331911ba9102d7cc489549a576a60e33affacc76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "na4zagin3",
+        "repo": "SATySFi-fonts-junicode",
         "type": "github"
       }
     },

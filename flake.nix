@@ -28,6 +28,10 @@
       url = "github:namachan10777/BiByFi";
       flake = false;
     };
+    satysfi-fonts-junicode = {
+      url = "github:na4zagin3/SATySFi-fonts-junicode";
+      flake = false;
+    };
   };
 
   outputs = {

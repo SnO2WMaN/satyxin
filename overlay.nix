@@ -8,6 +8,7 @@ final: prev: {
     ) [
       "base"
       "bibyfi"
+      "fonts-junicode"
       "fss"
       "uline"
     ]
