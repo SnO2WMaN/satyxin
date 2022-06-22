@@ -1,0 +1,15 @@
+# direnv
+.direnv
+
+# Nix
+result
+
+# SATySFi
+*.satysfi-aux
+
+# dist
+dist/*.pdf
+!dist/.keep
+
+# preview
+src/*.pdf
