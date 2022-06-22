@@ -20,6 +20,10 @@
       url = "github:na4zagin3/satysfi-fss";
       flake = false;
     };
+    satysfi-bibyfi = {
+      url = "github:namachan10777/BiByFi";
+      flake = false;
+    };
   };
 
   outputs = {

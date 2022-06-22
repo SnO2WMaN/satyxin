@@ -103,9 +103,26 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_2",
+        "satysfi-bibyfi": "satysfi-bibyfi",
         "satysfi-fss": "satysfi-fss",
         "satysfi-uline": "satysfi-uline",
         "satyxin": "satyxin"
+      }
+    },
+    "satysfi-bibyfi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1590641889,
+        "narHash": "sha256-ppX4i5924F/DTlSQmloXdGOeCaDMJJKq3M/NE2khVvA=",
+        "owner": "namachan10777",
+        "repo": "BiByFi",
+        "rev": "fa9a91d8d9ee3853f56060494452bcfe3b690639",
+        "type": "github"
+      },
+      "original": {
+        "owner": "namachan10777",
+        "repo": "BiByFi",
+        "type": "github"
       }
     },
     "satysfi-fss": {
