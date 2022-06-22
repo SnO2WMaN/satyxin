@@ -12,6 +12,10 @@
       flake = false;
     };
 
+    satysfi-base = {
+      url = "github:nyuichi/satysfi-base";
+      flake = false;
+    };
     satysfi-uline = {
       url = "github:puripuri2100/SATySFi-uline";
       flake = false;

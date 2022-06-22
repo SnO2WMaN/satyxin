@@ -6,9 +6,10 @@ final: prev: {
         value = (import ./pkgs/${name}) {pkgs = prev;};
       }
     ) [
-      "uline"
-      "fss"
+      "base"
       "bibyfi"
+      "fss"
+      "uline"
     ]
   );
 }

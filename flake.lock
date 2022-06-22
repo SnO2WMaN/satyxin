@@ -103,10 +103,27 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_2",
+        "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
         "satysfi-fss": "satysfi-fss",
         "satysfi-uline": "satysfi-uline",
         "satyxin": "satyxin"
+      }
+    },
+    "satysfi-base": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1643503102,
+        "narHash": "sha256-nPsuVsYmo3d1XrQFoNuJ+PV5cMkJmFwGpeO8bcUZOEY=",
+        "owner": "nyuichi",
+        "repo": "satysfi-base",
+        "rev": "603fedeea57816e1b33de488fe92effc45b4c625",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nyuichi",
+        "repo": "satysfi-base",
+        "type": "github"
       }
     },
     "satysfi-bibyfi": {
