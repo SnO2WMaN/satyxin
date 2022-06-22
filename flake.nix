@@ -53,6 +53,7 @@
             (pkgs.devshell.importTOML ./devshell.toml)
           ];
         };
+        checks = self.packages.${system};
       }
     );
 }
