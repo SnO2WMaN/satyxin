@@ -1,5 +1,13 @@
 final: prev: {
-  satyxinPackages = {
-    satysfi-uline = (import ./pkgs/satysfi-uline) {pkgs = prev;};
-  };
+  satyxinPackages = builtins.listToAttrs (
+    map (
+      name: {
+        name = name;
+        value = (import ./pkgs/${name}) {pkgs = prev;};
+      }
+    ) [
+      "satysfi-uline"
+      "satysfi-fss"
+    ]
+  );
 }

@@ -103,8 +103,25 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_2",
+        "satysfi-fss": "satysfi-fss",
         "satysfi-uline": "satysfi-uline",
         "satyxin": "satyxin"
+      }
+    },
+    "satysfi-fss": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621524057,
+        "narHash": "sha256-tS48saaPxIsqamNdHkiwkwGQ8bE5FbYRQqEJjRTqCQY=",
+        "owner": "na4zagin3",
+        "repo": "satysfi-fss",
+        "rev": "1021e7c9e2a7319aac06f935c7bad897caadd178",
+        "type": "github"
+      },
+      "original": {
+        "owner": "na4zagin3",
+        "repo": "satysfi-fss",
+        "type": "github"
       }
     },
     "satysfi-uline": {

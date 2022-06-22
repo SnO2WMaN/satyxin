@@ -11,8 +11,13 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+
     satysfi-uline = {
       url = "github:puripuri2100/SATySFi-uline";
+      flake = false;
+    };
+    satysfi-fss = {
+      url = "github:na4zagin3/satysfi-fss";
       flake = false;
     };
   };
