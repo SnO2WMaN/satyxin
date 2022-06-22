@@ -3,7 +3,7 @@ let
 in
   {pkgs}:
     pkgs.satyxin.buildPackage {
-      name = "satysfi-uline";
+      name = "uline";
       src = with lock.nodes.satysfi-uline.locked;
         pkgs.fetchFromGitHub {
           inherit owner repo rev;
