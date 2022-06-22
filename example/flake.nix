@@ -1,32 +1,30 @@
 {
-  inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.satyxin.url = "github:SnO2WMaN/satyxin";
-  inputs.uline = {
-    url = "github:puripuri2100/SATySFi-uline";
-    flake = false;
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    satyxin.url = "github:SnO2WMaN/satyxin";
+    satyxinur.url = "github:SnO2WMaN/satyxinur";
   };
 
-  outputs = { self, nixpkgs, flake-utils, satyxin, uline }:
+  outputs = { self, nixpkgs, flake-utils, satyxin, satyxinur }:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs {
         inherit system;
         overlays = [
           satyxin.overlay
+          satyxinur.overlay
         ];
       };
       in
       rec {
         packages = flake-utils.lib.flattenTree {
-          uline = pkgs.satyxin.buildPackage {
-            name = "satysfi-uline";
-            src = uline;
-            path = "uline.satyh";
-          };
           demo = pkgs.satyxin.buildDocument {
             name = "satyxin-demo";
             src = ./.;
             filename = "demo.saty";
-            buildInputs = [ packages.uline ];
+            buildInputs = with pkgs.satyxinPackages; [
+              satysfi-uline
+            ];
           };
         };
         defaultPackage = packages.demo;
