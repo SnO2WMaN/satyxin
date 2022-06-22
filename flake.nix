@@ -30,11 +30,11 @@
     satyxin,
     ...
   }:
-    rec {
+    {
       overlays.default = final: prev: (
         satyxin.overlay final prev // (import ./overlay.nix) final prev
       );
-      overlay = overlays.default;
+      overlay = self.overlays.default;
     }
     // flake-utils.lib.eachDefaultSystem (
       system: let
@@ -43,9 +43,11 @@
           overlays = [
             devshell.overlay
             satyxin.overlay
+            self.overlay
           ];
         };
       in {
+        packages = pkgs.satyxinPackages;
         devShell = pkgs.devshell.mkShell {
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)
