@@ -17,7 +17,7 @@ jobs:
       - run: nix-shell --run "treefmt --fail-on-change"
 
   flake-check:
-    name: document
+    name: flake-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
