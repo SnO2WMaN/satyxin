@@ -1,5 +1,5 @@
 final: prev: {
   satyxinPackages = {
-    satysfi-fss = (import ./satysfi-uline) {inherit prev;}
+    satysfi-uline = (import ./pkgs/satysfi-uline) {pkgs = prev;};
   };
 }
