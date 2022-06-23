@@ -32,6 +32,10 @@
       url = "github:na4zagin3/SATySFi-fonts-junicode";
       flake = false;
     };
+    satysfi-easytable = {
+      url = "github:monaqa/satysfi-easytable";
+      flake = false;
+    };
   };
 
   outputs = {

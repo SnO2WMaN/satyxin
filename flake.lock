@@ -105,6 +105,7 @@
         "nixpkgs": "nixpkgs_2",
         "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
+        "satysfi-easytable": "satysfi-easytable",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
         "satysfi-uline": "satysfi-uline",
@@ -140,6 +141,22 @@
       "original": {
         "owner": "namachan10777",
         "repo": "BiByFi",
+        "type": "github"
+      }
+    },
+    "satysfi-easytable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651278826,
+        "narHash": "sha256-my6WLJrXeHSDfWrP4STAnr279kHNfLeKv5KIvbLc/s8=",
+        "owner": "monaqa",
+        "repo": "satysfi-easytable",
+        "rev": "14e819ae44bc8ea01a2d297de2497086e9ced45d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "satysfi-easytable",
         "type": "github"
       }
     },

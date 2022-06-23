@@ -10,5 +10,11 @@ final: prev: {
         fonts-junicode
       ];
     };
+    easytable = (import ./pkgs/easytable) {
+      pkgs = prev;
+      deps = [
+        base
+      ];
+    };
   };
 }
