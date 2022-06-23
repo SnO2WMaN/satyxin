@@ -4,7 +4,10 @@ in
   {
     name,
     sources ? {},
-  }: {pkgs}:
+  }: {
+    pkgs,
+    deps ? [],
+  }:
     pkgs.satyxin.buildPackage {
       inherit name sources;
       src = with lock.nodes."satysfi-${name}".locked;

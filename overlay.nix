@@ -1,20 +1,16 @@
 final: prev: {
-  satyxinPackages = rec {
-    base = (import ./pkgs/base) {pkgs = prev;};
-    bibyfi = (import ./pkgs/bibyfi) {pkgs = prev;};
-    uline = (import ./pkgs/uline) {pkgs = prev;};
-    fonts-junicode = (import ./pkgs/fonts-junicode) {pkgs = prev;};
-    fss = (import ./pkgs/fss) {
-      pkgs = prev;
-      deps = [
-        fonts-junicode
-      ];
-    };
-    easytable = (import ./pkgs/easytable) {
-      pkgs = prev;
-      deps = [
-        base
-      ];
-    };
+  satyxinPackages = let
+    mkPkg = name: {deps ? []}:
+      (import ./pkgs/${name}) {
+        inherit deps;
+        pkgs = prev;
+      };
+  in rec {
+    base = mkPkg "base" {};
+    bibyfi = mkPkg "bibyfi" {};
+    uline = mkPkg "uline" {};
+    fonts-junicode = mkPkg "fonts-junicode" {};
+    fss = mkPkg "fss" {deps = [fonts-junicode];};
+    easytable = mkPkg "easytable" {deps = [base];};
   };
 }
