@@ -8,6 +8,7 @@ final: prev: rec {
           satyxinPkgs = satyxinPkgs;
         };
       }) [
+        "algorithm"
         "azmath"
         "base"
         "bibyfi"

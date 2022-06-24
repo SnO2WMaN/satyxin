@@ -103,6 +103,7 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_2",
+        "satysfi-algorithm": "satysfi-algorithm",
         "satysfi-azmath": "satysfi-azmath",
         "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
@@ -112,6 +113,22 @@
         "satysfi-fss": "satysfi-fss",
         "satysfi-uline": "satysfi-uline",
         "satyxin": "satyxin"
+      }
+    },
+    "satysfi-algorithm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653060170,
+        "narHash": "sha256-q6am7go4fNLfQVnupX0wav1esZGq0UG/UG/j5J6UfCQ=",
+        "owner": "pickoba",
+        "repo": "satysfi-algorithm",
+        "rev": "4fd8d4d3a0f1576929a890ca5aa68d54b85fe91e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pickoba",
+        "repo": "satysfi-algorithm",
+        "type": "github"
       }
     },
     "satysfi-azmath": {

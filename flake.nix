@@ -12,14 +12,16 @@
       flake = false;
     };
 
+    satysfi-algorithm.flake = false;
+    satysfi-algorithm.url = "github:pickoba/satysfi-algorithm";
     satysfi-azmath.flake = false;
     satysfi-azmath.url = "github:monaqa/satysfi-azmath";
-    satysfi-code-printer.flake = false;
-    satysfi-code-printer.url = "github:puripuri2100/satysfi-code-printer";
     satysfi-base.flake = false;
     satysfi-base.url = "github:nyuichi/satysfi-base";
     satysfi-bibyfi.flake = false;
     satysfi-bibyfi.url = "github:namachan10777/BiByFi";
+    satysfi-code-printer.flake = false;
+    satysfi-code-printer.url = "github:puripuri2100/satysfi-code-printer";
     satysfi-easytable.flake = false;
     satysfi-easytable.url = "github:monaqa/satysfi-easytable";
     satysfi-fonts-junicode.flake = false;
