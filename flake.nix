@@ -12,30 +12,20 @@
       flake = false;
     };
 
-    satysfi-base = {
-      url = "github:nyuichi/satysfi-base";
-      flake = false;
-    };
-    satysfi-uline = {
-      url = "github:puripuri2100/SATySFi-uline";
-      flake = false;
-    };
-    satysfi-fss = {
-      url = "github:na4zagin3/satysfi-fss";
-      flake = false;
-    };
-    satysfi-bibyfi = {
-      url = "github:namachan10777/BiByFi";
-      flake = false;
-    };
-    satysfi-fonts-junicode = {
-      url = "github:na4zagin3/SATySFi-fonts-junicode";
-      flake = false;
-    };
-    satysfi-easytable = {
-      url = "github:monaqa/satysfi-easytable";
-      flake = false;
-    };
+    satysfi-azmath.flake = false;
+    satysfi-azmath.url = "github:monaqa/satysfi-azmath";
+    satysfi-base.flake = false;
+    satysfi-base.url = "github:nyuichi/satysfi-base";
+    satysfi-bibyfi.flake = false;
+    satysfi-bibyfi.url = "github:namachan10777/BiByFi";
+    satysfi-easytable.flake = false;
+    satysfi-easytable.url = "github:monaqa/satysfi-easytable";
+    satysfi-fonts-junicode.flake = false;
+    satysfi-fonts-junicode.url = "github:na4zagin3/SATySFi-fonts-junicode";
+    satysfi-fss.flake = false;
+    satysfi-fss.url = "github:na4zagin3/satysfi-fss";
+    satysfi-uline.flake = false;
+    satysfi-uline.url = "github:puripuri2100/SATySFi-uline";
   };
 
   outputs = {

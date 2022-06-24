@@ -6,6 +6,7 @@ final: prev: {
         pkgs = prev;
       };
   in rec {
+    azmath = mkPkg "azmath" {deps = [base];};
     base = mkPkg "base" {};
     bibyfi = mkPkg "bibyfi" {};
     uline = mkPkg "uline" {};
