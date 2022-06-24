@@ -1,0 +1,7 @@
+{
+  "fonts-junicode:Junicode-Bold":<"Single":{"src":"dist/fonts/fonts-junicode/Junicode-Bold.ttf"}>,
+  "fonts-junicode:Junicode-BoldItalic":<"Single":{"src":"dist/fonts/fonts-junicode/Junicode-BoldItalic.ttf"}>,
+  "fonts-junicode:Junicode-Italic":<"Single":{"src":"dist/fonts/fonts-junicode/Junicode-Italic.ttf"}>,
+  "fonts-junicode:Junicode":<"Single":{"src":"dist/fonts/fonts-junicode/Junicode.ttf"}>,
+  "fonts-junicode:FoulisGreek":<"Single":{"src":"dist/fonts/fonts-junicode/FoulisGreek.ttf"}>
+}
