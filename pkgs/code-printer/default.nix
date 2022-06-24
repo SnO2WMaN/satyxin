@@ -1,8 +1,14 @@
-(import ../../nix/create-pkg.nix) {
-  name = "code-printer";
-  sources = {
-    dirs = [
-      "./src"
+(import ../../nix/create-pkg.nix) (
+  {satyxinPkgs}: {
+    name = "code-printer";
+    sources = {
+      dirs = [
+        "./src"
+      ];
+    };
+    deps = with satyxinPkgs; [
+      base
+      fonts-junicode
     ];
-  };
-}
+  }
+)

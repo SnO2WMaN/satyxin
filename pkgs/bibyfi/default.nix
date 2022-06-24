@@ -1,9 +1,11 @@
-(import ../../nix/create-pkg.nix) {
-  name = "bibyfi";
-  sources = {
-    files = [
-      "./bibyfi.satyh"
-      "./bibyfi-IEEETran.satyh"
-    ];
-  };
-}
+(import ../../nix/create-pkg.nix) (
+  {...}: {
+    name = "bibyfi";
+    sources = {
+      files = [
+        "./bibyfi.satyh"
+        "./bibyfi-IEEETran.satyh"
+      ];
+    };
+  }
+)

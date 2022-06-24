@@ -1,15 +1,17 @@
 let
   lock = builtins.fromJSON (builtins.readFile ../flake.lock);
 in
-  {
-    name,
-    sources ? {},
-  }: {
+  generator: {
     pkgs,
-    deps ? [],
-  }:
-    pkgs.satyxin.buildPackage {
-      inherit name sources deps;
+    satyxinPkgs,
+  }: let
+    g = generator {inherit satyxinPkgs;};
+  in
+    pkgs.satyxin.buildPackage rec {
+      inherit (g) name;
+      sources = g.sources or {};
+      deps = g.deps or [];
+
       src = with lock.nodes."satysfi-${name}".locked;
         pkgs.fetchFromGitHub {
           inherit owner repo rev;

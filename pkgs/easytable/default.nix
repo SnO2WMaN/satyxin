@@ -1,8 +1,13 @@
-(import ../../nix/create-pkg.nix) {
-  name = "easytable";
-  sources = {
-    dirs = [
-      "./src"
+(import ../../nix/create-pkg.nix) (
+  {satyxinPkgs}: {
+    name = "easytable";
+    sources = {
+      dirs = [
+        "./src"
+      ];
+    };
+    deps = with satyxinPkgs; [
+      base
     ];
-  };
-}
+  }
+)
