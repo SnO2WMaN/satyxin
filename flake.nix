@@ -30,6 +30,8 @@
     satysfi-fss.url = "github:na4zagin3/satysfi-fss";
     satysfi-uline.flake = false;
     satysfi-uline.url = "github:puripuri2100/SATySFi-uline";
+    satysfi.flake = false;
+    satysfi.url = "github:gfngfn/SATySFi";
   };
 
   outputs = {

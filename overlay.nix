@@ -14,6 +14,7 @@ final: prev: rec {
         "bibyfi"
         "code-printer"
         "easytable"
+        "dist"
         "fonts-dejavu"
         "fonts-junicode"
         "fss"
