@@ -14,6 +14,8 @@
 
     satysfi-azmath.flake = false;
     satysfi-azmath.url = "github:monaqa/satysfi-azmath";
+    satysfi-code-printer.flake = false;
+    satysfi-code-printer.url = "github:puripuri2100/satysfi-code-printer";
     satysfi-base.flake = false;
     satysfi-base.url = "github:nyuichi/satysfi-base";
     satysfi-bibyfi.flake = false;

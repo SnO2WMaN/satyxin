@@ -8,6 +8,7 @@ final: prev: {
   in rec {
     azmath = mkPkg "azmath" {deps = [base];};
     base = mkPkg "base" {};
+    code-printer = mkPkg "code-printer" {deps = [base];};
     bibyfi = mkPkg "bibyfi" {};
     uline = mkPkg "uline" {};
     fonts-junicode = mkPkg "fonts-junicode" {};
