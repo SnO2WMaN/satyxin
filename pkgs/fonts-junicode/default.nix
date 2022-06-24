@@ -17,7 +17,7 @@ pkgs.stdenv.mkDerivation {
   '';
   installPhase = ''
     fontsrc=$(echo $src | tr ' ' '\n' | grep junicode)
-    fontdir=$out/lib/satysfi/dist/fonts/junicode
+    fontdir=$out/lib/satysfi/dist/fonts/fonts-junicode
 
     mkdir -p $fontdir
     mkdir -p $out/lib/satysfi/dist/hash
