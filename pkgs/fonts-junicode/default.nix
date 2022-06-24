@@ -16,18 +16,18 @@ pkgs.stdenv.mkDerivation {
     done
   '';
   installPhase = ''
-    srcjuni=$(echo $src | tr ' ' '\n' | grep junicode)
-    srchash=$(echo $src | tr ' ' '\n' | grep fonts.satysfi-hash)
+    fontsrc=$(echo $src | tr ' ' '\n' | grep junicode)
+    fontdir=$out/lib/satysfi/dist/fonts/junicode
 
-    mkdir -p $out/lib/satysfi/dist/fonts/junicode
+    mkdir -p $fontdir
     mkdir -p $out/lib/satysfi/dist/hash
 
-    cp $srcjuni/Junicode-Bold.ttf $out/lib/satysfi/dist/fonts/junicode
-    cp $srcjuni/Junicode-BoldItalic.ttf $out/lib/satysfi/dist/fonts/junicode
-    cp $srcjuni/Junicode-Italic.ttf $out/lib/satysfi/dist/fonts/junicode
-    cp $srcjuni/Junicode.ttf $out/lib/satysfi/dist/fonts/junicode
-    cp $srcjuni/FoulisGreek.ttf $out/lib/satysfi/dist/fonts/junicode
+    cp $fontsrc/Junicode-Bold.ttf $fontdir
+    cp $fontsrc/Junicode-BoldItalic.ttf $fontdir
+    cp $fontsrc/Junicode-Italic.ttf $fontdir
+    cp $fontsrc/Junicode.ttf $fontdir
+    cp $fontsrc/FoulisGreek.ttf $fontdir
 
-    cp $srchash $out/lib/satysfi/dist/hash/fonts.satysfi-hash
+    cp $(echo $src | tr ' ' '\n' | grep -E ".*-fonts.satysfi-hash") $out/lib/satysfi/dist/hash/fonts.satysfi-hash
   '';
 }
