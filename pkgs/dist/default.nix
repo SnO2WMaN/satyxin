@@ -42,24 +42,24 @@ in
       phases = ["installPhase"];
       installPhase = ''
         distsatysfi=$(echo $src | tr ' ' '\n' | grep -E ".*-satysfi")/lib-satysfi/dist
-        mkdir -p $out/lib/satysfi/{fonts,hash,hyph,,packages,unidata}
+        mkdir -p $out/lib/satysfi/dist/{fonts,hash,hyph,,packages,unidata}
 
-        cp -r $distsatysfi/hash/* $out/lib/satysfi/hash
-        cp -r $distsatysfi/hyph/* $out/lib/satysfi/hyph
-        cp -r $distsatysfi/packages/* $out/lib/satysfi/packages
-        cp -r $distsatysfi/unidata/* $out/lib/satysfi/unidata
+        cp -r $distsatysfi/hash/* $out/lib/satysfi/dist/hash
+        cp -r $distsatysfi/hyph/* $out/lib/satysfi/dist/hyph
+        cp -r $distsatysfi/packages/* $out/lib/satysfi/dist/packages
+        cp -r $distsatysfi/unidata/* $out/lib/satysfi/dist/unidata
 
         for file in $(find $(echo $src | tr ' ' '\n' | grep -E ".*-lm2004otf") -name "*.otf"); do
-            cp $file $out/lib/satysfi/fonts
+            cp $file $out/lib/satysfi/dist/fonts
         done
         for file in $(find $(echo $src | tr ' ' '\n' | grep -E ".*-latinmodernmath1959")/otf -name "*.otf"); do
-            cp $file $out/lib/satysfi/fonts
+            cp $file $out/lib/satysfi/dist/fonts
         done
         for file in $(find $(echo $src | tr ' ' '\n' | grep -E ".*-junicode") -name "*.ttf"); do
-            cp $file $out/lib/satysfi/fonts
+            cp $file $out/lib/satysfi/dist/fonts
         done
         for file in $(find $(echo $src | tr ' ' '\n' | grep -E ".*-ipaex") -name "*.ttf"); do
-            cp $file $out/lib/satysfi/fonts
+            cp $file $out/lib/satysfi/dist/fonts
         done
       '';
       setupHook = pkgs.writeText "setuphook-satysfi-package" ''
