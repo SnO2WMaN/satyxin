@@ -8,6 +8,7 @@
       ];
     };
     deps = with satyxinPkgs; [
+      base
       fonts-junicode
     ];
   }
