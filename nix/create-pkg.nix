@@ -9,7 +9,7 @@ in
     deps ? [],
   }:
     pkgs.satyxin.buildPackage {
-      inherit name sources;
+      inherit name sources deps;
       src = with lock.nodes."satysfi-${name}".locked;
         pkgs.fetchFromGitHub {
           inherit owner repo rev;
