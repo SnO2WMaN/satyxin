@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
-    satyxin.url = "github:SnO2WMaN/satyxin";
+    satyxin.url = "github:SnO2WMaN/satyxin"; # "path:/home/sno2wman/src/ghq/github.com/SnO2WMaN/satyxin";
 
     flake-compat = {
       url = "github:edolstra/flake-compat";

@@ -244,11 +244,11 @@
     },
     "satyxin": {
       "locked": {
-        "lastModified": 1655904369,
-        "narHash": "sha256-j1+x2PGIg/npPs1EBEJmgOb1Pho5WfHkbeCVpFVK0YA=",
+        "lastModified": 1656032847,
+        "narHash": "sha256-sV51VrWnD3usP/TwxnT1aIJPS5iTDD1R5jZSO5BgR8I=",
         "owner": "SnO2WMaN",
         "repo": "satyxin",
-        "rev": "1913ca8d8db59f6f645015c3fbbf219d7f074237",
+        "rev": "ed3056a11ffd86eb5ec4f9fa6dc23b86fe303e27",
         "type": "github"
       },
       "original": {
