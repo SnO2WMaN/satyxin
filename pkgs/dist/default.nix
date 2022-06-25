@@ -15,6 +15,7 @@ in
           name = "lm2004otf";
           url = http://www.gust.org.pl/projects/e-foundry/latin-modern/download/lm2.004otf.zip;
           sha256 = "sha256-V6hnlkcjeFeH7gOdH5pRvmqT9rsAnLxFnFw0B5dDiNU=";
+          stripRoot = false;
         })
         (pkgs.fetchzip {
           name = "latinmodernmath1959";
