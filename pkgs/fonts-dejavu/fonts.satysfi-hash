@@ -19,5 +19,5 @@
   "fonts-dejavu:DejaVuSerifCondensed-Bold" : <Single: {"src": "dist/fonts/fonts-dejavu/DejaVuSerifCondensed-Bold.ttf"}>,
   "fonts-dejavu:DejaVuSerifCondensed-BoldItalic" : <Single: {"src": "dist/fonts/fonts-dejavu/DejaVuSerifCondensed-BoldItalic.ttf"}>,
   "fonts-dejavu:DejaVuSerifCondensed-Italic" : <Single: {"src": "dist/fonts/fonts-dejavu/DejaVuSerifCondensed-Italic.ttf"}>,
-  "fonts-dejavu:DejaVuSerifCondensed" : <Single: {"src": "dist/fonts/fonts-dejavu/DejaVuSerifCondensed.ttf"}>,
+  "fonts-dejavu:DejaVuSerifCondensed" : <Single: {"src": "dist/fonts/fonts-dejavu/DejaVuSerifCondensed.ttf"}>
 }
