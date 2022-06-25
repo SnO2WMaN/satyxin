@@ -7,21 +7,47 @@ pkgs.stdenv.mkDerivation {
   phases = [ "installPhase" ];
   installPhase = ''
     for dep in $(echo $deps | tr ' ' '\n'); do
-      ls $dep/lib/satysfi/dist
-
       if [ -d $dep/lib/satysfi/dist/fonts ]; then
         mkdir -p $out/lib/satysfi/dist/fonts
         cp -r $dep/lib/satysfi/dist/fonts $out/lib/satysfi/dist
       fi
 
-      if [ -d $dep/lib/satysfi/dist/hash ]; then
+      if [ -e $dep/lib/satysfi/dist/hash/default-font.satysfi-hash ]; then
         mkdir -p $out/lib/satysfi/dist/hash
-        cp -r $dep/lib/satysfi/dist/hash $out/lib/satysfi/dist
+        target=$out/lib/satysfi/dist/hash/default-font.satysfi-hash
+        [[ ! -e $target ]] && touch $target
+        cat <(cat $dep/lib/satysfi/dist/hash/default-font.satysfi-hash) $target | sponge $target
+      fi
+
+      if [ -e $dep/lib/satysfi/dist/hash/fonts.satysfi-hash ]; then
+        mkdir -p $out/lib/satysfi/dist/hash
+        target=$out/lib/satysfi/dist/hash/fonts.satysfi-hash
+        [[ ! -e $target ]] && touch $target
+        cat \
+          <(cat $dep/lib/satysfi/dist/hash/fonts.satysfi-hash | sed -e '1d' | sed -e '$d') \
+          <(cat $target | sed -e '1d' | sed -e '$d') \
+          | sort \
+          | sed -e '1i {' \
+          | sed -e '$a }' \
+          | sponge $target
+      fi
+
+      if [ -e $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash ]; then
+        mkdir -p $out/lib/satysfi/dist/hash
+        target=$out/lib/satysfi/dist/hash/mathfonts.satysfi-hash
+        [[ ! -e $target ]] && touch $target
+        cat \
+          <(cat $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash | sed -e '1d' | sed -e '$d') \
+          <(cat $target | sed -e '1d' | sed -e '$d') \
+          | sort \
+          | sed -e '1i {' \
+          | sed -e '$a }' \
+          | sponge $target
       fi
 
       if [ -d $dep/lib/satysfi/dist/unidata ]; then
         mkdir -p $out/lib/satysfi/dist/unidata
-        cp -r $dep/lib/satysfi/dist/unidata $out/lib/satysfi/unidata
+        cp -r $dep/lib/satysfi/dist/unidata $out/lib/satysfi/dist
       fi
 
       if [ -d $dep/lib/satysfi/dist/packages ]; then
@@ -53,5 +79,5 @@ pkgs.stdenv.mkDerivation {
   setupHook = pkgs.writeText "setuphook-satysfi-package" ''
     SATYSFI_LIBPATH+=:$1/lib/satysfi
   '';
-  buildInputs = with pkgs; [ jq ];
+  buildInputs = with pkgs; [ jq moreutils ];
 }
