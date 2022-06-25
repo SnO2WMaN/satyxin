@@ -4,7 +4,6 @@ pkgs.stdenv.mkDerivation {
   inherit name src deps;
   sources = builtins.toJSON sources;
 
-  phases = [ "installPhase" ];
   installPhase = ''
     for dep in $(echo $deps | tr ' ' '\n'); do
       if [ -d $dep/lib/satysfi/dist/fonts ]; then
@@ -23,26 +22,14 @@ pkgs.stdenv.mkDerivation {
         mkdir -p $out/lib/satysfi/dist/hash
         target=$out/lib/satysfi/dist/hash/fonts.satysfi-hash
         [[ ! -e $target ]] && touch $target
-        cat \
-          <(cat $dep/lib/satysfi/dist/hash/fonts.satysfi-hash | sed -e '1d' | sed -e '$d') \
-          <(cat $target | sed -e '1d' | sed -e '$d') \
-          | sort \
-          | sed -e '1i {' \
-          | sed -e '$a }' \
-          | sponge $target
+        merge-hash $dep/lib/satysfi/dist/hash/fonts.satysfi-hash $target | sponge $target
       fi
 
       if [ -e $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash ]; then
         mkdir -p $out/lib/satysfi/dist/hash
         target=$out/lib/satysfi/dist/hash/mathfonts.satysfi-hash
         [[ ! -e $target ]] && touch $target
-        cat \
-          <(cat $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash | sed -e '1d' | sed -e '$d') \
-          <(cat $target | sed -e '1d' | sed -e '$d') \
-          | sort \
-          | sed -e '1i {' \
-          | sed -e '$a }' \
-          | sponge $target
+        merge-hash $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash $target | sponge $target
       fi
 
       if [ -d $dep/lib/satysfi/dist/unidata ]; then
@@ -79,5 +66,12 @@ pkgs.stdenv.mkDerivation {
   setupHook = pkgs.writeText "setuphook-satysfi-package" ''
     SATYSFI_LIBPATH+=:$1/lib/satysfi
   '';
-  buildInputs = with pkgs; [ jq moreutils ];
+  buildInputs = with pkgs; [
+    jq
+    moreutils
+    (writers.writePerlBin
+      "merge-hash"
+      { }
+      (builtins.readFile ./merge-hash.pl))
+  ];
 }
