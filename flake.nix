@@ -77,6 +77,7 @@
                 derive
                 algorithm
                 chemfml
+                ruby
               ];
             };
           }

@@ -9,6 +9,7 @@
 @require: chemfml/chemfml
 @require: algorithm/algorithm
 @require: algorithm/style/default
+@require: ruby/ruby
 @import: ./bib
 
 let-math \gets = ${\leftarrow}
@@ -93,6 +94,10 @@ open Derive in
             +section{ chemfml }<
                 +p{ chemfml }
                 +p{ \chem(`MnO4- + 8H+ + 5e- -> Mn^2+ + 4H2O`); }
+            >
+            +section{ ruby }<
+                +p{ ruby }
+                +p{ とある科学の\ruby[`レールガン`]{|超電磁砲|} }
             >
         >
     >
