@@ -13,6 +13,7 @@ final: prev: {
         "azmath"
         "base"
         "bibyfi"
+        "chemfml"
         "code-printer"
         "derive"
         "dist"
