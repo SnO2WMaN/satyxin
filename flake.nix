@@ -29,6 +29,8 @@
     satysfi-derive.url = "github:yabaitechtokyo/satysfi-derive";
     satysfi-easytable.flake = false;
     satysfi-easytable.url = "github:monaqa/satysfi-easytable";
+    satysfi-enumitem.flake = false;
+    satysfi-enumitem.url = "github:monaqa/satysfi-enumitem";
     satysfi-figbox.flake = false;
     satysfi-figbox.url = "github:monaqa/satysfi-figbox";
     satysfi-fonts-junicode.flake = false;

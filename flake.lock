@@ -209,6 +209,7 @@
         "satysfi-code-printer": "satysfi-code-printer",
         "satysfi-derive": "satysfi-derive",
         "satysfi-easytable": "satysfi-easytable",
+        "satysfi-enumitem": "satysfi-enumitem",
         "satysfi-figbox": "satysfi-figbox",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
@@ -358,6 +359,22 @@
       "original": {
         "owner": "monaqa",
         "repo": "satysfi-easytable",
+        "type": "github"
+      }
+    },
+    "satysfi-enumitem": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637669402,
+        "narHash": "sha256-daCBZg9ekY1/o+ey4hKjnrtlxrRYXKOb5huxf+0CsS0=",
+        "owner": "monaqa",
+        "repo": "satysfi-enumitem",
+        "rev": "f2444a530aa2082d912d9ffdc45341639c9d3b54",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "satysfi-enumitem",
         "type": "github"
       }
     },

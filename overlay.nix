@@ -18,6 +18,7 @@ final: prev: {
         "derive"
         "dist"
         "easytable"
+        "enumitem"
         "figbox"
         "fonts-dejavu"
         "fonts-junicode"
