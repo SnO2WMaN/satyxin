@@ -59,7 +59,7 @@
             example = pkgs.satyxin.buildDocument {
               name = "example";
               src = ./example;
-              filename = "demo.saty";
+              filename = "main.saty";
               buildInputs = with pkgs.satyxinPackages; [
                 uline
               ];
