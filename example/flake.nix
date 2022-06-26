@@ -6,17 +6,23 @@
     satyxinur.url = "github:SnO2WMaN/satyxinur";
   };
 
-  outputs = { self, nixpkgs, flake-utils, satyxin, satyxinur }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          satyxin.overlay
-          satyxinur.overlay
-        ];
-      };
-      in
-      rec {
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    satyxin,
+    satyxinur,
+  }:
+    flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            satyxin.overlay
+            satyxinur.overlay
+          ];
+        };
+      in {
         packages = flake-utils.lib.flattenTree {
           demo = pkgs.satyxin.buildDocument {
             name = "satyxin-demo";

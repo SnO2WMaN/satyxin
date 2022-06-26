@@ -7,7 +7,7 @@ in
   }: let
     g = generator {inherit satyxinPkgs;};
   in
-    pkgs.satyxin.buildPackage rec {
+    (import ./build-package) {inherit pkgs;} rec {
       inherit (g) name;
       sources = g.sources or {};
       deps = g.deps or [];

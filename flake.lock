@@ -112,8 +112,7 @@
         "satysfi-easytable": "satysfi-easytable",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
-        "satysfi-uline": "satysfi-uline",
-        "satyxin": "satyxin"
+        "satysfi-uline": "satysfi-uline"
       }
     },
     "satysfi": {
@@ -273,21 +272,6 @@
       "original": {
         "owner": "puripuri2100",
         "repo": "SATySFi-uline",
-        "type": "github"
-      }
-    },
-    "satyxin": {
-      "locked": {
-        "lastModified": 1656176784,
-        "narHash": "sha256-FMZ+vmcRpOyEs/sXmV3vksU7mkWM8C6H+16Pclr5y+4=",
-        "owner": "SnO2WMaN",
-        "repo": "satyxin",
-        "rev": "c917e7c41b0f886cc6b73882016b0b6df8cd0fd4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SnO2WMaN",
-        "repo": "satyxin",
         "type": "github"
       }
     }

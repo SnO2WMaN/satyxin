@@ -1,4 +1,4 @@
-final: prev: rec {
+final: prev: {
   satyxin = import ./nix {pkgs = prev;};
   satyxinPackages = let
     satyxinPkgs = builtins.listToAttrs (

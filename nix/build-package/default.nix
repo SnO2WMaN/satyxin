@@ -1,5 +1,9 @@
-{ pkgs }:
-{ name, src, sources ? { }, deps ? [ ] }:
+{pkgs}: {
+  name,
+  src,
+  sources ? {},
+  deps ? [],
+}:
 pkgs.stdenv.mkDerivation {
   inherit name src deps;
   sources = builtins.toJSON sources;
@@ -71,7 +75,7 @@ pkgs.stdenv.mkDerivation {
     moreutils
     (writers.writePerlBin
       "merge-hash"
-      { }
+      {}
       (builtins.readFile ./merge-hash.pl))
   ];
 }

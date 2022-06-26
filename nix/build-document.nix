@@ -1,5 +1,9 @@
-{ pkgs }:
-{ name, src, filename, buildInputs ? [ ] }:
+{pkgs}: {
+  name,
+  src,
+  filename,
+  buildInputs ? [],
+}:
 pkgs.stdenv.mkDerivation {
   inherit src name;
   buildPhase = ''
@@ -9,5 +13,5 @@ pkgs.stdenv.mkDerivation {
     mkdir -p $out/docs
     cp document.pdf $out/docs/
   '';
-  buildInputs = [ pkgs.satysfi ] ++ buildInputs;
+  buildInputs = [pkgs.satysfi] ++ buildInputs;
 }
