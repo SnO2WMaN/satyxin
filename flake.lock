@@ -211,6 +211,7 @@
         "satysfi-easytable": "satysfi-easytable",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
+        "satysfi-ruby": "satysfi-ruby",
         "satysfi-tools": "satysfi-tools",
         "satysfi-uline": "satysfi-uline"
       }
@@ -421,6 +422,22 @@
       "original": {
         "owner": "monaqa",
         "repo": "satysfi-language-server",
+        "type": "github"
+      }
+    },
+    "satysfi-ruby": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1601469764,
+        "narHash": "sha256-GEOXhem78zZqtjx4I1iXNtiA+wy6AgU6Y1rJZZ3hLEA=",
+        "owner": "puripuri2100",
+        "repo": "SATySFi-ruby",
+        "rev": "3f90a25d7c5ee66839fcae3a7d128fb826fee962",
+        "type": "github"
+      },
+      "original": {
+        "owner": "puripuri2100",
+        "repo": "SATySFi-ruby",
         "type": "github"
       }
     },

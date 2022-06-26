@@ -21,6 +21,7 @@ final: prev: {
         "fonts-dejavu"
         "fonts-junicode"
         "fss"
+        "ruby"
         "uline"
       ]
     );
