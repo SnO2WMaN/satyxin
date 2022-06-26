@@ -55,7 +55,18 @@
         };
       in {
         packages = flake-utils.lib.flattenTree (
-          pkgs.satyxin // pkgs.satyxinPackages
+          {
+            example = pkgs.satyxin.buildDocument {
+              name = "example";
+              src = ./example;
+              filename = "demo.saty";
+              buildInputs = with pkgs.satyxinPackages; [
+                uline
+              ];
+            };
+          }
+          // pkgs.satyxin
+          // pkgs.satyxinPackages
         );
         devShell = pkgs.devshell.mkShell {
           imports = [

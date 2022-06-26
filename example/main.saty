@@ -1,5 +1,5 @@
 @require: stdjareport
-@require: satysfi-uline/uline
+@require: uline/uline
 
 document (|
   title = {Demo};
