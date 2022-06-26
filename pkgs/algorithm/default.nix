@@ -1,4 +1,4 @@
-(import ../../nix/create-pkg.nix) (
+(import ../create-pkg.nix) (
   {satyxinPkgs}: {
     name = "algorithm";
     sources = builtins.toJSON {
