@@ -74,9 +74,9 @@
       in {
         packages = flake-utils.lib.flattenTree (
           {
-            example = pkgs.satyxin.buildDocument {
-              name = "example";
-              src = ./example;
+            "example/basic" = pkgs.satyxin.buildDocument {
+              name = "example-basic";
+              src = ./example/basic;
               filename = "main.saty";
               buildInputs = with pkgs.satyxinPackages; [
                 uline
