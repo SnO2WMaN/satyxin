@@ -5,6 +5,7 @@
 @require: fss/fss
 @require: fss/style
 @require: fss/fonts
+@require: derive/derive
 @import: ./bib
 
 let bibyfi-theme =
@@ -17,41 +18,58 @@ let bibyfi-theme =
     |)
 in
 
-document(|
-    title = { はじめての\SATySFi; };
-    author = { SnO2WMaN };
-    show-title = false;
-    show-toc = false;
-|)'<
-    +chapter{}<
-        +section{}<
-            +p{ 叫べ心の形を！！ }
-        >
-        +section{ uline }<
-            +p{ \uline{ 下線 }テスト }
-        >
-        +section{ bibyfi }<
-            +p{
-                テスト\cite [
-                    `comon1994independent`;
-                    `sawada2013multichannel`;
-                    `kitamura2017experimental`;
-                    `asano2011`;
-                    `wildcard`;
-                ];
-            }
-            +makebibliography ?:(|
-                sort-references = true;
-                citestyle = CiteAsAuthorsEtAl;
-                name-shrink = true;
-            |) (bibyfi-theme) (bibs);
-        >
-        +section{ fss }<
-            +p{
-                \font-style [bold;]{ キルロイ参上 }
-                （キルロイさんじょう、\font-style [italic;]{ Kilroy was here }、\font-style [bold;]{ キルロイ・ワズ・ヒア }）
-                は、アメリカの大衆文化などで見られる句のひとつ。
-            }
+open Derive in
+    document(|
+        title = { はじめての\SATySFi; };
+        author = { SnO2WMaN };
+        show-title = false;
+        show-toc = false;
+    |)'<
+        +chapter{}<
+            +section{}<
+                +p{ 叫べ心の形を！！ }
+            >
+            +section{ uline }<
+                +p{ \uline{ 下線 }テスト }
+            >
+            +section{ bibyfi }<
+                +p{
+                    テスト\cite [
+                        `comon1994independent`;
+                        `sawada2013multichannel`;
+                        `kitamura2017experimental`;
+                        `asano2011`;
+                        `wildcard`;
+                    ];
+                }
+                +makebibliography ?:(|
+                    sort-references = true;
+                    citestyle = CiteAsAuthorsEtAl;
+                    name-shrink = true;
+                |) (bibyfi-theme) (bibs);
+            >
+            +section{ fss }<
+                +p{
+                    \font-style [bold;]{ キルロイ参上 }
+                    （キルロイさんじょう、\font-style [italic;]{ Kilroy was here }、\font-style [bold;]{ キルロイ・ワズ・ヒア }）
+                    は、アメリカの大衆文化などで見られる句のひとつ。
+                }
+            >
+            +section{ derive }<
+                +p{ satysfi-deriveによる証明図 }
+                +math (${\proven!(
+                        open DeriveDSL in
+                        derive ${ \vdash A \wedge \paren {B \vee C} }
+                        |> by { ${\wedge} I }
+                        |> from [
+                            assume ${ \vdash A };
+                            derive ${ \vdash B \vee C }
+                            |> by { ${\vee} I }
+                            |> from [
+                            assume ${ \vdash B };
+                            ];
+                        ]
+                    )});
+            >
         >
     >
->

@@ -1,56 +1,68 @@
 @require: bibyfi/bibyfi
 
-let bibs = [
-  (`comon1994independent`, Article(|
-    author = [`Pierre Comon`];
-    title = `Independent component analysis, a new concept?`;
-    journal = `Signal Processing`;
-    year = `1994`;
-    volume = Some(`36`);
-    number = Some(`3`);
-    pages = (`287`,`314`);
-    month = None;
-    key = None;
-    note = None;
-  |));
-  (`sawada2013multichannel`, Article(|
-    author= [`Hiroshi Sawada`;`Hirokazu Kameoka`;`Shoko Araki`;`Naonori Ueda`];
-    title = `Multichannel Extensions of Non-Negative Matrix Factorization With Complex-Valued Data`;
-    journal = `IEEE Transactions on Audio, Speech, and Language Processing`;
-    year = `2013`;
-    volume = Some(`21`);
-    number = Some(`5`);
-    pages = (`971`,`982`);
-    month = None;
-    key = None;
-    note = None;
-  |));
-  (`kitamura2017experimental`, InProceedings(|
-    author = [`Daichi Kitamura`; `Nobutaka Ono`; `Hiroshi Saruwatari`];
-    title = `Experimental analysis of optimal window length for independent low-rank matrix analysis`;
-    booktitle = `European Association for Signal Processing`;
-    pages = Some((`1170`, `1174`));
-    year = `2017`;
-    editor = None;
-    organization = None;
-    publisher = None;
-    address = None;
-    month = None;
-    note = None;
-    key = None;
-  |));
-  (`asano2011`, Book(|
-    author = [`浅野 太`];
-    title = `音のアレイ信号処理`;
-    publisher = `コロナ社`;
-    year = `2011`;
-    volume = None;
-    series = None;
-    address = None;
-    edition = None;
-    month = None;
-    note = None;
-    key = None;
-  |));
-  (`wildcard`, WildCard({This is a joker for you that don't have enough time!}))
-]
+let bibs =
+    [
+        (`comon1994independent`, Article(|
+            author = [
+                `Pierre Comon`;
+            ];
+            title = `Independent component analysis, a new concept?`;
+            journal = `Signal Processing`;
+            year = `1994`;
+            volume = Some(`36`);
+            number = Some(`3`);
+            pages = (`287`, `314`);
+            month = None;
+            key = None;
+            note = None;
+        |));
+        (`sawada2013multichannel`, Article(|
+            author = [
+                `Hiroshi Sawada`;
+                `Hirokazu Kameoka`;
+                `Shoko Araki`;
+                `Naonori Ueda`;
+            ];
+            title = `Multichannel Extensions of Non-Negative Matrix Factorization With Complex-Valued Data`;
+            journal = `IEEE Transactions on Audio, Speech, and Language Processing`;
+            year = `2013`;
+            volume = Some(`21`);
+            number = Some(`5`);
+            pages = (`971`, `982`);
+            month = None;
+            key = None;
+            note = None;
+        |));
+        (`kitamura2017experimental`, InProceedings(|
+            author = [
+                `Daichi Kitamura`;
+                `Nobutaka Ono`;
+                `Hiroshi Saruwatari`;
+            ];
+            title = `Experimental analysis of optimal window length for independent low-rank matrix analysis`;
+            booktitle = `European Association for Signal Processing`;
+            pages = Some((`1170`, `1174`));
+            year = `2017`;
+            editor = None;
+            organization = None;
+            publisher = None;
+            address = None;
+            month = None;
+            note = None;
+            key = None;
+        |));
+        (`asano2011`, Book(|
+            author = [`浅野 太`;];
+            title = `音のアレイ信号処理`;
+            publisher = `コロナ社`;
+            year = `2011`;
+            volume = None;
+            series = None;
+            address = None;
+            edition = None;
+            month = None;
+            note = None;
+            key = None;
+        |));
+        (`wildcard`, WildCard({ This is a joker for you that don't have enough time! }));
+    ]

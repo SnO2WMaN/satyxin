@@ -70,6 +70,7 @@
                 uline
                 bibyfi
                 fss
+                derive
               ];
             };
           }

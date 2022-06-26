@@ -20,5 +20,11 @@ indent_size = 2
 [*.nix]
 indent_size = 2
 
+[*.saty]
+indent_size = 4
+
+[*.satyh]
+indent_size = 4
+
 [*.satysfi-hash]
 insert_final_newline = false
