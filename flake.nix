@@ -43,6 +43,8 @@
     satysfi-karnaugh.url = "github:takagiy/satysfi-karnaugh";
     satysfi-pagenumber.flake = false;
     satysfi-pagenumber.url = "github:abenori/satysfi-pagenumber";
+    satysfi-pagestyle.flake = false;
+    satysfi-pagestyle.url = "github:abenori/satysfi-pagestyle";
     satysfi-railway.flake = false;
     satysfi-railway.url = "github:monaqa/satysfi-railway";
     satysfi-ruby.flake = false;

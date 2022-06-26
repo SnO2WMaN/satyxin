@@ -26,6 +26,7 @@ final: prev: {
         "fss"
         "karnaugh"
         "pagenumber"
+        "pagestyle"
         "railway"
         "ruby"
         "uline"

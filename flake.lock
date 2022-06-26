@@ -216,6 +216,7 @@
         "satysfi-fss": "satysfi-fss",
         "satysfi-karnaugh": "satysfi-karnaugh",
         "satysfi-pagenumber": "satysfi-pagenumber",
+        "satysfi-pagestyle": "satysfi-pagestyle",
         "satysfi-railway": "satysfi-railway",
         "satysfi-ruby": "satysfi-ruby",
         "satysfi-tools": "satysfi-tools",
@@ -508,6 +509,22 @@
       "original": {
         "owner": "abenori",
         "repo": "satysfi-pagenumber",
+        "type": "github"
+      }
+    },
+    "satysfi-pagestyle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629364940,
+        "narHash": "sha256-tXtTyDlwtLHNjCthGapYwXlttXT37JwvUHf8Snibrac=",
+        "owner": "abenori",
+        "repo": "satysfi-pagestyle",
+        "rev": "868141087d111c67893b597a21a6a287afc063ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenori",
+        "repo": "satysfi-pagestyle",
         "type": "github"
       }
     },
