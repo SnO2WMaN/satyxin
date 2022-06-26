@@ -88,6 +88,15 @@
                 ruby
               ];
             };
+            "example/slide" = pkgs.satyxin.buildDocument {
+              name = "example-slide";
+              src = ./example/slide;
+              filename = "main.saty";
+              buildInputs = with pkgs.satyxinPackages; [
+                class-slydifi
+                easytable
+              ];
+            };
           }
           // pkgs.satyxin
           // pkgs.satyxinPackages
