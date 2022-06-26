@@ -23,6 +23,7 @@ final: prev: {
         "fonts-dejavu"
         "fonts-junicode"
         "fss"
+        "railway"
         "ruby"
         "uline"
       ]

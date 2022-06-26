@@ -37,6 +37,8 @@
     satysfi-fonts-junicode.url = "github:na4zagin3/SATySFi-fonts-junicode";
     satysfi-fss.flake = false;
     satysfi-fss.url = "github:na4zagin3/satysfi-fss";
+    satysfi-railway.flake = false;
+    satysfi-railway.url = "github:monaqa/satysfi-railway";
     satysfi-ruby.flake = false;
     satysfi-ruby.url = "github:puripuri2100/SATySFi-ruby";
     satysfi-uline.flake = false;

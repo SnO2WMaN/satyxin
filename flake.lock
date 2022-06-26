@@ -213,6 +213,7 @@
         "satysfi-figbox": "satysfi-figbox",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
+        "satysfi-railway": "satysfi-railway",
         "satysfi-ruby": "satysfi-ruby",
         "satysfi-tools": "satysfi-tools",
         "satysfi-uline": "satysfi-uline"
@@ -456,6 +457,22 @@
       "original": {
         "owner": "monaqa",
         "repo": "satysfi-language-server",
+        "type": "github"
+      }
+    },
+    "satysfi-railway": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1622980701,
+        "narHash": "sha256-DeMNMWeOLTUFXidi7sfDl5gsAdi+vBE5zJmTshjfieI=",
+        "owner": "monaqa",
+        "repo": "satysfi-railway",
+        "rev": "cbefb0489993a8f1c695e3e50a6d0266841402c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "satysfi-railway",
         "type": "github"
       }
     },
