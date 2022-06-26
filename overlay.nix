@@ -25,6 +25,7 @@ final: prev: {
         "fonts-junicode"
         "fss"
         "karnaugh"
+        "pagenumber"
         "railway"
         "ruby"
         "uline"

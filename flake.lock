@@ -215,6 +215,7 @@
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
         "satysfi-karnaugh": "satysfi-karnaugh",
+        "satysfi-pagenumber": "satysfi-pagenumber",
         "satysfi-railway": "satysfi-railway",
         "satysfi-ruby": "satysfi-ruby",
         "satysfi-tools": "satysfi-tools",
@@ -491,6 +492,22 @@
       "original": {
         "owner": "monaqa",
         "repo": "satysfi-language-server",
+        "type": "github"
+      }
+    },
+    "satysfi-pagenumber": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629364140,
+        "narHash": "sha256-6dUsx9dfxhpPF1NVcafenoi81uH7oacODeBeHIyfz5A=",
+        "owner": "abenori",
+        "repo": "satysfi-pagenumber",
+        "rev": "dd5b7f81df40fbf2a14cdc159138cebb50b3bd71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenori",
+        "repo": "satysfi-pagenumber",
         "type": "github"
       }
     },
