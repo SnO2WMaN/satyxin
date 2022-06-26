@@ -23,6 +23,8 @@
     satysfi-bibyfi.url = "github:namachan10777/BiByFi";
     satysfi-chemfml.flake = false;
     satysfi-chemfml.url = "github:gw31415/satysfi-chemfml";
+    satysfi-class-slydifi.flake = false;
+    satysfi-class-slydifi.url = "github:monaqa/slydifi";
     satysfi-code-printer.flake = false;
     satysfi-code-printer.url = "github:puripuri2100/satysfi-code-printer";
     satysfi-derive.flake = false;

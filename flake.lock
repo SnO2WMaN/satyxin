@@ -206,6 +206,7 @@
         "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
         "satysfi-chemfml": "satysfi-chemfml",
+        "satysfi-class-slydifi": "satysfi-class-slydifi",
         "satysfi-code-printer": "satysfi-code-printer",
         "satysfi-derive": "satysfi-derive",
         "satysfi-easytable": "satysfi-easytable",
@@ -312,6 +313,22 @@
       "original": {
         "owner": "gw31415",
         "repo": "satysfi-chemfml",
+        "type": "github"
+      }
+    },
+    "satysfi-class-slydifi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651152178,
+        "narHash": "sha256-y/BfFZ8/Ytu9RWxW4S+WkKIF0qGum1W4V7gfKNzyfC0=",
+        "owner": "monaqa",
+        "repo": "slydifi",
+        "rev": "e9d0f57c9e27c77888582eaa9ad8b9fd35a12828",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "slydifi",
         "type": "github"
       }
     },

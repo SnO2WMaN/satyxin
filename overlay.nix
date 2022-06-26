@@ -14,6 +14,7 @@ final: prev: {
         "base"
         "bibyfi"
         "chemfml"
+        "class-slydifi"
         "code-printer"
         "derive"
         "dist"
