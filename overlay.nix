@@ -24,6 +24,7 @@ final: prev: {
         "fonts-dejavu"
         "fonts-junicode"
         "fss"
+        "karnaugh"
         "railway"
         "ruby"
         "uline"

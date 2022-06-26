@@ -214,6 +214,7 @@
         "satysfi-figbox": "satysfi-figbox",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
+        "satysfi-karnaugh": "satysfi-karnaugh",
         "satysfi-railway": "satysfi-railway",
         "satysfi-ruby": "satysfi-ruby",
         "satysfi-tools": "satysfi-tools",
@@ -458,6 +459,22 @@
       "original": {
         "owner": "na4zagin3",
         "repo": "satysfi-fss",
+        "type": "github"
+      }
+    },
+    "satysfi-karnaugh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1579355488,
+        "narHash": "sha256-guVblr9eu0HgQo8zUth3tPVrIDyu4yF2CgzhUnXsop0=",
+        "owner": "takagiy",
+        "repo": "satysfi-karnaugh",
+        "rev": "ed38a3ec2afa09a383a2b4e9068ece4dd9bba715",
+        "type": "github"
+      },
+      "original": {
+        "owner": "takagiy",
+        "repo": "satysfi-karnaugh",
         "type": "github"
       }
     },
