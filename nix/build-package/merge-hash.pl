@@ -1,3 +1,5 @@
+use List::MoreUtils;
+
 my @lines;
 while (my $line = <>) {
     chomp $line;
@@ -8,6 +10,8 @@ while (my $line = <>) {
     if ($line =~ /,$/) { chop($line); push @lines, $line; }
     else { push @lines, "$line"; }
 }
+
+@lines = List::MoreUtils::uniq @lines;
 
 print "{\n";
 for (my $i = 0; $i < @lines; $i++) {

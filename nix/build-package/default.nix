@@ -75,7 +75,7 @@ pkgs.stdenv.mkDerivation {
     moreutils
     (writers.writePerlBin
       "merge-hash"
-      {}
+      {libraries = with pkgs.perlPackages; [ListMoreUtils];}
       (builtins.readFile ./merge-hash.pl))
   ];
 }
