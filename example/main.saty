@@ -6,6 +6,7 @@
 @require: fss/style
 @require: fss/fonts
 @require: derive/derive
+@require: chemfml/chemfml
 @require: algorithm/algorithm
 @require: algorithm/style/default
 @import: ./bib
@@ -25,7 +26,7 @@ in
 open Derive in
     document(|
         title = { はじめての\SATySFi; };
-        author = { SnO2WMaN };
+        author = { \chem(`SnO2WMaN`); };
         show-title = false;
         show-toc = false;
     |)'<
@@ -88,6 +89,10 @@ open Derive in
                         +State{ \Return{ ${b} } }
                     >
                 >
+            >
+            +section{ chemfml }<
+                +p{ chemfml }
+                +p{ \chem(`MnO4- + 8H+ + 5e- -> Mn^2+ + 4H2O`); }
             >
         >
     >
