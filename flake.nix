@@ -78,6 +78,7 @@
               name = "example-basic";
               src = ./example/basic;
               filename = "main.saty";
+              output = "basic.pdf";
               buildInputs = with pkgs.satyxinPackages; [
                 uline
                 bibyfi
@@ -92,6 +93,7 @@
               name = "example-slide";
               src = ./example/slide;
               filename = "main.saty";
+              output = "slide.pdf";
               buildInputs = with pkgs.satyxinPackages; [
                 class-slydifi
                 easytable
