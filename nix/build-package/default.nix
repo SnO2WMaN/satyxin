@@ -44,7 +44,7 @@ pkgs.stdenv.mkDerivation {
 
       if [ -d $dep/lib/satysfi/dist/unidata ]; then
         mkdir -p $out/lib/satysfi/dist/unidata
-        for file in $(find $dep/lib/satysfi/dist/fonts -type f); do
+        for file in $(find $dep/lib/satysfi/dist/unidata -type f); do
           target=$out/$(realpath --relative-to=$dep $file)
           if [ ! -e $target ]; then
             mkdir -p $out/$(dirname $(realpath --relative-to=$dep $file))
