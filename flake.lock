@@ -206,6 +206,7 @@
         "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
         "satysfi-code-printer": "satysfi-code-printer",
+        "satysfi-derive": "satysfi-derive",
         "satysfi-easytable": "satysfi-easytable",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
@@ -306,6 +307,22 @@
       "original": {
         "owner": "puripuri2100",
         "repo": "satysfi-code-printer",
+        "type": "github"
+      }
+    },
+    "satysfi-derive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1609581687,
+        "narHash": "sha256-E2Is9WDO/psnWEL1Nt43QkkSPZOL3uT0Xm54y1jZgfM=",
+        "owner": "yabaitechtokyo",
+        "repo": "satysfi-derive",
+        "rev": "ea6bad8093128b1117feb8430a290d5439866166",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yabaitechtokyo",
+        "repo": "satysfi-derive",
         "type": "github"
       }
     },

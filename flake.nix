@@ -23,6 +23,8 @@
     satysfi-bibyfi.url = "github:namachan10777/BiByFi";
     satysfi-code-printer.flake = false;
     satysfi-code-printer.url = "github:puripuri2100/satysfi-code-printer";
+    satysfi-derive.flake = false;
+    satysfi-derive.url = "github:yabaitechtokyo/satysfi-derive";
     satysfi-easytable.flake = false;
     satysfi-easytable.url = "github:monaqa/satysfi-easytable";
     satysfi-fonts-junicode.flake = false;
