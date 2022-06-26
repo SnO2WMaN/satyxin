@@ -206,6 +206,7 @@
         "satysfi-base": "satysfi-base",
         "satysfi-bibyfi": "satysfi-bibyfi",
         "satysfi-chemfml": "satysfi-chemfml",
+        "satysfi-class-jlreq": "satysfi-class-jlreq",
         "satysfi-class-slydifi": "satysfi-class-slydifi",
         "satysfi-code-printer": "satysfi-code-printer",
         "satysfi-derive": "satysfi-derive",
@@ -316,6 +317,22 @@
       "original": {
         "owner": "gw31415",
         "repo": "satysfi-chemfml",
+        "type": "github"
+      }
+    },
+    "satysfi-class-jlreq": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637893136,
+        "narHash": "sha256-/tKYBqcbxB/XviI8dg48eFyT8Gtwlpqga5V9toQ4lSs=",
+        "owner": "abenori",
+        "repo": "satysfi-class-jlreq",
+        "rev": "4090898d86952416e343f36f20e183abc0fbba29",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenori",
+        "repo": "satysfi-class-jlreq",
         "type": "github"
       }
     },

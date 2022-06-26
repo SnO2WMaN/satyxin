@@ -14,6 +14,7 @@ final: prev: {
         "base"
         "bibyfi"
         "chemfml"
+        "class-jlreq"
         "class-slydifi"
         "code-printer"
         "derive"
