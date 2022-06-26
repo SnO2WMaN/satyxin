@@ -40,7 +40,8 @@ in
         done
       '';
 
-      phases = ["installPhase"];
+      dontBuild = true;
+
       installPhase = ''
         distsatysfi=$(echo $src | tr ' ' '\n' | grep -E ".*-satysfi")/lib-satysfi/dist
         mkdir -p $out/lib/satysfi/dist/{fonts,hash,hyph,,packages,unidata}

@@ -8,6 +8,8 @@ pkgs.stdenv.mkDerivation {
   inherit name src deps;
   sources = builtins.toJSON sources;
 
+  dontBuild = true;
+
   installPhase = ''
     for dep in $(echo $deps | tr ' ' '\n'); do
       if [ -e $dep/lib/satysfi/dist/hash/default-font.satysfi-hash ] && [ ! -e $out/lib/satysfi/dist/hash/default-font.satysfi-hash ]; then
