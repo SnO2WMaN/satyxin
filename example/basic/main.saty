@@ -97,7 +97,7 @@ open Derive in
             >
             +section{ ruby }<
                 +p{ ruby }
-                +p{ とある科学の\ruby[`レールガン`]{|超電磁砲|} }
+                +p{ とある科学の\ruby?:[Ruby.mode Ruby.g][`レールガン`]{|超電磁砲|} }
             >
         >
     >
