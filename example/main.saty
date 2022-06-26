@@ -1,9 +1,57 @@
 @require: stdjareport
 @require: uline/uline
+@require: bibyfi/bibyfi
+@require: bibyfi/bibyfi-IEEETran
+@require: fss/fss
+@require: fss/style
+@require: fss/fonts
+@import: ./bib
 
-document (|
-  title = {Demo};
-  author = {Aumy};
-|) '<
-  +p {\uline{Hello, world!}}
+let bibyfi-theme =
+    BiByFiIEEETran.theme (|
+        name-shrink = true;
+        et-al = true;
+        journal-abbr = [
+            (`European Association for Signal Processing`, `EUSIPCO`);
+        ];
+    |)
+in
+
+document(|
+    title = { はじめての\SATySFi; };
+    author = { SnO2WMaN };
+    show-title = false;
+    show-toc = false;
+|)'<
+    +chapter{}<
+        +section{}<
+            +p{ 叫べ心の形を！！ }
+        >
+        +section{ uline }<
+            +p{ \uline{ 下線 }テスト }
+        >
+        +section{ bibyfi }<
+            +p{
+                テスト\cite [
+                    `comon1994independent`;
+                    `sawada2013multichannel`;
+                    `kitamura2017experimental`;
+                    `asano2011`;
+                    `wildcard`;
+                ];
+            }
+            +makebibliography ?:(|
+                sort-references = true;
+                citestyle = CiteAsAuthorsEtAl;
+                name-shrink = true;
+            |) (bibyfi-theme) (bibs);
+        >
+        +section{ fss }<
+            +p{
+                \font-style [bold;]{ キルロイ参上 }
+                （キルロイさんじょう、\font-style [italic;]{ Kilroy was here }、\font-style [bold;]{ キルロイ・ワズ・ヒア }）
+                は、アメリカの大衆文化などで見られる句のひとつ。
+            }
+        >
+    >
 >

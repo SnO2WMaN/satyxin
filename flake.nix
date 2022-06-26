@@ -62,6 +62,8 @@
               filename = "main.saty";
               buildInputs = with pkgs.satyxinPackages; [
                 uline
+                bibyfi
+                fss
               ];
             };
           }
