@@ -1,5 +1,5 @@
 {
-  description = "Packages for satyxin";
+  description = "Build SATySFi documents using Nix";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -43,9 +43,7 @@
     ...
   }:
     {
-      overlays.default = final: prev: (
-        satyxin.overlay final prev // (import ./overlay.nix) final prev
-      );
+      overlays.default = import ./overlay.nix;
       overlay = self.overlays.default;
     }
     // flake-utils.lib.eachDefaultSystem (

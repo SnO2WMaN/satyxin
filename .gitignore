@@ -6,11 +6,4 @@ result
 
 # SATySFi
 *.satysfi-aux
-.satysfi/
-
-# dist
-dist/*.pdf
-!dist/.keep
-
-# preview
-src/*.pdf
+.satysfi/dist
