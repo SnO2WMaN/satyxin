@@ -1,12 +1,13 @@
 (import ../create-pkg.nix) (
   {satyxinPkgs}: {
     name = "algorithm";
-    sources = builtins.toJSON {
+    sources = {
       dirs = [
         "./src"
       ];
     };
     deps = with satyxinPkgs; [
+      dist
       base
       fss
     ];
