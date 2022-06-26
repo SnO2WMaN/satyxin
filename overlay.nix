@@ -18,6 +18,7 @@ final: prev: {
         "derive"
         "dist"
         "easytable"
+        "figbox"
         "fonts-dejavu"
         "fonts-junicode"
         "fss"

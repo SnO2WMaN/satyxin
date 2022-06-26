@@ -209,6 +209,7 @@
         "satysfi-code-printer": "satysfi-code-printer",
         "satysfi-derive": "satysfi-derive",
         "satysfi-easytable": "satysfi-easytable",
+        "satysfi-figbox": "satysfi-figbox",
         "satysfi-fonts-junicode": "satysfi-fonts-junicode",
         "satysfi-fss": "satysfi-fss",
         "satysfi-ruby": "satysfi-ruby",
@@ -357,6 +358,22 @@
       "original": {
         "owner": "monaqa",
         "repo": "satysfi-easytable",
+        "type": "github"
+      }
+    },
+    "satysfi-figbox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650114119,
+        "narHash": "sha256-2S0Mwh90QqxcMI/iG28VPS3xW39zJmibDQ3QeeDGUvc=",
+        "owner": "monaqa",
+        "repo": "satysfi-figbox",
+        "rev": "b2fa8a47eaf8e54462d1838ec374ce505a4af706",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "satysfi-figbox",
         "type": "github"
       }
     },
