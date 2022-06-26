@@ -71,6 +71,7 @@
                 bibyfi
                 fss
                 derive
+                algorithm
               ];
             };
           }

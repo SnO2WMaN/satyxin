@@ -6,8 +6,12 @@
 @require: fss/style
 @require: fss/fonts
 @require: derive/derive
+@require: algorithm/algorithm
+@require: algorithm/style/default
 @import: ./bib
 
+let-math \gets = ${\leftarrow}
+let-math \bmod = ${\  \mathrm{mod} \ }
 let bibyfi-theme =
     BiByFiIEEETran.theme (|
         name-shrink = true;
@@ -70,6 +74,20 @@ open Derive in
                             ];
                         ]
                     )});
+            >
+            +section{ algorithm }<
+                +p{ satysfi-algorithm }
+                +algorithmic<
+                    +Procedure{ Euclid }{ ${a, b} }<
+                        +State{ ${r \gets a \bmod b} }
+                        +While{ ${r \neq 0} }<
+                            +State{ ${a \gets b} }
+                            +State{ ${b \gets r} }
+                            +State{ ${r \gets a \bmod b} }
+                        >
+                        +State{ \Return{ ${b} } }
+                    >
+                >
             >
         >
     >
