@@ -4,6 +4,10 @@
     "arrterian.nix-env-selector",
     "pickoba.satysfi-workshop",
     "tamasfe.even-better-toml",
-    "jkillian.custom-local-formatters"
+    "jkillian.custom-local-formatters",
+    "tomoki1207.pdf"
+  ],
+  "unwantedRecommendations": [
+    "James-Yu.latex-workshop"
   ]
 }

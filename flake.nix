@@ -11,6 +11,8 @@
       flake = false;
     };
 
+    satysfi-tools.url = "github:SnO2WMaN/satysfi-tools-nix";
+
     satysfi-algorithm.flake = false;
     satysfi-algorithm.url = "github:pickoba/satysfi-algorithm";
     satysfi-azmath.flake = false;
@@ -38,6 +40,7 @@
     nixpkgs,
     flake-utils,
     devshell,
+    satysfi-tools,
     ...
   }:
     {
@@ -50,6 +53,7 @@
           inherit system;
           overlays = [
             devshell.overlay
+            satysfi-tools.overlay
             self.overlay
           ];
         };

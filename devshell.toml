@@ -3,6 +3,9 @@ packages = [
   "alejandra",
   "dprint",
   "deadnix",
+  "satysfi",
+  "satysfi-formatter",
+  "satysfi-language-server",
 ]
 
 [[commands]]
