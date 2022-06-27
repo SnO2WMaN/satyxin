@@ -1,13 +1,11 @@
-{pkgs}: {
-  src,
-  packages ? [],
-}: let
+{pkgs}: {packages ? []}: let
   inherit (import ../utils {inherit pkgs;}) merge-satysfi-hash;
 in
   pkgs.stdenv.mkDerivation {
-    inherit src;
     name = "satydist";
     packages = builtins.toJSON packages;
+
+    dontUnpack = true;
 
     dontBuild = true;
     buildInputs = with pkgs; [

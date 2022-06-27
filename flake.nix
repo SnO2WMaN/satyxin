@@ -83,7 +83,6 @@
         packages = flake-utils.lib.flattenTree (
           {
             "satydist" = pkgs.satyxin.buildSatydist {
-              src = ./example/basic;
               packages = with pkgs.satyxinPackages; [
                 uline
                 bibyfi
