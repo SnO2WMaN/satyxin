@@ -14,28 +14,28 @@ in
 
     installPhase = ''
       for dep in $(echo $deps | tr ' ' '\n'); do
-        if [ -e $dep/lib/satysfi/dist/hash/default-font.satysfi-hash ] && [ ! -e $out/lib/satysfi/dist/hash/default-font.satysfi-hash ]; then
-          mkdir -p $out/lib/satysfi/dist/hash
-          cat $dep/lib/satysfi/dist/hash/default-font.satysfi-hash > $out/lib/satysfi/dist/hash/default-font.satysfi-hash
+        if [ -e $dep/hash/default-font.satysfi-hash ] && [ ! -e $out/hash/default-font.satysfi-hash ]; then
+          mkdir -p $out/hash
+          cat $dep/hash/default-font.satysfi-hash > $out/hash/default-font.satysfi-hash
         fi
 
-        if [ -e $dep/lib/satysfi/dist/hash/fonts.satysfi-hash ]; then
-          mkdir -p $out/lib/satysfi/dist/hash
-          target=$out/lib/satysfi/dist/hash/fonts.satysfi-hash
+        if [ -e $dep/hash/fonts.satysfi-hash ]; then
+          mkdir -p $out/hash
+          target=$out/hash/fonts.satysfi-hash
           [[ ! -e $target ]] && touch $target
-          merge-satysfi-hash $dep/lib/satysfi/dist/hash/fonts.satysfi-hash $target | sponge $target
+          merge-satysfi-hash $dep/hash/fonts.satysfi-hash $target | sponge $target
         fi
 
-        if [ -e $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash ]; then
-          mkdir -p $out/lib/satysfi/dist/hash
-          target=$out/lib/satysfi/dist/hash/mathfonts.satysfi-hash
+        if [ -e $dep/hash/mathfonts.satysfi-hash ]; then
+          mkdir -p $out/hash
+          target=$out/hash/mathfonts.satysfi-hash
           [[ ! -e $target ]] && touch $target
-          merge-satysfi-hash $dep/lib/satysfi/dist/hash/mathfonts.satysfi-hash $target | sponge $target
+          merge-satysfi-hash $dep/hash/mathfonts.satysfi-hash $target | sponge $target
         fi
 
-        if [ -d $dep/lib/satysfi/dist/fonts ]; then
-          mkdir -p $out/lib/satysfi/dist/fonts
-          for file in $(find $dep/lib/satysfi/dist/fonts -type f); do
+        if [ -d $dep/fonts ]; then
+          mkdir -p $out/fonts
+          for file in $(find $dep/fonts -type f); do
             target=$out/$(realpath --relative-to=$dep $file)
             if [ ! -e $target ]; then
               mkdir -p $out/$(dirname $(realpath --relative-to=$dep $file))
@@ -44,9 +44,9 @@ in
           done
         fi
 
-        if [ -d $dep/lib/satysfi/dist/unidata ]; then
-          mkdir -p $out/lib/satysfi/dist/unidata
-          for file in $(find $dep/lib/satysfi/dist/unidata -type f); do
+        if [ -d $dep/unidata ]; then
+          mkdir -p $out/unidata
+          for file in $(find $dep/unidata -type f); do
             target=$out/$(realpath --relative-to=$dep $file)
             if [ ! -e $target ]; then
               mkdir -p $out/$(dirname $(realpath --relative-to=$dep $file))
@@ -55,9 +55,9 @@ in
           done
         fi
 
-        if [ -d $dep/lib/satysfi/dist/packages ]; then
-          mkdir -p $out/lib/satysfi/dist/packages
-          for file in $(find $dep/lib/satysfi/dist/packages -type f); do
+        if [ -d $dep/packages ]; then
+          mkdir -p $out/packages
+          for file in $(find $dep/packages -type f); do
             target=$out/$(realpath --relative-to=$dep $file)
             if [ ! -e $target ]; then # TODO: if exists, compare
               mkdir -p $out/$(dirname $(realpath --relative-to=$dep $file))
@@ -68,21 +68,18 @@ in
       done
 
       for i in $(seq 0 $(($(echo $sources | jq ".files | length") - 1))); do
-          mkdir -p $out/lib/satysfi/dist/packages/$name/
+          mkdir -p $out/packages/$name/
 
           path=`echo $sources | jq -r ".files[$i]"`
-          cp $src/$path $out/lib/satysfi/dist/packages/$name/$path
+          cp $src/$path $out/packages/$name/$path
       done
 
       for i in $(seq 0 $(($(echo $sources | jq ".dirs | length") - 1))); do
-          mkdir -p $out/lib/satysfi/dist/packages/$name/
+          mkdir -p $out/packages/$name/
 
           path=`echo $sources | jq -r ".dirs[$i]"`
-          cp -r $src/$path/* $out/lib/satysfi/dist/packages/$name
+          cp -r $src/$path/* $out/packages/$name
       done
-    '';
-    setupHook = pkgs.writeText "setuphook-satysfi-package" ''
-      SATYSFI_LIBPATH+=:$1/lib/satysfi
     '';
     buildInputs = with pkgs; [
       jq

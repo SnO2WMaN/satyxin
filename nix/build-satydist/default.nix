@@ -19,50 +19,50 @@ in
         package=`echo $packages | jq -r ".[$i]"`
 
         # fonts
-        for file in $(find $package/lib/satysfi/dist/fonts -type f); do
-          target=$out/$(realpath --relative-to=$package/lib/satysfi/dist $file)
+        for file in $(find $package/fonts -type f); do
+          target=$out/$(realpath --relative-to=$package $file)
           if [ ! -e $target ]; then
-            mkdir -p $out/$(dirname $(realpath --relative-to=$package/lib/satysfi/dist $file))
+            mkdir -p $out/$(dirname $(realpath --relative-to=$package $file))
             cp $file $target
           fi
         done
 
         # default-font.satysfi-hash
-        if [ -e $package/lib/satysfi/dist/hash/default-font.satysfi-hash ] && [ ! -e $out/hash/default-fonts.satysfi-hash ]; then
+        if [ -e $package/hash/default-font.satysfi-hash ] && [ ! -e $out/hash/default-fonts.satysfi-hash ]; then
           mkdir -p $out/hash
-          cat $package/lib/satysfi/dist/hash/default-font.satysfi-hash > $out/hash/default-font.satysfi-hash
+          cat $package/hash/default-font.satysfi-hash > $out/hash/default-font.satysfi-hash
         fi
 
         # fonts.satysfi-hash
-        if [ -e $package/lib/satysfi/dist/hash/fonts.satysfi-hash ]; then
+        if [ -e $package/hash/fonts.satysfi-hash ]; then
           mkdir -p $out/hash
           target=$out/hash/fonts.satysfi-hash
           [[ ! -e $target ]] && touch $target
-          merge-satysfi-hash $package/lib/satysfi/dist/hash/fonts.satysfi-hash $target | sponge $target
+          merge-satysfi-hash $package/hash/fonts.satysfi-hash $target | sponge $target
         fi
 
         # mathfonts.satysfi-hash
-        if [ -e $package/lib/satysfi/dist/hash/mathfonts.satysfi-hash ]; then
+        if [ -e $package/hash/mathfonts.satysfi-hash ]; then
           mkdir -p $out/hash
           target=$out/hash/mathfonts.satysfi-hash
           [[ ! -e $target ]] && touch $target
-          merge-satysfi-hash $package/lib/satysfi/dist/hash/mathfonts.satysfi-hash $target | sponge $target
+          merge-satysfi-hash $package/hash/mathfonts.satysfi-hash $target | sponge $target
         fi
 
         # packages
-        for file in $(find $package/lib/satysfi/dist/packages -type f); do
-          target=$out/$(realpath --relative-to=$package/lib/satysfi/dist $file)
+        for file in $(find $package/packages -type f); do
+          target=$out/$(realpath --relative-to=$package $file)
           if [ ! -e $target ]; then
-            mkdir -p $out/$(dirname $(realpath --relative-to=$package/lib/satysfi/dist $file))
+            mkdir -p $out/$(dirname $(realpath --relative-to=$package $file))
             cp $file $target
           fi
         done
 
         # unidata
-        for file in $(find $package/lib/satysfi/dist/unidata -type f); do
-          target=$out/$(realpath --relative-to=$package/lib/satysfi/dist $file)
+        for file in $(find $package/unidata -type f); do
+          target=$out/$(realpath --relative-to=$package $file)
           if [ ! -e $target ]; then
-            mkdir -p $out/$(dirname $(realpath --relative-to=$package/lib/satysfi/dist $file))
+            mkdir -p $out/$(dirname $(realpath --relative-to=$package $file))
             cp $file $target
           fi
         done
