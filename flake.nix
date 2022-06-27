@@ -81,8 +81,8 @@
         };
       in {
         packages = flake-utils.lib.flattenTree (
-          {
-            "satydist" = pkgs.satyxin.buildSatydist {
+          rec {
+            satydist = pkgs.satyxin.buildSatydist {
               packages = [
                 "uline"
                 "bibyfi"
@@ -91,32 +91,23 @@
                 "algorithm"
                 "chemfml"
                 "ruby"
+                "class-slydifi"
+                "easytable"
               ];
             };
             "example/basic" = pkgs.satyxin.buildDocument {
+              inherit satydist;
               name = "example-basic";
               src = ./example/basic;
-              filename = "main.saty";
+              entrypoint = "main.saty";
               output = "basic.pdf";
-              buildInputs = with pkgs.satyxinPackages; [
-                uline
-                bibyfi
-                fss
-                derive
-                algorithm
-                chemfml
-                ruby
-              ];
             };
             "example/slide" = pkgs.satyxin.buildDocument {
+              inherit satydist;
               name = "example-slide";
               src = ./example/slide;
-              filename = "main.saty";
+              entrypoint = "main.saty";
               output = "slide.pdf";
-              buildInputs = with pkgs.satyxinPackages; [
-                class-slydifi
-                easytable
-              ];
             };
           }
           // pkgs.satyxin
