@@ -87,6 +87,11 @@
               packages = with pkgs.satyxinPackages; [
                 uline
                 bibyfi
+                fss
+                derive
+                algorithm
+                chemfml
+                ruby
               ];
             };
             "example/basic" = pkgs.satyxin.buildDocument {
