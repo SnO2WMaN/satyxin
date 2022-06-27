@@ -16,14 +16,14 @@ pkgs.stdenv.mkDerivation {
     done
   '';
   installPhase = ''
-    mkdir -p $out/lib/satysfi/dist/fonts/fonts-dejavu
+    mkdir -p $out/fonts/fonts-dejavu
 
     for file in $(find $(echo $src | tr ' ' '\n' | grep -E ".*-dejavu")/ttf -name "*.ttf"); do
-        cp $file $out/lib/satysfi/dist/fonts/fonts-dejavu
+        cp $file $out/fonts/fonts-dejavu
     done
 
-    mkdir -p $out/lib/satysfi/dist/hash
-    cp $(echo $src | tr ' ' '\n' | grep -E "*-fonts.satysfi-hash") $out/lib/satysfi/dist/hash/fonts.satysfi-hash
-    cp $(echo $src | tr ' ' '\n' | grep -E "*-mathfonts.satysfi-hash") $out/lib/satysfi/dist/hash/mathfonts.satysfi-hash
+    mkdir -p $out/hash
+    cp $(echo $src | tr ' ' '\n' | grep -E "*-fonts.satysfi-hash") $out/hash/fonts.satysfi-hash
+    cp $(echo $src | tr ' ' '\n' | grep -E "*-mathfonts.satysfi-hash") $out/hash/mathfonts.satysfi-hash
   '';
 }

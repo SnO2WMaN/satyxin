@@ -17,10 +17,10 @@ pkgs.stdenv.mkDerivation {
   '';
   installPhase = ''
     fontsrc=$(echo $src | tr ' ' '\n' | grep junicode)
-    fontdir=$out/lib/satysfi/dist/fonts/fonts-junicode
+    fontdir=$out/fonts/fonts-junicode
 
     mkdir -p $fontdir
-    mkdir -p $out/lib/satysfi/dist/hash
+    mkdir -p $out/hash
 
     cp $fontsrc/Junicode-Bold.ttf $fontdir
     cp $fontsrc/Junicode-BoldItalic.ttf $fontdir
@@ -28,6 +28,6 @@ pkgs.stdenv.mkDerivation {
     cp $fontsrc/Junicode.ttf $fontdir
     cp $fontsrc/FoulisGreek.ttf $fontdir
 
-    cp $(echo $src | tr ' ' '\n' | grep -E ".*-fonts.satysfi-hash") $out/lib/satysfi/dist/hash/fonts.satysfi-hash
+    cp $(echo $src | tr ' ' '\n' | grep -E ".*-fonts.satysfi-hash") $out/hash/fonts.satysfi-hash
   '';
 }
