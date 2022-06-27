@@ -1,11 +1,11 @@
 final: prev: {
-  satyxin = import ./nix {pkgs = prev;};
+  satyxin = import ./nix {pkgs = final;};
   satyxinPackages = let
     satyxinPkgs = builtins.listToAttrs (
       map (name: {
         name = name;
         value = (import ./pkgs/${name}) {
-          pkgs = prev;
+          pkgs = final;
           satyxinPkgs = satyxinPkgs;
         };
       }) [

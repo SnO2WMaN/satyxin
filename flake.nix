@@ -83,14 +83,14 @@
         packages = flake-utils.lib.flattenTree (
           {
             "satydist" = pkgs.satyxin.buildSatydist {
-              packages = with pkgs.satyxinPackages; [
-                uline
-                bibyfi
-                fss
-                derive
-                algorithm
-                chemfml
-                ruby
+              packages = [
+                "uline"
+                "bibyfi"
+                "fss"
+                "derive"
+                "algorithm"
+                "chemfml"
+                "ruby"
               ];
             };
             "example/basic" = pkgs.satyxin.buildDocument {

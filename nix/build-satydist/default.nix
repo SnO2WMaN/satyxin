@@ -3,7 +3,7 @@
 in
   pkgs.stdenv.mkDerivation {
     name = "satydist";
-    packages = builtins.toJSON packages;
+    packages = builtins.toJSON (map (name: pkgs.satyxinPackages."${name}") packages);
 
     dontUnpack = true;
 
