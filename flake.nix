@@ -82,6 +82,13 @@
       in {
         packages = flake-utils.lib.flattenTree (
           {
+            "satydist" = pkgs.satyxin.buildSatydist {
+              src = ./example/basic;
+              packages = with pkgs.satyxinPackages; [
+                uline
+                bibyfi
+              ];
+            };
             "example/basic" = pkgs.satyxin.buildDocument {
               name = "example-basic";
               src = ./example/basic;
