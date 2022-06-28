@@ -21,9 +21,11 @@ indent_size = 2
 indent_size = 2
 
 [*.saty]
+indent_style = tab
 indent_size = 4
 
 [*.satyh]
+indent_style = tab
 indent_size = 4
 
 [*.satysfi-hash]
