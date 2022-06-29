@@ -27,7 +27,7 @@ in
 open Derive in
     document(|
         title = { はじめての\SATySFi; };
-        author = { \chem(`SnO2WMaN`); };
+        author = { \chem (`SnO2WMaN`); };
         show-title = false;
         show-toc = false;
     |)'<
@@ -80,7 +80,7 @@ open Derive in
             +section{ algorithm }<
                 +p{ satysfi-algorithm }
                 +algorithmic<
-                    +Procedure{ Euclid }{ ${a, b} }<
+                    +Procedure{ Euclid }{ ${a , b} }<
                         +State{ ${r \gets a \bmod b} }
                         +While{ ${r \neq 0} }<
                             +State{ ${a \gets b} }
@@ -93,11 +93,18 @@ open Derive in
             >
             +section{ chemfml }<
                 +p{ chemfml }
-                +p{ \chem(`MnO4- + 8H+ + 5e- -> Mn^2+ + 4H2O`); }
+                +p{ \chem (`MnO4- + 8H+ + 5e- -> Mn^2+ + 4H2O`); }
             >
             +section{ ruby }<
                 +p{ ruby }
-                +p{ とある科学の\ruby?:[Ruby.mode Ruby.g][`レールガン`]{|超電磁砲|} }
+                +p{
+                    とある科学の\ruby ?:[
+                        Ruby.mode Ruby.g;
+                    ] [
+                        `レールガン`;
+                    ]{
+                        |超電磁砲|}
+                }
             >
         >
     >

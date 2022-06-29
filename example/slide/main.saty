@@ -7,120 +7,137 @@
 open FigBox
 open SlydifiOverlay
 open EasyTableAlias
-
-let-block ctx +code code = 
-  let ctx =
-    let fsize = get-font-size ctx in
-    ctx |> set-leading (fsize *' 1.45)
-  in
-  read-block ctx '< +Code.code(code);>
-
+let-block ctx +code code =
+    let ctx =
+        let fsize = get-font-size ctx in
+            ctx
+                |> set-leading (fsize *' 1.45) in
+        read-block ctx '<
+            +Code.code (code);
+        >
 let config =
     let set-font-metrics fsize ctx =
-      ctx |> set-font-size fsize
-          |> set-paragraph-margin (fsize *' 0.6) (fsize *' 0.6)
-          |> set-leading (fsize *' 1.4)
-    in
+        ctx
+            |> set-font-size fsize
+            |> set-paragraph-margin (fsize *' 0.6) (fsize *' 0.6)
+            |> set-leading (fsize *' 1.4) in
     let default-font ctx =
-      ctx |> set-font Latin          (`ipaexg`, 1.0, 0.0)
-          |> set-font Kana           (`ipaexg`, 1.0, 0.0)
-          |> set-font HanIdeographic (`ipaexg`, 1.0, 0.0)
-    in
+        ctx
+            |> set-font Latin (`ipaexg`, 1.0, 0.0)
+            |> set-font Kana (`ipaexg`, 1.0, 0.0)
+            |> set-font HanIdeographic (`ipaexg`, 1.0, 0.0) in
     let code-font ctx =
-      ctx |> set-font Latin          (`lmmono`, 1.0, 0.0)
-          |> set-font Kana           (`lmmono`, 1.0, 0.0)
-          |> set-font HanIdeographic (`lmmono`, 1.0, 0.0)
-    in
+        ctx
+            |> set-font Latin (`lmmono`, 1.0, 0.0)
+            |> set-font Kana (`lmmono`, 1.0, 0.0)
+            |> set-font HanIdeographic (`lmmono`, 1.0, 0.0) in
     let bold-font ctx =
-      ctx |> set-font Latin          (`ipaexg`, 1.0, 0.0)
-          |> set-font Kana           (`ipaexg`, 1.0, 0.0)
-          |> set-font HanIdeographic (`ipaexg`, 1.0, 0.0)
-    in
-  (|
-    SlydifiThemeArctic.default-config with
-      font-normal = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 16pt];
-      font-bold = SlydifiScheme.apply-font-cfg [bold-font];
-      font-code = SlydifiScheme.apply-font-cfg [code-font];
-      font-slide-title = SlydifiScheme.apply-font-cfg [bold-font; set-font-metrics 36pt];
-      font-slide-author = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 24pt;];
-      font-slide-date = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 20pt;];
-      font-section-title = SlydifiScheme.apply-font-cfg [bold-font; set-font-metrics 28pt];
-      font-frame-title = SlydifiScheme.apply-font-cfg [bold-font; set-font-metrics 24pt];
-      font-pagenum = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 12pt;];
-      font-footnote = SlydifiScheme.apply-font-cfg [default-font; set-font-metrics 12pt;];
-      length-frame-title-height = 32pt;
-  |)
-
+        ctx
+            |> set-font Latin (`ipaexg`, 1.0, 0.0)
+            |> set-font Kana (`ipaexg`, 1.0, 0.0)
+            |> set-font HanIdeographic (`ipaexg`, 1.0, 0.0) in
+        (|
+            SlydifiThemeArctic.default-config with font-normal = SlydifiScheme.apply-font-cfg [
+                default-font;
+                set-font-metrics 16pt;
+            ];
+            font-bold = SlydifiScheme.apply-font-cfg [bold-font;];
+            font-code = SlydifiScheme.apply-font-cfg [code-font;];
+            font-slide-title = SlydifiScheme.apply-font-cfg [
+                bold-font;
+                set-font-metrics 36pt;
+            ];
+            font-slide-author = SlydifiScheme.apply-font-cfg [
+                default-font;
+                set-font-metrics 24pt;
+            ];
+            font-slide-date = SlydifiScheme.apply-font-cfg [
+                default-font;
+                set-font-metrics 20pt;
+            ];
+            font-section-title = SlydifiScheme.apply-font-cfg [
+                bold-font;
+                set-font-metrics 28pt;
+            ];
+            font-frame-title = SlydifiScheme.apply-font-cfg [
+                bold-font;
+                set-font-metrics 24pt;
+            ];
+            font-pagenum = SlydifiScheme.apply-font-cfg [
+                default-font;
+                set-font-metrics 12pt;
+            ];
+            font-footnote = SlydifiScheme.apply-font-cfg [
+                default-font;
+                set-font-metrics 12pt;
+            ];
+            length-frame-title-height = 32pt;
+        |)
 in
 
-document '<
+document'<
+    +set-config (config);
+    +make-title ((|
+        title = {
+        |\SLyDIFi; ドキュメント|};
+        author = {
+        | monaqa
+        | GitHub: \link(`https://github.com/monaqa`);
+        |};
+        date = {
+        |2021年11月14日|};
+    |));
+    +section{
+        |はじめに|}<
+        %
+        +frame{ \SLyDIFi; とは }<
+            %
+            +p{
+                \SLyDIFi; は\SATySFi;でプレゼンテーション用のスライドを作成するためのクラスファイル。
+                以下のような機能を備えている。
+            }
+            +listing{
+                * タイトルフレーム、セクションフレームなどを含めたスライドの作成
+                * スライド内でのインラインマークアップ
+                * 任意の位置への図版の挿入、整列
+                * オーバーレイ
+                * カスタマイズ/自作の可能なテーマ
+            }
+            +p{
+                このドキュメントも\SLyDIFi;を用いて書かれており、使用テーマは Arctic である。
+                ただし紙面を十分に確保するため、フォントサイズを通常より縮めた設定を入れている。
+            }
+        >
+        %
+    >
+    %
+    +section{
+        |\SLyDIFi; の概要|}<
+        %
+        +frame{ パッケージ構成 }<
+            %
+            +p{ \SLyDIFi; は以下のヘッダファイルで構成されている。 }
 
-+set-config(config);
-
-+make-title(|
-  title = {|\SLyDIFi; ドキュメント|};
-  author = {
-    | monaqa
-    | GitHub: \link(`https://github.com/monaqa`);
-    |};
-  date = {|2021年11月14日|};
-|);
-
-+section{|はじめに|}<%
-
-  +frame{\SLyDIFi; とは}<%
-    +p{
-      \SLyDIFi; は\SATySFi;でプレゼンテーション用のスライドを作成するためのクラスファイル。
-      以下のような機能を備えている。
-    }
-    +listing{
-      * タイトルフレーム、セクションフレームなどを含めたスライドの作成
-      * スライド内でのインラインマークアップ
-      * 任意の位置への図版の挿入、整列
-      * オーバーレイ
-      * カスタマイズ/自作の可能なテーマ
-    }
-    +p{
-      このドキュメントも\SLyDIFi;を用いて書かれており、使用テーマは Arctic である。
-      ただし紙面を十分に確保するため、フォントサイズを通常より縮めた設定を入れている。
-    }
-  >%
-
->%
-
-+section{|\SLyDIFi; の概要|}<%
-
-  +frame{パッケージ構成}<%
-    +p{
-      \SLyDIFi; は以下のヘッダファイルで構成されている。
-    }
-    +listing{
-      * `slydifi.satyh`: 共通処理やコマンドが書かれた `SlydifiScheme` モジュールを定義。
-
-      * `footnote.satyh`: 脚注に関するモジュール `FootnoteScheme` を定義。
-
-      * `overlay.satyh`: オーバーレイに関するモジュール `SlydifiOverlay` を定義。
-
-      * `param.satyh`: 汎用パラメータに関するモジュール `SlydifiParam` を定義。
-
-      * `graphics.satyh`: グラフィックスに関するモジュール `SlydifiGraphics` を定義。
-
-      * `theme` ディレクトリ：\SLyDIFi; のテーマを格納。内部で `slydifi.satyh` を読み込む。
-
-        ** `akasaka.satyh`
-        ** `arctic.satyh`
-        ** `hakodate.satyh`
-        ** `plain.satyh`
-
-    }
-
-  >%
-
-  +frame{パッケージのインポート}<%
-    +p{
-      基本的には、 `theme` 内に入っているテーマファイルを読み込めばよい。
-    }
-    +code(```
+            +listing{
+                * `slydifi.satyh`: 共通処理やコマンドが書かれた `SlydifiScheme` モジュールを定義。
+                * `footnote.satyh`: 脚注に関するモジュール `FootnoteScheme` を定義。
+                * `overlay.satyh`: オーバーレイに関するモジュール `SlydifiOverlay` を定義。
+                * `param.satyh`: 汎用パラメータに関するモジュール `SlydifiParam` を定義。
+                * `graphics.satyh`: グラフィックスに関するモジュール `SlydifiGraphics` を定義。
+                * `theme` ディレクトリ：\SLyDIFi; のテーマを格納。内部で `slydifi.satyh` を読み込む。
+                  ** `akasaka.satyh`
+                  ** `arctic.satyh`
+                  ** `hakodate.satyh`
+                  ** `plain.satyh`
+            }
+        >
+        %
+        +frame{ パッケージのインポート }<
+            %
+            +p{
+                基本的には、 `theme` 内に入っているテーマファイルを読み込めばよい。
+            }
+            +code (```
       @require: class-slydifi/theme/plain
       % "plain" の部分を変えてテーマ変更が可能
 
@@ -129,32 +146,28 @@ document '<
       >
 
     ```);
-    +p{
-      テーマはデフォルトで以下の4種類が用意されている。
-    }
+            +p{ テーマはデフォルトで以下の4種類が用意されている。 }
 
-    +fig-center(
-      textbox {\easytable?:[t; b][l; l]{
-      | `plain`    | 最も簡素なテーマ
-      | `akasaka`  | 灰色のスタンダードなテーマ
-      | `arctic`   | \link?:({iceberg})(`https://github.com/cocopon/iceberg.vim`); の色をベースにしたテーマ（本ドキュメントで使用）
-      | `hakodate` | \link?:({gruvbox})(`https://github.com/gruvbox-community/gruvbox`);の色をベースにしたテーマ
-      |}}
-    );
+            +fig-center (textbox {
+            \easytable ?:[t;b;] [l;l;]{
+                | `plain` | 最も簡素なテーマ
+                | `akasaka` | 灰色のスタンダードなテーマ
+                | `arctic` | \link?:({iceberg})(`https://github.com/cocopon/iceberg.vim`); の色をベースにしたテーマ（本ドキュメントで使用）
+                | `hakodate` | \link?:({gruvbox})(`https://github.com/gruvbox-community/gruvbox`);の色をベースにしたテーマ
+                |}
+            });
+        >
+        %
+    >
+    %
+    +section{
+        |\SLyDIFi;の基本機能|}<
+        %
+        +frame{ フレーム：スライドの1ページ }<
+            %
+            +p{ フレームの作成には `+frame{ title }< inner >` を用いる。 }
 
-  >%
-
->%
-
-+section{|\SLyDIFi;の基本機能|}<%
-
-  +frame{フレーム：スライドの1ページ}<%
-
-    +p{
-      フレームの作成には `+frame{ title }< inner >` を用いる。
-    }
-
-    +code(```
+            +code (```
       +frame{フレーム：スライドの1ページ}<
         +p{
           フレームの作成には `+frame` を用いる。
@@ -163,24 +176,22 @@ document '<
       >
     ```);
 
-    +listing{
-      * `+frame` で囲った部分が出力される PDF の1ページになる。
-      * `+frame` の中にどれだけ多くの記述を入れても、
-        \textbf{自動でのページ分割は行われない}。
-
-        ** 入り切らないブロックは描画領域からはみ出て見えなくなるだけ。
-        ** 「1枚のフレームでどの情報まで表示するか」という発表時の戦略に関わる部分は
-           手動で制御するのが望ましいと考え、自動で分割する機能は入れていない。
-    }
-    
-
-  >%
-
-  +frame{章組み：タイトルフレーム}<%
-    +p{
-      タイトルフレームを挿入したい箇所に `+make-title(| configs |)` を入れる。
-    }
-    +code(```
+            +listing{
+                * `+frame` で囲った部分が出力される PDF の1ページになる。
+                * `+frame` の中にどれだけ多くの記述を入れても、
+                \textbf{ 自動でのページ分割は行われない }。
+                  ** 入り切らないブロックは描画領域からはみ出て見えなくなるだけ。
+                  ** 「1枚のフレームでどの情報まで表示するか」という発表時の戦略に関わる部分は
+                手動で制御するのが望ましいと考え、自動で分割する機能は入れていない。
+            }
+        >
+        %
+        +frame{ 章組み：タイトルフレーム }<
+            %
+            +p{
+                タイトルフレームを挿入したい箇所に `+make-title(| configs |)` を入れる。
+            }
+            +code (```
       +make-title(|
         title = {|\SLyDIFi; ドキュメント|};
         author = {
@@ -190,19 +201,19 @@ document '<
         date = {|2020年7月23日|};
       |);
     ```);
-    +listing{
-      * 引数は `title`, `author`, `date` ラベルを持つレコード型であり、
-        対応する値はいずれも `inline-text list` 型。
-      * `|` で区切ることで、複数行にわたるタイトルや著者名を表示可能
-    }
-
-  >%
-
-  +frame{章組み：セクションフレーム}<%
-    +p{
-      `+section{| title |}< frames >` を使うと、冒頭にセクションフレームが追加される。
-    }
-    +code(```
+            +listing{
+                * 引数は `title`, `author`, `date` ラベルを持つレコード型であり、
+                対応する値はいずれも `inline-text list` 型。
+                * `|` で区切ることで、複数行にわたるタイトルや著者名を表示可能
+            }
+        >
+        %
+        +frame{ 章組み：セクションフレーム }<
+            %
+            +p{
+                `+section{| title |}< frames >` を使うと、冒頭にセクションフレームが追加される。
+            }
+            +code (```
       +section{|\SLyDIFi;の基本機能|}<
 
         +frame{フレーム：スライドの1ページ}< （内容） >
@@ -212,22 +223,22 @@ document '<
       >
     ```);
 
-    +listing{
-      * 多くのテーマでは、セクション冒頭にセクション用のフレームが追加されるだけ。
-      * arctic テーマではセクション用のフレームが追加されるだけでなく、
-        中のフレームのフッターにセクション名が表示される。
-    }
-  >%
+            +listing{
+                * 多くのテーマでは、セクション冒頭にセクション用のフレームが追加されるだけ。
+                * arctic テーマではセクション用のフレームが追加されるだけでなく、
+                中のフレームのフッターにセクション名が表示される。
+            }
+        >
+        %
+        +frame{ フレーム内の文書構造 }<
+            %
+            +listing{
+                * `+p{ inner text }` で段落を作成できる。
+                * `+listing{ * items }` で番号のない箇条書きを作成できる（`enumitem` パッケージを使用）。
+                * `+enumerate{ * items }` で番号付き箇条書きを作成できる（同上）。
+            }
 
-  +frame{フレーム内の文書構造}<%
-
-    +listing{
-      * `+p{ inner text }` で段落を作成できる。
-      * `+listing{ * items }` で番号のない箇条書きを作成できる（`enumitem` パッケージを使用）。
-      * `+enumerate{ * items }` で番号付き箇条書きを作成できる（同上）。
-    }
-
-    +code(````
+            +code (````
     +frame{パッケージ構成}<
       +p{
         \SLyDIFi; は以下のヘッダファイルで構成されている。
@@ -239,47 +250,48 @@ document '<
       }
     >
     ````);
-
-  >%
-
-  +frame{インラインマークアップ}<%
-    +p{
-      \SLyDIFi; ではいくつかのインラインマークアップを提供する。
-    }
-    +fig-center(
-      textbox ?:(set-font-size 14pt) {\easytable[l; l]{
-        | コマンド                     | 役割
-        | `\br;`                       | 強制改行
-        | `\emph{ text }`              | \emph{強調}（強調の方式はテーマにより異なる）
-        | `\text-color(color){ text }` | テキストの\text-color(Color.orange){色の変更}
-        | `\uline{ text }`             | テキストに\uline{下線を引く}
-        | `\strike{ text }`            | \strike{打ち消し線}
-        | `\ctx[ ctx-func ]{ text }`   | テキスト処理文脈の\ctx[set-font-size 20pt]{部分的な}変更。
-        | `\SLyDIFi;`                  | 「\SLyDIFi;」と書きたいときに
-        |}} |> vmargin 10pt
-    );
-    +p{
-      スライドのテーマによっては、`\textbf` など上で述べた以外のコマンドを追加していることもある。
-      また、 `annot` や `code` ライブラリで追加されるコマンドを用いることも可能。
-    }
-
-  >%
-
->%
-
-+section{|オーバーレイ|}<%
-
-  +frame{オーバーレイとは}<%
-    +p{
-      1枚のフレームの中で、プレゼンターの操作によって初めはなかった文字が現れたり、
-      文字が順々に表示されたりすることがある。
-      このようなフレームの動きをオーバーレイと呼ぶ。
-      元は \LaTeX; の Beamer で実装されている機能の名称だが、
-      \SLyDIFi; でも同じ名称を用いる。
-    }
-    +fig-on-right(
-      textblock ?:(set-font-size 12pt) 300pt '<
-        +code(```
+        >
+        %
+        +frame{ インラインマークアップ }<
+            %
+            +p{
+                \SLyDIFi; ではいくつかのインラインマークアップを提供する。
+            }
+            +fig-center (textbox ?:(set-font-size 14pt) {
+            \easytable [l;l;]{
+                | コマンド | 役割
+                | `\br;` | 強制改行
+                | `\emph{ text }` | \emph{強調}（強調の方式はテーマにより異なる）
+                | `\text-color(color){ text }` | テキストの\text-color(Color.orange){色の変更}
+                | `\uline{ text }` | テキストに\uline{下線を引く}
+                | `\strike{ text }` | \strike{打ち消し線}
+                | `\ctx[ ctx-func ]{ text }` | テキスト処理文脈の\ctx[set-font-size 20pt]{部分的な}変更。
+                | `\SLyDIFi;` | 「\SLyDIFi;」と書きたいときに
+                |}
+            }
+                |> vmargin 10pt);
+            +p{
+                スライドのテーマによっては、`\textbf` など上で述べた以外のコマンドを追加していることもある。
+                また、 `annot` や `code` ライブラリで追加されるコマンドを用いることも可能。
+            }
+        >
+        %
+    >
+    %
+    +section{
+        |オーバーレイ|}<
+        %
+        +frame{ オーバーレイとは }<
+            %
+            +p{
+                1枚のフレームの中で、プレゼンターの操作によって初めはなかった文字が現れたり、
+                文字が順々に表示されたりすることがある。
+                このようなフレームの動きをオーバーレイと呼ぶ。
+                元は \LaTeX; の Beamer で実装されている機能の名称だが、
+                \SLyDIFi; でも同じ名称を用いる。
+            }
+            +fig-on-right (textblock ?:(set-font-size 12pt) 300pt '<
+                +code (```
           +frame{タイトル}<
             +p{1枚目と2枚目で表示される段落。}
           >
@@ -288,290 +300,296 @@ document '<
             +p{2枚目のみで表示される処理。}
           >
         ```);
-      >
-    )<%
-      +p{
-        「オーバーレイ」を最も単純に実現したい場合、
-        右のように一部が共通しているフレームを複数作成する方法が考えられる。
-        しかしこの方法には以下の問題がある：
-        \listing{
-          * 同じ内容を2回以上書かなければならない
-          * 共通する部分を変更する際に複数箇所を編集する必要がある
-        }
-      }
-    >%
-    +p{
-      \SLyDIFi; には、より簡単な記法でオーバーレイを実現するための手法が備わっている。
-    }
-
-  >%
-
-  +frame?:(3){オーバーレイ (\show-layer;/3)}<%
-    +fig-on-right(
-      textblock ?:(set-font-size 12pt) 300pt '<%
-        +code(```
+            >)<
+                %
+                +p{
+                    「オーバーレイ」を最も単純に実現したい場合、
+                    右のように一部が共通しているフレームを複数作成する方法が考えられる。
+                    しかしこの方法には以下の問題がある：
+                    \listing{
+                        * 同じ内容を2回以上書かなければならない
+                        * 共通する部分を変更する際に複数箇所を編集する必要がある
+                    }
+                }
+            >
+            %
+            +p{
+                \SLyDIFi; には、より簡単な記法でオーバーレイを実現するための手法が備わっている。
+            }
+        >
+        %
+        +frame ?:(3){ オーバーレイ (\show-layer;/3) }<
+            %
+            +fig-on-right (textblock ?:(set-font-size 12pt) 300pt '<
+                %
+                +code (```
           +frame?:(2){タイトル}<
             +p{1枚目と2枚目で表示される段落。}
             +p?:(only 2){2枚目のみで表示される処理。}
           >
         ```);
-      >%
-    )<%
-      +p{
-        \SLyDIFi; では、右のように書くことで同一の内容を複数回書くことなくオーバーレイを実現できる。
-        具体的には、`+p?:(only 2){ ... }` と書かれている段落が2枚目のレイヤーでのみ表示されるようになる。
-      }
-    >%
+            > %
+            )<
+                %
+                +p{
+                    \SLyDIFi; では、右のように書くことで同一の内容を複数回書くことなくオーバーレイを実現できる。
+                    具体的には、`+p?:(only 2){ ... }` と書かれている段落が2枚目のレイヤーでのみ表示されるようになる。
+                }
+            >
+            %
+            +p{
+                `+frame` は整数値のオプション引数をとることができ、明示すると指定した数だけのレイヤーが作られる。
+                第2引数のインラインテキストにはフレームタイトルを、
+                ブロックテキストには `+frame` と同じように本文を指定する。
+                複数枚のレイヤーを作成することで、「同じ内容のスライドを、一部だけ変えて繰り返す」ことが可能となる。
+            }
+            +p ?:(from 2){
+                2つ目の `+p` ではオプション引数が指定されており、
+                オプション引数に表示条件を入れることで表示を制御することが出来る。
+            }
+            +p ?:(from 3){
+                オプション引数の `only 2` とは、2枚目のレイヤーのみで表示される、ということを表している。
+            }
+        >
+        %
+        +frame{ 挙動を変えるためのコマンド一覧1 }<
+            %
+            +p{
+                今までに紹介したコマンドのうち、
+                `\emph` などいくつかのものはオプション引数によってオーバーレイに対応することができる。
+                たとえば `\emph` では、オプション引数に入れた表示条件を満たした場合のみその文字が強調される。
+                他のコマンドも同様に「表示条件を満たした場合のみ効果が発動する」ようになっている。
+            }
 
-    +p{
-      `+frame` は整数値のオプション引数をとることができ、明示すると指定した数だけのレイヤーが作られる。
-      第2引数のインラインテキストにはフレームタイトルを、
-      ブロックテキストには `+frame` と同じように本文を指定する。
-      複数枚のレイヤーを作成することで、「同じ内容のスライドを、一部だけ変えて繰り返す」ことが可能となる。
-    }
-    +p?:(from 2){
-      2つ目の `+p` ではオプション引数が指定されており、
-      オプション引数に表示条件を入れることで表示を制御することが出来る。
-    }
-    +p?:(from 3){
-      オプション引数の `only 2` とは、2枚目のレイヤーのみで表示される、ということを表している。
-    }
-  >%
+            +listing{
+                * `\emph?:(cond){ text }`
+                * `\text-color?:(cond)(color){ text }`
+                * `\uline?:(cond){ text }`
+                * `\strike?:(cond){ text }`
+                * `\ctx?:(cond)[ctx-funcs]{ text }`
+                * `+ctx?:(cond)[ctx-funcs]{ text }`
+            }
+        >
+        %
+        +frame{ 挙動を変えるためのコマンド一覧2 }<
+            %
+            +p{
+                特定のレイヤーで書式を変えるだけでなく、
+                特定のレイヤーでのみ表示したい、非表示にしたいということもよくある。
+                以下のコマンドでそういった表示そのものを制御できる。
+            }
+            +fig-center (textbox {
+            \easytable [l;lw 400pt;]{
+                | コマンド | 役割
+                | `+p?:(cond){ text }` | 条件を満たすときのみ表示される段落
+                | `+ghost(cond)< block >` | 条件を満たすときのみ表示されるブロック
+                | `\ghost(cond){ text }` | 条件を満たすときのみ表示されるテキスト
+                | `+phantom(cond)< block >` | 条件を満たすときは普通に表示され、満たさないときは同等の空白が表示されるブロック
+                | `\phantom(cond){ text }` | `+phantom` のインラインテキスト版
+                | `+select(cond)< block >< block >` | 条件を満たすときは2番目、満たさないときは3番目の引数に置き換わるブロック
+                | `\select(cond){ text }{ text }` | `+select` のインラインテキスト版
+                |}
+            }
+                |> vmargin 10pt);
+        >
+        %
+        +frame{ レイヤーの表示条件を定める関数一覧 }<
+            %
+            +p{
+                `+p` のオプション引数などに与える `cond` は `int -> bool` 型の関数であれば何でも良いが、
+                簡単のためエイリアス的な関数をいくつか用意している。
+                「${m}枚目から${n}枚目のレイヤーまで」のように比較的単純な条件であれば以下の関数を用いると楽。
+            }
+            +p{
+                いずれも `SlydifiOverlay` モジュール中にあるため、
+                最初に `open SlydifiOverlay` を行うと良い。
+            }
+            +fig-center (textbox {
+            \easytable [l;l;]{
+                | 関数 | 挙動
+                | `only N` | N 番目のレイヤーでのみ成立
+                | `until N` | N 番目のレイヤーまで成立
+                | `from N` | N 番目のレイヤー以降のみ成立
+                | `between M N` | M 番目から N 番目のレイヤーでのみ成立
+                | `on-slides [N1; N2; ...]` | リストに数字が入っているレイヤーでのみ成立
+                | `non (cond)` | `cond` の否定
+                |}
+            }
+                |> vmargin 10pt);
+        >
+        %
+    >
+    %
+    +section{
+        |図版の挿入|}<
+        %
+        +frame{ FigBox モジュール }<
+            %
+            +p{
+                スライドというコンテンツでは、通常の文書以上に図版が重要な役割を持つ。
+                図版の大きさ、配置、余白の量がスライドの見た目に大きな影響を与え、
+                結果的に通常の文書よりも自由度の高い設定が求められることになる。
+            }
+            +p{
+                \SLyDIFi; では、カスタマイズしやすい図版の挿入を実現するために
+                `figbox` パッケージを依存として用いる。
+                Satyrographos を用いてインストールされた場合は自動で入っている。
+            }
 
-  +frame{挙動を変えるためのコマンド一覧1}<%
-    
-    +p{
-      今までに紹介したコマンドのうち、
-      `\emph` などいくつかのものはオプション引数によってオーバーレイに対応することができる。
-      たとえば `\emph` では、オプション引数に入れた表示条件を満たした場合のみその文字が強調される。
-      他のコマンドも同様に「表示条件を満たした場合のみ効果が発動する」ようになっている。
-    }
+            +p{
+                以下では、プリアンブルにて `FigBox` モジュールを `open` しているものとする。
+            }
 
-    +listing{
-      * `\emph?:(cond){ text }`
-      * `\text-color?:(cond)(color){ text }`
-      * `\uline?:(cond){ text }`
-      * `\strike?:(cond){ text }`
-      * `\ctx?:(cond)[ctx-funcs]{ text }`
-      * `+ctx?:(cond)[ctx-funcs]{ text }`
-    }
-  >%
-
-  +frame{挙動を変えるためのコマンド一覧2}<%
-
-    +p{
-      特定のレイヤーで書式を変えるだけでなく、
-      特定のレイヤーでのみ表示したい、非表示にしたいということもよくある。
-      以下のコマンドでそういった表示そのものを制御できる。
-    }
-    +fig-center(
-      textbox {\easytable[l; lw 400pt;]{
-        | コマンド                          | 役割
-        | `+p?:(cond){ text }`              | 条件を満たすときのみ表示される段落
-        | `+ghost(cond)< block >`           | 条件を満たすときのみ表示されるブロック
-        | `\ghost(cond){ text }`            | 条件を満たすときのみ表示されるテキスト
-        | `+phantom(cond)< block >`         | 条件を満たすときは普通に表示され、満たさないときは同等の空白が表示されるブロック
-        | `\phantom(cond){ text }`          | `+phantom` のインラインテキスト版
-        | `+select(cond)< block >< block >` | 条件を満たすときは2番目、満たさないときは3番目の引数に置き換わるブロック
-        | `\select(cond){ text }{ text }`   | `+select` のインラインテキスト版
-        |}} |> vmargin 10pt
-    );
-  >%
-
-  +frame{レイヤーの表示条件を定める関数一覧}<%
-    +p{
-      `+p` のオプション引数などに与える `cond` は `int -> bool` 型の関数であれば何でも良いが、
-      簡単のためエイリアス的な関数をいくつか用意している。
-      「${m}枚目から${n}枚目のレイヤーまで」のように比較的単純な条件であれば以下の関数を用いると楽。
-    }
-    +p{
-      いずれも `SlydifiOverlay` モジュール中にあるため、
-      最初に `open SlydifiOverlay` を行うと良い。
-    }
-    +fig-center(
-      textbox {\easytable[l; l;]{
-        | 関数                      | 挙動
-        | `only N`                  | N 番目のレイヤーでのみ成立
-        | `until N`                 | N 番目のレイヤーまで成立
-        | `from N`                  | N 番目のレイヤー以降のみ成立
-        | `between M N`             | M 番目から N 番目のレイヤーでのみ成立
-        | `on-slides [N1; N2; ...]` | リストに数字が入っているレイヤーでのみ成立
-        | `non (cond)`              | `cond` の否定
-        |}} |> vmargin 10pt
-    );
-  >%
-
->%
-
-+section{|図版の挿入|}<%
-
-  +frame{FigBox モジュール}<%
-
-    +p{
-      スライドというコンテンツでは、通常の文書以上に図版が重要な役割を持つ。
-      図版の大きさ、配置、余白の量がスライドの見た目に大きな影響を与え、
-      結果的に通常の文書よりも自由度の高い設定が求められることになる。
-    }
-    +p{
-      \SLyDIFi; では、カスタマイズしやすい図版の挿入を実現するために
-      `figbox` パッケージを依存として用いる。
-      Satyrographos を用いてインストールされた場合は自動で入っている。
-    }
-
-    +p{
-      以下では、プリアンブルにて `FigBox` モジュールを `open` しているものとする。
-    }
-
-    +code(```
+            +code (```
       open FigBox
     ```);
 
-    +p{
-      `figbox` パッケージの詳細な使い方は
-      \link?:({パッケージのドキュメント})(`https://satyrographos-packages.netlify.app/packages/figbox`);
-      を参照すること。
-    }
+            +p{
+                `figbox` パッケージの詳細な使い方は
+                \link ?:({ パッケージのドキュメント }) (`https://satyrographos-packages.netlify.app/packages/figbox`);
+                を参照すること。
+            }
+        >
+        %
+        +frame{ 図の配置コマンド }<
+            %
+            +p{
+                `FigBox.t` 型の値 `figbox` を指定して、以下のコマンドを用いることで図が挿入される。
+            }
+            +fig-center (textbox {
+            \easytable [l;lw 330pt;]{
+                | コマンド | 役割
+                | `+fig-center(figbox);` | 中央揃えで配置
+                | `+fig-block?:(align)(figbox);` | align で指定した揃え方で表示（左右揃え）
+                | `+fig-on-right(figbox)< block >`
+                | 本文(`block`)の横幅を `figbox` の横幅の分だけ短くし、
+                本文の右側に図を表示。
+                | `+fig-on-left(figbox)< block >`
+                | 本文(`block`)の横幅を `figbox` の横幅の分だけ短くし、
+                本文の左側に図を表示。
+                | `+fig-abs-pos((x, y))(figbox);` | 絶対座標で配置
+                | `+fig-inline(figbox);` | インラインテキスト中に図を挿入
+                |}
+            }
+                |> vmargin 10pt);
+        >
+        %
+        +frame{ 「図」として配置可能なもの }<
+            %
+            +p{
+                FigBox.t 型として配置することのできる基本的なコンテンツは以下のとおり。
+            }
 
-  >%
+            +fig-center (textbox ?:(set-font-size 14pt) {
+            \easytable [l;l;]{
+                | コンテンツ | 関数
+                | JPEG 画像 | ``include-image width `path/to/file.jpg` ``
+                | PDF （1ページ目） | ``include-image width `path/to/file.pdf` ``
+                | PDF （${n} ページ目） | ``include-image ?:n-page width `path/to/file.pdf` ``
+                | JPEG 画像（縦幅指定） | ``include-image-with-height height `path/to/file.jpg` ``
+                | ダミーのブロック | `dummy-box width height`
+                | インラインテキスト | `textbox ?:(ctx-func) { text }`
+                | インラインテキスト（幅指定）| `textbox-with-width ?:(ctx-func) width { text }`
+                | ブロックテキスト | `textblock ?:(ctx-func) width '< text >`
+                |}
+            }
+                |> vmargin 10pt);
+        >
+        %
+        +frame{ 図の結合 }<
+            %
+            +p{
+                複数の図を並べたくなることは多い。
+                \SLyDIFi; では複数の図を簡単に並べることができる。
+            }
 
-  +frame{図の配置コマンド}<%
-    +p{
-      `FigBox.t` 型の値 `figbox` を指定して、以下のコマンドを用いることで図が挿入される。
-    }
-    +fig-center(
-      textbox {\easytable[l; lw 330pt]{
-        | コマンド | 役割
-        | `+fig-center(figbox);` | 中央揃えで配置
-        | `+fig-block?:(align)(figbox);` | align で指定した揃え方で表示（左右揃え）
-        | `+fig-on-right(figbox)< block >`
-        | 本文(`block`)の横幅を `figbox` の横幅の分だけ短くし、
-          本文の右側に図を表示。
-        | `+fig-on-left(figbox)< block >`
-        | 本文(`block`)の横幅を `figbox` の横幅の分だけ短くし、
-          本文の左側に図を表示。
-        | `+fig-abs-pos((x, y))(figbox);` | 絶対座標で配置
-        | `+fig-inline(figbox);` | インラインテキスト中に図を挿入
-        |}} |> vmargin 10pt
-    );
-  >%
+            +fig-center (textbox ?:(set-font-size 14pt) {
+            \easytable [l;l;]{
+                | 内容 | 関数
+                | 図を横に並べる | `hconcat ?:(align) [ figbox-1; ...; figbox-n ]`
+                | 図を縦に並べる | `vconcat ?:(align) [ figbox-1; ...; figbox-n ]`
+                |}
+            }
+                |> vmargin 10pt);
 
-  +frame{「図」として配置可能なもの}<%
-    +p{
-      FigBox.t 型として配置することのできる基本的なコンテンツは以下のとおり。
-    }
+            +listing{
+                * オプション引数 `align` に `float` 型の値を指定することで、揃え方を変更できる。
+                  ** `0.0`: 左揃え/下揃え
+                  ** `0.5`: 中央揃え
+                  ** `1.0`: 右揃え/上揃え
+                * `gap` 関数を途中に挟むと、指定したぶんの余白が図と図の間に挿入される。
+                  ** `hconcat` でも `vconcat` でも使える
+                  ** 例：`hconcat [ figbox-1; gap 10pt; figbox-2; gap 5pt; figbox-3 ]`
+            }
+        >
+        %
+        +frame{ 図の変換 }<
+            %
+            +p{
+                「縦に並べる」「指定した大きさのマージンを周囲に足す」
+                といった操作を図に加えたいこともある。
+                \SLyDIFi; では `figbox` を入力として新たな `figbox` を返す関数をいくつか用意しており、
+                既存の図から簡単にマージンなどの要素を加えた新たな図を作成できる。
+            }
 
-    +fig-center(
-      textbox ?:(set-font-size 14pt) {\easytable[l; l]{
-        | コンテンツ | 関数
-        | JPEG 画像                   | ``include-image width `path/to/file.jpg` ``
-        | PDF （1ページ目）           | ``include-image width `path/to/file.pdf` ``
-        | PDF （${n} ページ目）       | ``include-image ?:n-page width `path/to/file.pdf` ``
-        | JPEG 画像（縦幅指定）       | ``include-image-with-height height `path/to/file.jpg` ``
-        | ダミーのブロック            | `dummy-box width height`
-        | インラインテキスト          | `textbox ?:(ctx-func) { text }`
-        | インラインテキスト（幅指定）| `textbox-with-width ?:(ctx-func) width { text }`
-        | ブロックテキスト            | `textblock ?:(ctx-func) width '< text >`
-        |}} |> vmargin 10pt
-    );
+            +fig-center (textbox ?:(set-font-size 14pt) {
+            \easytable [l;l;]{
+                | 変換内容 | 関数
+                | 左右に余白を追加 | `figbox |> hmargin length`
+                | 上下に余白を追加 | `figbox |> vmargin length`
+                | 上下左右に余白を追加 | `figbox |> hvmargin length`
+                | 上下左右に異なる大きさの余白を追加 | `figbox |> margin left right top bottom`
+                | フレーム（外枠）を描画 | `figbox |> frame line-width line-color`
+                | 図の背景色を設定 | `figbox |> bgcolor color`
+                |}
+            }
+                |> vmargin 6pt);
 
-  >%
+            +listing{
+                * 複数の変換を組み合わせることも当然可能。
+                  ** 例：``include-image 100pt `file.pdf` |> hvmargin 10pt |> frame 1pt Color.black``
+                * `hconcat` や `vconcat` と組み合わせることも当然可能。
+            }
+        >
+        %
+        +frame ?:(4){ 図のオーバーレイ表示 (\show-layer;/4) }<
+            %
+            +p{
+                図もオーバーレイに対応しており、特定のレイヤーに応じて図を出し分けることが可能。
+            }
 
-  +frame{図の結合}<%
-    +p{
-      複数の図を並べたくなることは多い。
-      \SLyDIFi; では複数の図を簡単に並べることができる。
-    }
+            +p{
+                表示条件を満たすとき図を表示し、それ以外では大きさを0にしたいときは
+                `fig-ghost` 関数を用いて `figbox |> fig-ghost (cond)` とする。
+            }
 
-    +fig-center(
-      textbox ?:(set-font-size 14pt) {\easytable[l; l]{
-        | 内容 | 関数
-        | 図を横に並べる | `hconcat ?:(align) [ figbox-1; ...; figbox-n ]`
-        | 図を縦に並べる | `vconcat ?:(align) [ figbox-1; ...; figbox-n ]`
-        |}} |> vmargin 10pt
-    );
+            +p{
+                表示条件を満たすとき図を表示し、それ以外では図を不可視としたい
+                （元の図と同じ大きさの透明の箱を置きたい）ときは
+                `fig-phantom` 関数を用いて `figbox |> fig-phantom (cond)` とする。
+            }
 
-    +listing{
-      * オプション引数 `align` に `float` 型の値を指定することで、揃え方を変更できる。
-        ** `0.0`: 左揃え/下揃え
-        ** `0.5`: 中央揃え
-        ** `1.0`: 右揃え/上揃え
+            +p{
+                `select` 関数を用いて図の内容や体裁などを切り替えることも可能。
+            }
 
-      * `gap` 関数を途中に挟むと、指定したぶんの余白が図と図の間に挿入される。
-
-        ** `hconcat` でも `vconcat` でも使える
-        ** 例：`hconcat [ figbox-1; gap 10pt; figbox-2; gap 5pt; figbox-3 ]`
-    }
-
-  >%
-
-  +frame{図の変換}<%
-    +p{
-      「縦に並べる」「指定した大きさのマージンを周囲に足す」
-      といった操作を図に加えたいこともある。
-      \SLyDIFi; では `figbox` を入力として新たな `figbox` を返す関数をいくつか用意しており、
-      既存の図から簡単にマージンなどの要素を加えた新たな図を作成できる。
-    }
-
-    +fig-center(
-      textbox ?:(set-font-size 14pt) {\easytable[l; l]{
-        | 変換内容 | 関数
-        | 左右に余白を追加                   | `figbox |> hmargin length`
-        | 上下に余白を追加                   | `figbox |> vmargin length`
-        | 上下左右に余白を追加               | `figbox |> hvmargin length`
-        | 上下左右に異なる大きさの余白を追加 | `figbox |> margin left right top bottom`
-        | フレーム（外枠）を描画             | `figbox |> frame line-width line-color`
-        | 図の背景色を設定                   | `figbox |> bgcolor color`
-        |}} |> vmargin 6pt
-    );
-
-    +listing{
-      * 複数の変換を組み合わせることも当然可能。
-        ** 例：``include-image 100pt `file.pdf` |> hvmargin 10pt |> frame 1pt Color.black``
-      * `hconcat` や `vconcat` と組み合わせることも当然可能。
-    }
-
-  >%
-
-  +frame?:(4){図のオーバーレイ表示 (\show-layer;/4)}<%
-    +p{
-      図もオーバーレイに対応しており、特定のレイヤーに応じて図を出し分けることが可能。
-    }
-
-    +p{
-      表示条件を満たすとき図を表示し、それ以外では大きさを0にしたいときは
-      `fig-ghost` 関数を用いて `figbox |> fig-ghost (cond)` とする。
-    }
-
-    +p{
-      表示条件を満たすとき図を表示し、それ以外では図を不可視としたい
-      （元の図と同じ大きさの透明の箱を置きたい）ときは
-      `fig-phantom` 関数を用いて `figbox |> fig-phantom (cond)` とする。
-    }
-
-    +p{
-      `select` 関数を用いて図の内容や体裁などを切り替えることも可能。
-    }
-
-    +fig-center(
-      vconcat [
-        gap 10pt;
-        textbox {This box appears on the first and fourth layers.}
-          |> glass-box ?:(align-center, align-center) 500pt 30pt
-          |> bgcolor (Color.gray 0.8)
-          |> fig-phantom (on-slides [1; 4]);
-        gap 10pt;
-        textbox-with-width 450pt
-          {
-            The line color of this box is blue on the first and second frame, and red after that.
-            Therefore, the line color of this box is
-            \select(until 2){\text-color(Color.blue){blue}}{\text-color(Color.red){red}} now.
-          }
-          |> glass-box ?:(align-center, align-center) 500pt 80pt
-          |> frame 3pt (select-from-two (until 2) Color.blue Color.red)
-      ]
-    );
-  >%
-
->%
-
+            +fig-center (vconcat [
+                gap 10pt;
+                textbox { This box appears on the first and fourth layers. }
+                    |> glass-box ?:(align-center, align-center) 500pt 30pt
+                    |> bgcolor (Color.gray 0.8)
+                    |> fig-phantom (on-slides [1;4;]);
+                gap 10pt;
+                textbox-with-width 450pt {
+                The line color of this box is blue on the first and second frame, and red after that.
+                Therefore, the line color of this box is
+                \select (until 2){ \text-color (Color.blue){ blue } }{ \text-color (Color.red){ red } } now.
+                }
+                    |> glass-box ?:(align-center, align-center) 500pt 80pt
+                    |> frame 3pt (select-from-two (until 2) Color.blue Color.red);
+            ]);
+        >
+        %
+    >
+    %
 >
