@@ -23,13 +23,10 @@ indent_size = 2
 [*.nix]
 indent_size = 2
 
-[*.saty]
+[*.{saty,satyh}]
 indent_style = tab
 indent_size = 4
-
-[*.satyh]
-indent_style = tab
-indent_size = 4
+trim_trailing_whitespace = false
 
 [*.satysfi-hash]
 insert_final_newline = false
