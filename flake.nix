@@ -117,6 +117,17 @@
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)
           ];
+          packages = [
+            (
+              pkgs.writers.writeBashBin
+              "satysfi-fmt-each"
+              ''
+                for f in "$@";
+                  do satysfi-fmt --write "$f"
+                done
+              ''
+            )
+          ];
         };
         checks = self.packages.${system};
       }
