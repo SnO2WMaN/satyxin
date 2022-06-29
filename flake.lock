@@ -148,11 +148,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1655983783,
-        "narHash": "sha256-0h1FzkYWei24IdKNpCX93onkF/FMiXQG8SdEbTc0r8A=",
+        "lastModified": 1656239181,
+        "narHash": "sha256-wW1xRFBn376yGloXZ4QzBE4hjipMawpV18Lshd9QSPw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6141b8932a5cf376fe18fcd368cecd9ad946cb68",
+        "rev": "f2537a505d45c31fe5d9c27ea9829b6f4c4e6ac5",
         "type": "github"
       },
       "original": {
@@ -451,16 +451,15 @@
     "satysfi-formatter": {
       "flake": false,
       "locked": {
-        "lastModified": 1653366227,
-        "narHash": "sha256-kuGJ61UzmDDaV7GfPIelk7GOO6HSYidcNX+wrO2fSW4=",
+        "lastModified": 1654866702,
+        "narHash": "sha256-HLw6WRdyavFWzF6mdJy2TKxZ/I4C9LNu/912pR+BS0w=",
         "owner": "usagrada",
         "repo": "satysfi-formatter",
-        "rev": "6d9518575b1a3655bd227be407cfd6092889aaf9",
+        "rev": "613e3aa8c776b95ef3108d92d15d3ef9a2e53ad0",
         "type": "github"
       },
       "original": {
         "owner": "usagrada",
-        "ref": "v0.1.1",
         "repo": "satysfi-formatter",
         "type": "github"
       }
@@ -587,11 +586,11 @@
         "satysfi-language-server": "satysfi-language-server"
       },
       "locked": {
-        "lastModified": 1655148557,
-        "narHash": "sha256-4cWqanKDpud5AeHILxVJ9zalYdtQFQ8h2nFEDn9xoac=",
+        "lastModified": 1656462158,
+        "narHash": "sha256-/WFKMdNDPb7VkKlQSoIrDLxv3iQgTtlSEEgljsuxwBo=",
         "owner": "SnO2WMaN",
         "repo": "satysfi-tools-nix",
-        "rev": "a06c01517d9e9bc43ff5112b23064c8f9117660f",
+        "rev": "d374364896acf4ca95f67462b9bc285d3c39a6f2",
         "type": "github"
       },
       "original": {
