@@ -1,4 +1,5 @@
 {
+  "diffEditor.ignoreTrimWhitespace": false,
   "nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix",
   "satysfi-workshop.executable": "satysfi",
   "satysfi-workshop.languageServer.enabled": true,
