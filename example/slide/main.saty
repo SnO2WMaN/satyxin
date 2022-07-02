@@ -10,31 +10,31 @@ open EasyTableAlias
 let-block ctx +code code =
     let ctx =
         let fsize = get-font-size ctx in
-            ctx 
+            ctx
                 |> set-leading (fsize *' 1.45) in
         read-block ctx '<
             +Code.code (code);
         >
 let config =
     let set-font-metrics fsize ctx =
-        ctx 
-            |> set-font-size fsize 
-            |> set-paragraph-margin (fsize *' 0.6) (fsize *' 0.6) 
+        ctx
+            |> set-font-size fsize
+            |> set-paragraph-margin (fsize *' 0.6) (fsize *' 0.6)
             |> set-leading (fsize *' 1.4) in
     let default-font ctx =
-        ctx 
-            |> set-font Latin (`ipaexg`, 1.0, 0.0) 
-            |> set-font Kana (`ipaexg`, 1.0, 0.0) 
+        ctx
+            |> set-font Latin (`ipaexg`, 1.0, 0.0)
+            |> set-font Kana (`ipaexg`, 1.0, 0.0)
             |> set-font HanIdeographic (`ipaexg`, 1.0, 0.0) in
     let code-font ctx =
-        ctx 
-            |> set-font Latin (`lmmono`, 1.0, 0.0) 
-            |> set-font Kana (`lmmono`, 1.0, 0.0) 
+        ctx
+            |> set-font Latin (`lmmono`, 1.0, 0.0)
+            |> set-font Kana (`lmmono`, 1.0, 0.0)
             |> set-font HanIdeographic (`lmmono`, 1.0, 0.0) in
     let bold-font ctx =
-        ctx 
-            |> set-font Latin (`ipaexg`, 1.0, 0.0) 
-            |> set-font Kana (`ipaexg`, 1.0, 0.0) 
+        ctx
+            |> set-font Latin (`ipaexg`, 1.0, 0.0)
+            |> set-font Kana (`ipaexg`, 1.0, 0.0)
             |> set-font HanIdeographic (`ipaexg`, 1.0, 0.0) in
         (|
             SlydifiThemeArctic.default-config with font-normal = SlydifiScheme.apply-font-cfg [
@@ -268,7 +268,7 @@ document'<
                 | `\ctx[ ctx-func ]{ text }` | テキスト処理文脈の\ctx[set-font-size 20pt]{部分的な}変更。
                 | `\SLyDIFi;` | 「\SLyDIFi;」と書きたいときに
                 |}
-            } 
+            }
                 |> vmargin 10pt);
             +p{
                 スライドのテーマによっては、`\textbf` など上で述べた以外のコマンドを追加していることもある。
@@ -328,7 +328,7 @@ document'<
             +p?:(only 2){2枚目のみで表示される処理。}
           >
         ```);
-            > % 
+            > %
             )<
                 %
                 +p{
@@ -389,7 +389,7 @@ document'<
                 | `+select(cond)< block >< block >` | 条件を満たすときは2番目、満たさないときは3番目の引数に置き換わるブロック
                 | `\select(cond){ text }{ text }` | `+select` のインラインテキスト版
                 |}
-            } 
+            }
                 |> vmargin 10pt);
         >
         %
@@ -414,7 +414,7 @@ document'<
                 | `on-slides [N1; N2; ...]` | リストに数字が入っているレイヤーでのみ成立
                 | `non (cond)` | `cond` の否定
                 |}
-            } 
+            }
                 |> vmargin 10pt);
         >
         %
@@ -470,7 +470,7 @@ document'<
                 | `+fig-abs-pos((x, y))(figbox);` | 絶対座標で配置
                 | `+fig-inline(figbox);` | インラインテキスト中に図を挿入
                 |}
-            } 
+            }
                 |> vmargin 10pt);
         >
         %
@@ -492,7 +492,7 @@ document'<
                 | インラインテキスト（幅指定）| `textbox-with-width ?:(ctx-func) width { text }`
                 | ブロックテキスト | `textblock ?:(ctx-func) width '< text >`
                 |}
-            } 
+            }
                 |> vmargin 10pt);
         >
         %
@@ -509,7 +509,7 @@ document'<
                 | 図を横に並べる | `hconcat ?:(align) [ figbox-1; ...; figbox-n ]`
                 | 図を縦に並べる | `vconcat ?:(align) [ figbox-1; ...; figbox-n ]`
                 |}
-            } 
+            }
                 |> vmargin 10pt);
 
             +listing{
@@ -542,7 +542,7 @@ document'<
                 | フレーム（外枠）を描画 | `figbox |> frame line-width line-color`
                 | 図の背景色を設定 | `figbox |> bgcolor color`
                 |}
-            } 
+            }
                 |> vmargin 6pt);
 
             +listing{
@@ -575,17 +575,17 @@ document'<
 
             +fig-center (vconcat [
                 gap 10pt;
-                textbox { This box appears on the first and fourth layers. } 
-                    |> glass-box ?:(align-center, align-center) 500pt 30pt 
-                    |> bgcolor (Color.gray 0.8) 
+                textbox { This box appears on the first and fourth layers. }
+                    |> glass-box ?:(align-center, align-center) 500pt 30pt
+                    |> bgcolor (Color.gray 0.8)
                     |> fig-phantom (on-slides [1;4;]);
                 gap 10pt;
                 textbox-with-width 450pt {
                 The line color of this box is blue on the first and second frame, and red after that.
                 Therefore, the line color of this box is
                 \select (until 2){ \text-color (Color.blue){ blue } }{ \text-color (Color.red){ red } } now.
-                } 
-                    |> glass-box ?:(align-center, align-center) 500pt 80pt 
+                }
+                    |> glass-box ?:(align-center, align-center) 500pt 80pt
                     |> frame 3pt (select-from-two (until 2) Color.blue Color.red);
             ]);
         >
