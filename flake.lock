@@ -586,11 +586,11 @@
         "satysfi-language-server": "satysfi-language-server"
       },
       "locked": {
-        "lastModified": 1656591211,
-        "narHash": "sha256-K3xlQhnGKUmkWAhYgwpKqUKgJ+Lr9Ld0qyuE4dIy+Ho=",
+        "lastModified": 1656751621,
+        "narHash": "sha256-Hx2IiuKke7C8km9bEwjGaw8iMjplJLEGymSP8vRf5RI=",
         "owner": "SnO2WMaN",
         "repo": "satysfi-tools-nix",
-        "rev": "bc84fb6914b39b0935b5f797212c336d1aae20d4",
+        "rev": "635fbd55ae8170aaa8758bc3a761252da02395e5",
         "type": "github"
       },
       "original": {
