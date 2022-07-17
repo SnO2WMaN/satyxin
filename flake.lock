@@ -97,54 +97,7 @@
         "type": "github"
       }
     },
-    "root": {
-      "inputs": {
-        "devshell": "devshell",
-        "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2",
-        "satysfi": "satysfi",
-        "satysfi-algorithm": "satysfi-algorithm",
-        "satysfi-azmath": "satysfi-azmath",
-        "satysfi-base": "satysfi-base",
-        "satysfi-bibyfi": "satysfi-bibyfi",
-        "satysfi-chemfml": "satysfi-chemfml",
-        "satysfi-class-jlreq": "satysfi-class-jlreq",
-        "satysfi-class-slydifi": "satysfi-class-slydifi",
-        "satysfi-code-printer": "satysfi-code-printer",
-        "satysfi-derive": "satysfi-derive",
-        "satysfi-easytable": "satysfi-easytable",
-        "satysfi-enumitem": "satysfi-enumitem",
-        "satysfi-figbox": "satysfi-figbox",
-        "satysfi-fonts-junicode": "satysfi-fonts-junicode",
-        "satysfi-formatter": "satysfi-formatter",
-        "satysfi-fss": "satysfi-fss",
-        "satysfi-karnaugh": "satysfi-karnaugh",
-        "satysfi-language-server": "satysfi-language-server",
-        "satysfi-pagenumber": "satysfi-pagenumber",
-        "satysfi-pagestyle": "satysfi-pagestyle",
-        "satysfi-railway": "satysfi-railway",
-        "satysfi-ruby": "satysfi-ruby",
-        "satysfi-uline": "satysfi-uline"
-      }
-    },
-    "satysfi": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1653979685,
-        "narHash": "sha256-fROHHrjbO+SAr1ONntTB3lDH+cDLuG/Uq9lgVmhQWUc=",
-        "owner": "gfngfn",
-        "repo": "SATySFi",
-        "rev": "133dcfb244774db14c19241bc85fc4186c297c89",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gfngfn",
-        "repo": "SATySFi",
-        "type": "github"
-      }
-    },
-    "satysfi-algorithm": {
+    "pkg-satysfi-algorithm": {
       "flake": false,
       "locked": {
         "lastModified": 1653060170,
@@ -160,7 +113,7 @@
         "type": "github"
       }
     },
-    "satysfi-azmath": {
+    "pkg-satysfi-azmath": {
       "flake": false,
       "locked": {
         "lastModified": 1652616966,
@@ -176,7 +129,7 @@
         "type": "github"
       }
     },
-    "satysfi-base": {
+    "pkg-satysfi-base": {
       "flake": false,
       "locked": {
         "lastModified": 1643503102,
@@ -192,7 +145,7 @@
         "type": "github"
       }
     },
-    "satysfi-bibyfi": {
+    "pkg-satysfi-bibyfi": {
       "flake": false,
       "locked": {
         "lastModified": 1590641889,
@@ -208,7 +161,7 @@
         "type": "github"
       }
     },
-    "satysfi-chemfml": {
+    "pkg-satysfi-chemfml": {
       "flake": false,
       "locked": {
         "lastModified": 1654260031,
@@ -224,7 +177,7 @@
         "type": "github"
       }
     },
-    "satysfi-class-jlreq": {
+    "pkg-satysfi-class-jlreq": {
       "flake": false,
       "locked": {
         "lastModified": 1637893136,
@@ -240,7 +193,7 @@
         "type": "github"
       }
     },
-    "satysfi-class-slydifi": {
+    "pkg-satysfi-class-slydifi": {
       "flake": false,
       "locked": {
         "lastModified": 1651152178,
@@ -256,7 +209,7 @@
         "type": "github"
       }
     },
-    "satysfi-code-printer": {
+    "pkg-satysfi-code-printer": {
       "flake": false,
       "locked": {
         "lastModified": 1653883806,
@@ -272,7 +225,7 @@
         "type": "github"
       }
     },
-    "satysfi-derive": {
+    "pkg-satysfi-derive": {
       "flake": false,
       "locked": {
         "lastModified": 1609581687,
@@ -288,7 +241,7 @@
         "type": "github"
       }
     },
-    "satysfi-easytable": {
+    "pkg-satysfi-easytable": {
       "flake": false,
       "locked": {
         "lastModified": 1651278826,
@@ -304,7 +257,7 @@
         "type": "github"
       }
     },
-    "satysfi-enumitem": {
+    "pkg-satysfi-enumitem": {
       "flake": false,
       "locked": {
         "lastModified": 1637669402,
@@ -320,7 +273,7 @@
         "type": "github"
       }
     },
-    "satysfi-figbox": {
+    "pkg-satysfi-figbox": {
       "flake": false,
       "locked": {
         "lastModified": 1650114119,
@@ -336,7 +289,7 @@
         "type": "github"
       }
     },
-    "satysfi-fonts-junicode": {
+    "pkg-satysfi-fonts-junicode": {
       "flake": false,
       "locked": {
         "lastModified": 1653109723,
@@ -349,6 +302,165 @@
       "original": {
         "owner": "na4zagin3",
         "repo": "SATySFi-fonts-junicode",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-fss": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621524057,
+        "narHash": "sha256-tS48saaPxIsqamNdHkiwkwGQ8bE5FbYRQqEJjRTqCQY=",
+        "owner": "na4zagin3",
+        "repo": "satysfi-fss",
+        "rev": "1021e7c9e2a7319aac06f935c7bad897caadd178",
+        "type": "github"
+      },
+      "original": {
+        "owner": "na4zagin3",
+        "repo": "satysfi-fss",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-karnaugh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1579355488,
+        "narHash": "sha256-guVblr9eu0HgQo8zUth3tPVrIDyu4yF2CgzhUnXsop0=",
+        "owner": "takagiy",
+        "repo": "satysfi-karnaugh",
+        "rev": "ed38a3ec2afa09a383a2b4e9068ece4dd9bba715",
+        "type": "github"
+      },
+      "original": {
+        "owner": "takagiy",
+        "repo": "satysfi-karnaugh",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-pagenumber": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629364140,
+        "narHash": "sha256-6dUsx9dfxhpPF1NVcafenoi81uH7oacODeBeHIyfz5A=",
+        "owner": "abenori",
+        "repo": "satysfi-pagenumber",
+        "rev": "dd5b7f81df40fbf2a14cdc159138cebb50b3bd71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenori",
+        "repo": "satysfi-pagenumber",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-pagestyle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629364940,
+        "narHash": "sha256-tXtTyDlwtLHNjCthGapYwXlttXT37JwvUHf8Snibrac=",
+        "owner": "abenori",
+        "repo": "satysfi-pagestyle",
+        "rev": "868141087d111c67893b597a21a6a287afc063ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenori",
+        "repo": "satysfi-pagestyle",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-railway": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1622980701,
+        "narHash": "sha256-DeMNMWeOLTUFXidi7sfDl5gsAdi+vBE5zJmTshjfieI=",
+        "owner": "monaqa",
+        "repo": "satysfi-railway",
+        "rev": "cbefb0489993a8f1c695e3e50a6d0266841402c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "satysfi-railway",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-ruby": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1601469764,
+        "narHash": "sha256-GEOXhem78zZqtjx4I1iXNtiA+wy6AgU6Y1rJZZ3hLEA=",
+        "owner": "puripuri2100",
+        "repo": "SATySFi-ruby",
+        "rev": "3f90a25d7c5ee66839fcae3a7d128fb826fee962",
+        "type": "github"
+      },
+      "original": {
+        "owner": "puripuri2100",
+        "repo": "SATySFi-ruby",
+        "type": "github"
+      }
+    },
+    "pkg-satysfi-uline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1612656852,
+        "narHash": "sha256-94lChvMIkuIFHJgPoMbQCkivIGwz5EieCOKpcTaKThc=",
+        "owner": "puripuri2100",
+        "repo": "SATySFi-uline",
+        "rev": "a5de5851100d02d2533d7744cdd529f43e0302a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "puripuri2100",
+        "repo": "SATySFi-uline",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "devshell": "devshell",
+        "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2",
+        "pkg-satysfi-algorithm": "pkg-satysfi-algorithm",
+        "pkg-satysfi-azmath": "pkg-satysfi-azmath",
+        "pkg-satysfi-base": "pkg-satysfi-base",
+        "pkg-satysfi-bibyfi": "pkg-satysfi-bibyfi",
+        "pkg-satysfi-chemfml": "pkg-satysfi-chemfml",
+        "pkg-satysfi-class-jlreq": "pkg-satysfi-class-jlreq",
+        "pkg-satysfi-class-slydifi": "pkg-satysfi-class-slydifi",
+        "pkg-satysfi-code-printer": "pkg-satysfi-code-printer",
+        "pkg-satysfi-derive": "pkg-satysfi-derive",
+        "pkg-satysfi-easytable": "pkg-satysfi-easytable",
+        "pkg-satysfi-enumitem": "pkg-satysfi-enumitem",
+        "pkg-satysfi-figbox": "pkg-satysfi-figbox",
+        "pkg-satysfi-fonts-junicode": "pkg-satysfi-fonts-junicode",
+        "pkg-satysfi-fss": "pkg-satysfi-fss",
+        "pkg-satysfi-karnaugh": "pkg-satysfi-karnaugh",
+        "pkg-satysfi-pagenumber": "pkg-satysfi-pagenumber",
+        "pkg-satysfi-pagestyle": "pkg-satysfi-pagestyle",
+        "pkg-satysfi-railway": "pkg-satysfi-railway",
+        "pkg-satysfi-ruby": "pkg-satysfi-ruby",
+        "pkg-satysfi-uline": "pkg-satysfi-uline",
+        "satysfi": "satysfi",
+        "satysfi-formatter": "satysfi-formatter",
+        "satysfi-language-server": "satysfi-language-server"
+      }
+    },
+    "satysfi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653979685,
+        "narHash": "sha256-fROHHrjbO+SAr1ONntTB3lDH+cDLuG/Uq9lgVmhQWUc=",
+        "owner": "gfngfn",
+        "repo": "SATySFi",
+        "rev": "133dcfb244774db14c19241bc85fc4186c297c89",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gfngfn",
+        "repo": "SATySFi",
         "type": "github"
       }
     },
@@ -368,38 +480,6 @@
         "type": "github"
       }
     },
-    "satysfi-fss": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1621524057,
-        "narHash": "sha256-tS48saaPxIsqamNdHkiwkwGQ8bE5FbYRQqEJjRTqCQY=",
-        "owner": "na4zagin3",
-        "repo": "satysfi-fss",
-        "rev": "1021e7c9e2a7319aac06f935c7bad897caadd178",
-        "type": "github"
-      },
-      "original": {
-        "owner": "na4zagin3",
-        "repo": "satysfi-fss",
-        "type": "github"
-      }
-    },
-    "satysfi-karnaugh": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1579355488,
-        "narHash": "sha256-guVblr9eu0HgQo8zUth3tPVrIDyu4yF2CgzhUnXsop0=",
-        "owner": "takagiy",
-        "repo": "satysfi-karnaugh",
-        "rev": "ed38a3ec2afa09a383a2b4e9068ece4dd9bba715",
-        "type": "github"
-      },
-      "original": {
-        "owner": "takagiy",
-        "repo": "satysfi-karnaugh",
-        "type": "github"
-      }
-    },
     "satysfi-language-server": {
       "flake": false,
       "locked": {
@@ -413,86 +493,6 @@
       "original": {
         "owner": "monaqa",
         "repo": "satysfi-language-server",
-        "type": "github"
-      }
-    },
-    "satysfi-pagenumber": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1629364140,
-        "narHash": "sha256-6dUsx9dfxhpPF1NVcafenoi81uH7oacODeBeHIyfz5A=",
-        "owner": "abenori",
-        "repo": "satysfi-pagenumber",
-        "rev": "dd5b7f81df40fbf2a14cdc159138cebb50b3bd71",
-        "type": "github"
-      },
-      "original": {
-        "owner": "abenori",
-        "repo": "satysfi-pagenumber",
-        "type": "github"
-      }
-    },
-    "satysfi-pagestyle": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1629364940,
-        "narHash": "sha256-tXtTyDlwtLHNjCthGapYwXlttXT37JwvUHf8Snibrac=",
-        "owner": "abenori",
-        "repo": "satysfi-pagestyle",
-        "rev": "868141087d111c67893b597a21a6a287afc063ea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "abenori",
-        "repo": "satysfi-pagestyle",
-        "type": "github"
-      }
-    },
-    "satysfi-railway": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1622980701,
-        "narHash": "sha256-DeMNMWeOLTUFXidi7sfDl5gsAdi+vBE5zJmTshjfieI=",
-        "owner": "monaqa",
-        "repo": "satysfi-railway",
-        "rev": "cbefb0489993a8f1c695e3e50a6d0266841402c2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "monaqa",
-        "repo": "satysfi-railway",
-        "type": "github"
-      }
-    },
-    "satysfi-ruby": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1601469764,
-        "narHash": "sha256-GEOXhem78zZqtjx4I1iXNtiA+wy6AgU6Y1rJZZ3hLEA=",
-        "owner": "puripuri2100",
-        "repo": "SATySFi-ruby",
-        "rev": "3f90a25d7c5ee66839fcae3a7d128fb826fee962",
-        "type": "github"
-      },
-      "original": {
-        "owner": "puripuri2100",
-        "repo": "SATySFi-ruby",
-        "type": "github"
-      }
-    },
-    "satysfi-uline": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1612656852,
-        "narHash": "sha256-94lChvMIkuIFHJgPoMbQCkivIGwz5EieCOKpcTaKThc=",
-        "owner": "puripuri2100",
-        "repo": "SATySFi-uline",
-        "rev": "a5de5851100d02d2533d7744cdd529f43e0302a9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "puripuri2100",
-        "repo": "SATySFi-uline",
         "type": "github"
       }
     }

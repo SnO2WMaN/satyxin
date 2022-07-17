@@ -12,7 +12,7 @@ in
       sources = g.sources or {};
       deps = g.deps or [];
 
-      src = with lock.nodes."satysfi-${name}".locked;
+      src = with lock.nodes."pkg-satysfi-${name}".locked;
         pkgs.fetchFromGitHub {
           inherit owner repo rev;
           sha256 = narHash;
