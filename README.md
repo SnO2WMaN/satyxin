@@ -73,3 +73,5 @@ packages.main = pkgs.satyxin.buildDocument {
   - Original version of this attempt.
 - [SnO2WMaN/satyxin](https://github.com/SnO2WMaN/satyxin)
   - Forked version of [AumyF/satyxin](https://github.com/AumyF/satyxin) (_Deprecated_)
+- [SnO2WMaN/satyxin](https://github.com/SnO2WMaN/satysfi-tools-nix)
+  - Nix flake for Useful SATySFi tools (_Deprecated_)

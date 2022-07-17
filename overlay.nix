@@ -1,4 +1,7 @@
 final: prev: {
+  satysfi-formatter = final.callPackage ./tools/satysfi-formatter {};
+  satysfi-language-server = final.callPackage ./tools/satysfi-language-server {};
+
   satyxin = import ./nix {pkgs = final;};
   satyxinPackages = let
     satyxinPkgs = builtins.listToAttrs (

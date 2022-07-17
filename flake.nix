@@ -11,10 +11,10 @@
       flake = false;
     };
 
-    satysfi.flake = false;
-    satysfi.url = "github:gfngfn/SATySFi";
-
-    satysfi-tools.url = "github:SnO2WMaN/satysfi-tools-nix";
+    satysfi-formatter.url = "github:usagrada/satysfi-formatter";
+    satysfi-formatter.flake = false;
+    satysfi-language-server.url = "github:monaqa/satysfi-language-server";
+    satysfi-language-server.flake = false;
 
     pkg-satysfi-algorithm.flake = false;
     pkg-satysfi-algorithm.url = "github:pickoba/satysfi-algorithm";
@@ -63,7 +63,6 @@
     nixpkgs,
     flake-utils,
     devshell,
-    satysfi-tools,
     ...
   }:
     {
@@ -76,7 +75,6 @@
           inherit system;
           overlays = [
             devshell.overlay
-            satysfi-tools.overlay
             self.overlay
           ];
         };
@@ -113,6 +111,13 @@
           }
           // pkgs.satyxin
           // pkgs.satyxinPackages
+          // {
+            inherit
+              (pkgs)
+              satysfi-formatter
+              satysfi-language-server
+              ;
+          }
         );
         devShell = pkgs.devshell.mkShell {
           imports = [
