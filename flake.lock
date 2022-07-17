@@ -443,8 +443,25 @@
         "pkg-satysfi-railway": "pkg-satysfi-railway",
         "pkg-satysfi-ruby": "pkg-satysfi-ruby",
         "pkg-satysfi-uline": "pkg-satysfi-uline",
+        "satysfi": "satysfi",
         "satysfi-formatter": "satysfi-formatter",
         "satysfi-language-server": "satysfi-language-server"
+      }
+    },
+    "satysfi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653979685,
+        "narHash": "sha256-fROHHrjbO+SAr1ONntTB3lDH+cDLuG/Uq9lgVmhQWUc=",
+        "owner": "gfngfn",
+        "repo": "SATySFi",
+        "rev": "133dcfb244774db14c19241bc85fc4186c297c89",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gfngfn",
+        "repo": "SATySFi",
+        "type": "github"
       }
     },
     "satysfi-formatter": {

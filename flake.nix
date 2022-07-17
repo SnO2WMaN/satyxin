@@ -11,6 +11,9 @@
       flake = false;
     };
 
+    satysfi.url = "github:gfngfn/SATySFi";
+    satysfi.flake = false;
+
     satysfi-formatter.url = "github:usagrada/satysfi-formatter";
     satysfi-formatter.flake = false;
     satysfi-language-server.url = "github:monaqa/satysfi-language-server";
