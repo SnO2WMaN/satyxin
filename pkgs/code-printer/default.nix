@@ -9,6 +9,7 @@
     deps = with satyxinPkgs; [
       base
       fonts-junicode
+      fonts-dejavu
     ];
   }
 )
