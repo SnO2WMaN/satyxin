@@ -4,7 +4,7 @@ packages = [
   "dprint",
   "deadnix",
   "satysfi",
-  "satysfi-formatter",
+  "satysfi-formatter-each",
   "satysfi-language-server",
 ]
 
