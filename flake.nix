@@ -57,8 +57,7 @@
     pkg-satysfi-railway.url = "github:monaqa/satysfi-railway";
     pkg-satysfi-ruby.flake = false;
     pkg-satysfi-ruby.url = "github:puripuri2100/SATySFi-ruby";
-    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman/overlay-experiments";
-
+    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman";
     pkg-satysfi-uline.flake = false;
     pkg-satysfi-uline.url = "github:puripuri2100/SATySFi-uline";
   };
@@ -72,15 +71,9 @@
     ...
   } @ inputs:
     {
-      overlays.default = final: prev: (
-        builtins.foldl'
-        (p: c: p // (c final prev))
-        {}
-        [
-          pkg-satysfi-sno2wman.overlays.default
-          (import ./overlay.nix)
-        ]
-      );
+      overlays.default = import ./overlay.nix {
+        inherit (pkg-satysfi-sno2wman.satyxinPackages) sno2wman;
+      };
       overlay = self.overlays.default;
     }
     // flake-utils.lib.eachDefaultSystem (
@@ -106,6 +99,7 @@
                 "ruby"
                 "class-slydifi"
                 "easytable"
+                "sno2wman"
               ];
             };
             "example/basic" = pkgs.satyxin.buildDocument {

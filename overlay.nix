@@ -1,16 +1,16 @@
-final: prev: {
+externalPkgs: final: prev: {
   satysfi-formatter = final.callPackage ./tools/satysfi-formatter {};
   satysfi-language-server = final.callPackage ./tools/satysfi-language-server {};
 
   satyxin = import ./nix {pkgs = final;};
 
-  satyxinPackages =
-    {sno2wman = final.satyxin-sno2wman;}
+  satyxinPackages = with final.lib; (
+    (mapAttrs (key: value: final.callPackage value {}) externalPkgs)
     // (
-      builtins.listToAttrs (
+      listToAttrs (
         map (name: {
           name = name;
-          value = prev.callPackage (import ./pkgs/${name}) {};
+          value = final.callPackage (import ./pkgs/${name}) {};
         }) [
           "algorithm"
           "azmath"
@@ -36,5 +36,6 @@ final: prev: {
           "uline"
         ]
       )
-    );
+    )
+  );
 }
