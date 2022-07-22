@@ -122,8 +122,11 @@
               output = "slide.pdf";
             };
           }
-          // pkgs.satyxin
-          // pkgs.satyxinPackages
+          // (with pkgs.lib.attrsets;
+            mapAttrs' (
+              key: value: (nameValuePair ("satyxin-package-" + key) value)
+            )
+            pkgs.satyxinPackages)
           // {
             inherit
               (pkgs)
