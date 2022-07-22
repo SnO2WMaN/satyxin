@@ -908,15 +908,16 @@
         "satyxin": "satyxin"
       },
       "locked": {
-        "lastModified": 1658487487,
-        "narHash": "sha256-AKsXkhfyWRej9yHB7qSi146OvelMA0yOAa3ly61Bw08=",
+        "lastModified": 1658504222,
+        "narHash": "sha256-jiSwbhsUE/xGRfUeDAmhWfjoBJ+3Is2vI4OVKj2tHVU=",
         "owner": "sno2wman",
         "repo": "satysfi-sno2wman",
-        "rev": "56f03a77bc79cffb61f77be4982293208fd9ce24",
+        "rev": "d2c19c0577297cd962337c405d2f6672a743a263",
         "type": "github"
       },
       "original": {
         "owner": "sno2wman",
+        "ref": "overlay-experiments",
         "repo": "satysfi-sno2wman",
         "type": "github"
       }

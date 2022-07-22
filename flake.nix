@@ -57,7 +57,8 @@
     pkg-satysfi-railway.url = "github:monaqa/satysfi-railway";
     pkg-satysfi-ruby.flake = false;
     pkg-satysfi-ruby.url = "github:puripuri2100/SATySFi-ruby";
-    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman";
+    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman/overlay-experiments";
+
     pkg-satysfi-uline.flake = false;
     pkg-satysfi-uline.url = "github:puripuri2100/SATySFi-uline";
   };

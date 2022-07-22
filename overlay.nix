@@ -4,35 +4,37 @@ final: prev: {
 
   satyxin = import ./nix {pkgs = final;};
 
-  satyxinPackages = (
-    builtins.listToAttrs (
-      map (name: {
-        name = name;
-        value = prev.callPackage (import ./pkgs/${name}) {};
-      }) [
-        "algorithm"
-        "azmath"
-        "base"
-        "bibyfi"
-        "chemfml"
-        "class-jlreq"
-        "class-slydifi"
-        "code-printer"
-        "derive"
-        "dist"
-        "easytable"
-        "enumitem"
-        "figbox"
-        "fonts-dejavu"
-        "fonts-junicode"
-        "fss"
-        "karnaugh"
-        "pagenumber"
-        "pagestyle"
-        "railway"
-        "ruby"
-        "uline"
-      ]
-    )
-  );
+  satyxinPackages =
+    {sno2wman = final.satyxin-sno2wman;}
+    // (
+      builtins.listToAttrs (
+        map (name: {
+          name = name;
+          value = prev.callPackage (import ./pkgs/${name}) {};
+        }) [
+          "algorithm"
+          "azmath"
+          "base"
+          "bibyfi"
+          "chemfml"
+          "class-jlreq"
+          "class-slydifi"
+          "code-printer"
+          "derive"
+          "dist"
+          "easytable"
+          "enumitem"
+          "figbox"
+          "fonts-dejavu"
+          "fonts-junicode"
+          "fss"
+          "karnaugh"
+          "pagenumber"
+          "pagestyle"
+          "railway"
+          "ruby"
+          "uline"
+        ]
+      )
+    );
 }
