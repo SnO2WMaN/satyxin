@@ -102,14 +102,14 @@
                 "sno2wman"
               ];
             };
-            "example/basic" = pkgs.satyxin.buildDocument {
+            example-basic = pkgs.satyxin.buildDocument {
               inherit satydist;
               name = "example-basic";
               src = ./example/basic;
               entrypoint = "main.saty";
               output = "basic.pdf";
             };
-            "example/slide" = pkgs.satyxin.buildDocument {
+            example-slide = pkgs.satyxin.buildDocument {
               inherit satydist;
               name = "example-slide";
               src = ./example/slide;
