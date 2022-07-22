@@ -67,10 +67,19 @@
     nixpkgs,
     flake-utils,
     devshell,
+    pkg-satysfi-sno2wman,
     ...
-  }:
+  } @ inputs:
     {
-      overlays.default = import ./overlay.nix;
+      overlays.default = final: prev: (
+        builtins.foldl'
+        (p: c: p // (c final prev))
+        {}
+        [
+          pkg-satysfi-sno2wman.overlays.default
+          (import ./overlay.nix)
+        ]
+      );
       overlay = self.overlays.default;
     }
     // flake-utils.lib.eachDefaultSystem (
