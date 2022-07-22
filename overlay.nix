@@ -3,14 +3,12 @@ final: prev: {
   satysfi-language-server = final.callPackage ./tools/satysfi-language-server {};
 
   satyxin = import ./nix {pkgs = final;};
-  satyxinPackages = let
-    satyxinPkgs = builtins.listToAttrs (
+
+  satyxinPackages = (
+    builtins.listToAttrs (
       map (name: {
         name = name;
-        value = (import ./pkgs/${name}) {
-          pkgs = final;
-          satyxinPkgs = satyxinPkgs;
-        };
+        value = prev.callPackage (import ./pkgs/${name}) {};
       }) [
         "algorithm"
         "azmath"
@@ -35,7 +33,6 @@ final: prev: {
         "ruby"
         "uline"
       ]
-    );
-  in
-    satyxinPkgs;
+    )
+  );
 }
