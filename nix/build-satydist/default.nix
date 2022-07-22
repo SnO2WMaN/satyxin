@@ -1,9 +1,15 @@
-{pkgs}: {packages ? []}: let
+{pkgs}: {
+  packages ? [],
+  adhocPackages ? [],
+}: let
   inherit (import ../utils {inherit pkgs;}) merge-satysfi-hash;
 in
   pkgs.stdenv.mkDerivation {
     name = "satydist";
-    packages = builtins.toJSON (map (name: pkgs.satyxinPackages."${name}") packages);
+    packages = builtins.toJSON (
+      (map (name: pkgs.satyxinPackages."${name}") packages)
+      ++ adhocPackages
+    );
 
     dontUnpack = true;
 
