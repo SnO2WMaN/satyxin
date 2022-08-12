@@ -20,6 +20,7 @@ externalPkgs: final: prev: {
           "chemfml"
           "class-jlreq"
           "class-slydifi"
+          "class-stjarticle"
           "code-printer"
           "derive"
           "dist"

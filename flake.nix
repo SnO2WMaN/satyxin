@@ -33,6 +33,8 @@
     pkg-satysfi-class-jlreq.url = "github:abenori/satysfi-class-jlreq";
     pkg-satysfi-class-slydifi.flake = false;
     pkg-satysfi-class-slydifi.url = "github:monaqa/slydifi";
+    pkg-satysfi-class-stjarticle.flake = false;
+    pkg-satysfi-class-stjarticle.url = "github:puripuri2100/stjarticle";
     pkg-satysfi-code-printer.flake = false;
     pkg-satysfi-code-printer.url = "github:puripuri2100/satysfi-code-printer";
     pkg-satysfi-derive.flake = false;
