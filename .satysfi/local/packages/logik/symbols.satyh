@@ -1,0 +1,15 @@
+@require: math
+
+module Logik: sig
+    direct \ltrue: [] math-cmd
+    direct \lfalse: [] math-cmd
+    direct \lnot: [] math-cmd
+    direct \limp: [] math-cmd
+    direct \lequ: [] math-cmd
+end = struct
+    let-math \ltrue = ${true}
+    let-math \lfalse = ${false}
+    let-math \lnot = math-char MathRel `¬`
+    let-math \limp = ${\rightarrow}
+    let-math \lequ = math-char MathRel `↔`
+end
