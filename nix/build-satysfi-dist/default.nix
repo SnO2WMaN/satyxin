@@ -5,7 +5,7 @@
   inherit (import ../utils {inherit pkgs;}) merge-satysfi-hash;
 in
   pkgs.stdenv.mkDerivation {
-    name = "satydist";
+    name = "satysfi-dist";
     packages = builtins.toJSON (
       (map (name: pkgs.satyxinPackages."${name}") packages)
       ++ adhocPackages
