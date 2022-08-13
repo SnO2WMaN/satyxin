@@ -11,6 +11,7 @@
 @require: algorithm/algorithm
 @require: algorithm/style/default
 @require: ruby/ruby
+@require: logik/symbols
 @import: ./bib
 
 let-math \gets = ${\leftarrow}
@@ -60,6 +61,12 @@ open Derive in
                     \font-style [bold;]{ キルロイ参上 }
                     （キルロイさんじょう、\font-style [italic;]{ Kilroy was here }、\font-style [bold;]{ キルロイ・ワズ・ヒア }）
                     は、アメリカの大衆文化などで見られる句のひとつ。
+                }
+            >
+            +section{ logik(local) }<
+                +p{
+                    「${P}ならば${Q}」は次のように表される，
+                    ${P \limp Q}
                 }
             >
             +section{ derive }<
