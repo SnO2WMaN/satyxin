@@ -7,9 +7,10 @@ in
     entrypoint,
     output ? "${removeSuffix ".saty" entrypoint}.pdf",
     satydist,
+    satysfiLocal ? null,
   }:
     pkgs.stdenv.mkDerivation {
-      inherit name src satydist;
+      inherit name src satydist satysfiLocal;
 
       buildInputs = with pkgs; [
         satysfi
@@ -26,9 +27,15 @@ in
 
       buildPhase = ''
         satysfi_libpath=`mktemp -d`
+        test -e $satysfiLocal ; echo $?
 
         mkdir -p $satysfi_libpath/dist
         cp -r $satydist/* $satysfi_libpath/dist
+
+        if [ -e "$satysfiLocal" ]; then
+          mkdir -p $satysfi_libpath/local
+          cp -r $satysfiLocal/* $satysfi_libpath/local
+        fi
 
         satysfi $entrypoint --output $output --config $satysfi_libpath
       '';

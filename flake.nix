@@ -104,6 +104,8 @@
             };
             example-basic = pkgs.satyxin.buildDocument {
               inherit satydist;
+              satysfiLocal = ./.satysfi/local;
+
               name = "example-basic";
               src = ./example/basic;
               entrypoint = "main.saty";
