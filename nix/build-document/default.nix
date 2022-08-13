@@ -6,10 +6,10 @@ in
     src,
     entrypoint,
     output ? "${removeSuffix ".saty" entrypoint}.pdf",
-    satydist,
+    satysfiDist,
   }:
     pkgs.stdenv.mkDerivation {
-      inherit name src satydist;
+      inherit name src satysfiDist;
 
       buildInputs = with pkgs; [
         satysfi
@@ -28,7 +28,7 @@ in
         satysfi_libpath=`mktemp -d`
 
         mkdir -p $satysfi_libpath/dist
-        cp -r $satydist/* $satysfi_libpath/dist
+        cp -r $satysfiDist/* $satysfi_libpath/dist
 
         satysfi $entrypoint --output $output --config $satysfi_libpath
       '';
