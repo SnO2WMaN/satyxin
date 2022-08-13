@@ -45,7 +45,7 @@ in
         satysfi $entrypoint --output $output --config $satysfi_libpath
       '';
       installPhase = ''
-        mkdir -p $out/docs
-        cp $output $out/docs/$output
+        mkdir -p $out
+        cp $output $out/$output
       '';
     }
