@@ -515,6 +515,22 @@
         "type": "github"
       }
     },
+    "pkg-satysfi-class-stjarticle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1568237433,
+        "narHash": "sha256-95D2nKVMDbvwNyppPNTzXxf1p6FzGiyLd9o81gh1S8g=",
+        "owner": "puripuri2100",
+        "repo": "stjarticle",
+        "rev": "9381bee930818464e76cdc4622eb381a1aba164f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "puripuri2100",
+        "repo": "stjarticle",
+        "type": "github"
+      }
+    },
     "pkg-satysfi-code-printer": {
       "flake": false,
       "locked": {
@@ -966,6 +982,7 @@
         "pkg-satysfi-chemfml": "pkg-satysfi-chemfml",
         "pkg-satysfi-class-jlreq": "pkg-satysfi-class-jlreq",
         "pkg-satysfi-class-slydifi": "pkg-satysfi-class-slydifi",
+        "pkg-satysfi-class-stjarticle": "pkg-satysfi-class-stjarticle",
         "pkg-satysfi-code-printer": "pkg-satysfi-code-printer",
         "pkg-satysfi-derive": "pkg-satysfi-derive",
         "pkg-satysfi-easytable": "pkg-satysfi-easytable",
