@@ -55,6 +55,24 @@ in
           merge-satysfi-hash $package/hash/mathfonts.satysfi-hash $target | sponge $target
         fi
 
+        # hyph
+        for file in $(find $package/hyph -type f); do
+          target=$out/$(realpath --relative-to=$package $file)
+          if [ ! -e $target ]; then
+            mkdir -p $out/$(dirname $(realpath --relative-to=$package $file))
+            cp $file $target
+          fi
+        done
+
+        # md
+        for file in $(find $package/md -type f); do
+          target=$out/$(realpath --relative-to=$package $file)
+          if [ ! -e $target ]; then
+            mkdir -p $out/$(dirname $(realpath --relative-to=$package $file))
+            cp $file $target
+          fi
+        done
+
         # packages
         for file in $(find $package/packages -type f); do
           target=$out/$(realpath --relative-to=$package $file)
