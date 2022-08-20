@@ -2,13 +2,13 @@
   inherit (pkgs.lib) removeSuffix hasSuffix;
 in
   {
+    package ? pkgs.satysfi,
     name,
     src,
     entrypoint,
     output ? "${removeSuffix ".saty" entrypoint}.pdf",
     satysfiDist,
     satysfiLocal ? null,
-    satysfi ? pkgs.satysfi,
   }:
     pkgs.stdenv.mkDerivation {
       inherit
@@ -18,9 +18,7 @@ in
         satysfiLocal
         ;
 
-      buildInputs =
-        (with pkgs; [jq moreutils])
-        ++ [satysfi];
+      buildInputs = (with pkgs; [jq moreutils]) ++ [package];
 
       entrypoint =
         if hasSuffix ".saty" entrypoint
