@@ -120,7 +120,7 @@
               entrypoint = "main.saty";
               output = "slide.pdf";
             };
-            sample-page = pkgs.stdenv.mkDerivation {
+            github-page = pkgs.stdenv.mkDerivation {
               name = "satyxin-sample-page";
               dontBuild = true;
               dontUnpack = true;
