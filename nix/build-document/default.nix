@@ -8,6 +8,7 @@ in
     output ? "${removeSuffix ".saty" entrypoint}.pdf",
     satysfiDist,
     satysfiLocal ? null,
+    satysfi ? pkgs.satysfi,
   }:
     pkgs.stdenv.mkDerivation {
       inherit
@@ -17,11 +18,9 @@ in
         satysfiLocal
         ;
 
-      buildInputs = with pkgs; [
-        satysfi
-        jq
-        moreutils
-      ];
+      buildInputs =
+        (with pkgs; [jq moreutils])
+        ++ [satysfi];
 
       entrypoint =
         if hasSuffix ".saty" entrypoint
