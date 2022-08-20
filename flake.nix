@@ -105,7 +105,7 @@
               ];
             };
             example-basic = pkgs.satyxin.buildDocument {
-              inherit satysfiDist;
+              satysfiDist = self.packages.${system}.satysfiDist;
               satysfiLocal = ./.satysfi/local;
 
               name = "example-basic";
@@ -114,11 +114,21 @@
               output = "basic.pdf";
             };
             example-slide = pkgs.satyxin.buildDocument {
-              inherit satysfiDist;
+              satysfiDist = self.packages.${system}.satysfiDist;
               name = "example-slide";
               src = ./example/slide;
               entrypoint = "main.saty";
               output = "slide.pdf";
+            };
+            sample-page = pkgs.stdenv.mkDerivation {
+              name = "satyxin-sample-page";
+              dontBuild = true;
+              dontUnpack = true;
+              installPhase = with self.packages.${system}; ''
+                mkdir $out
+                cp -r ${example-basic}/basic.pdf $out/basic.pdf
+                cp -r ${example-slide}/slide.pdf $out/slide.pdf
+              '';
             };
           }
           // (with pkgs.lib.attrsets;
