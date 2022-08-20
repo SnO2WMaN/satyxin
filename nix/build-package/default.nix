@@ -65,6 +65,28 @@ in
             fi
           done
         fi
+
+        if [ -d $dep/hyph ]; then
+          mkdir -p $out/hyph
+          for file in $(find $dep/hyph -type f); do
+            target=$out/$(realpath --relative-to=$dep $file)
+            if [ ! -e $target ]; then
+              mkdir -p $out/$(dirname $(realpath --relative-to=$dep $file))
+              cp $file $target
+            fi
+          done
+        fi
+
+        if [ -d $dep/md ]; then
+          mkdir -p $out/md
+          for file in $(find $dep/md -type f); do
+            target=$out/$(realpath --relative-to=$dep $file)
+            if [ ! -e $target ]; then
+              mkdir -p $out/$(dirname $(realpath --relative-to=$dep $file))
+              cp $file $target
+            fi
+          done
+        fi
       done
 
       for i in $(seq 0 $(($(echo $sources | jq ".files | length") - 1))); do
