@@ -5,6 +5,7 @@
     ...
   }: {
     name = "code-printer";
+    src = inputs.pkg-satysfi-code-printer;
     version = inputs.pkg-satysfi-code-printer.rev;
     sources = {
       dirs = [

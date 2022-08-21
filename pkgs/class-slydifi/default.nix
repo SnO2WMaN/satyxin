@@ -5,6 +5,7 @@
     ...
   }: {
     name = "class-slydifi";
+    src = inputs.pkg-satysfi-class-slydifi;
     version = inputs.pkg-satysfi-class-slydifi.rev;
     sources = {
       dirs = [

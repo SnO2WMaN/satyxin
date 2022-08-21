@@ -6,6 +6,7 @@
     ...
   }: {
     name = "azmath";
+    src = inputs.pkg-satysfi-azmath;
     version = inputs.pkg-satysfi-azmath.rev;
     sources = {
       dirs = [

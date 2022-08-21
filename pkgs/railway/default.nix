@@ -5,6 +5,7 @@
     ...
   }: {
     name = "railway";
+    src = inputs.pkg-satysfi-railway;
     version = inputs.pkg-satysfi-railway.rev;
     sources = {
       dirs = [

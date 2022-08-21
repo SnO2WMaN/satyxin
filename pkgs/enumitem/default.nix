@@ -5,6 +5,7 @@
     ...
   }: {
     name = "enumitem";
+    src = inputs.pkg-satysfi-enumitem;
     version = inputs.pkg-satysfi-enumitem.rev;
     sources = {
       dirs = [

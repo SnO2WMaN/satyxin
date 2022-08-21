@@ -5,6 +5,7 @@
     ...
   }: {
     name = "derive";
+    src = inputs.pkg-satysfi-derive;
     version = inputs.pkg-satysfi-derive.rev;
     sources = {
       dirs = [

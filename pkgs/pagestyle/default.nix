@@ -5,6 +5,7 @@
     ...
   }: {
     name = "pagestyle";
+    src = inputs.pkg-satysfi-pagestyle;
     version = inputs.pkg-satysfi-pagestyle.rev;
     sources = {
       dirs = [

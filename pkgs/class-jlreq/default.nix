@@ -5,6 +5,7 @@
     ...
   }: {
     name = "class-jlreq";
+    src = inputs.pkg-satysfi-class-jlreq;
     version = inputs.pkg-satysfi-class-jlreq.rev;
     sources = {
       files = [

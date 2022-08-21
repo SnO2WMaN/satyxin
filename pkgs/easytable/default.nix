@@ -5,6 +5,7 @@
     ...
   }: {
     name = "easytable";
+    src = inputs.pkg-satysfi-easytable;
     version = inputs.pkg-satysfi-easytable.rev;
     sources = {
       dirs = [

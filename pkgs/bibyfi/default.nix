@@ -1,7 +1,8 @@
 (import ../create-pkg.nix) (
   {inputs, ...}: {
     name = "bibyfi";
-    version = inputs.pkg-satysfi-base.rev;
+    src = inputs.pkg-satysfi-bibyfi;
+    version = inputs.pkg-satysfi-bibyfi.rev;
     sources = {
       files = [
         "./bibyfi.satyh"

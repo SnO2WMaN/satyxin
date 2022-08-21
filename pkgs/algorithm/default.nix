@@ -5,6 +5,7 @@
     ...
   }: {
     name = "algorithm";
+    src = inputs.pkg-satysfi-algorithm;
     version = inputs.pkg-satysfi-algorithm.rev;
     sources = {
       dirs = [

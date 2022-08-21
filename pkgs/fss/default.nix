@@ -5,6 +5,7 @@
     ...
   }: {
     name = "fss";
+    src = inputs.pkg-satysfi-fss;
     version = inputs.pkg-satysfi-fss.rev;
     sources = {
       dirs = [

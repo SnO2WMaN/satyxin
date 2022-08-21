@@ -5,6 +5,7 @@
     ...
   }: {
     name = "pagenumber";
+    src = inputs.pkg-satysfi-pagenumber;
     version = inputs.pkg-satysfi-pagenumber.rev;
     sources = {
       dirs = [
