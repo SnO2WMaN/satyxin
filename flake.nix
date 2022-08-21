@@ -62,6 +62,8 @@
     pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman/v1.0.0";
     pkg-satysfi-uline.flake = false;
     pkg-satysfi-uline.url = "github:puripuri2100/SATySFi-uline/0.2.2";
+    pkg-satysfi-zrbase.flake = false;
+    pkg-satysfi-zrbase.url = "github:zr-tex8r/satysfi-zrbase/0.4.0";
   };
 
   outputs = {

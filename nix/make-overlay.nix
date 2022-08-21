@@ -37,6 +37,7 @@ inputs: final: prev: {
         "railway"
         "ruby"
         "uline"
+        "zrbase"
       ]
     )
   );
