@@ -73,7 +73,7 @@
     ...
   } @ inputs:
     {
-      overlays.default = import ./overlay.nix {
+      overlays.default = import ./nix/overlay.nix {
         inherit (pkg-satysfi-sno2wman.satyxinPackages) sno2wman;
       };
       overlay = self.overlays.default;
