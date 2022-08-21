@@ -8,11 +8,12 @@ generator: {
     inherit inputs;
   };
 in
-  (import ../nix/build-package) {inherit pkgs;} {
+  pkgs.satyxin.buildPackage rec {
     inherit (g) name version;
-    sources = g.sources or {};
+
+    outdir = name;
     deps = g.deps or [];
-    outdir = g.name;
+    sources = g.sources or {};
 
     src = with (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes."pkg-satysfi-${g.name}".locked;
       pkgs.fetchFromGitHub {
