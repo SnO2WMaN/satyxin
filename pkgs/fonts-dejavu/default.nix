@@ -1,34 +1,26 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
-pkgs.stdenv.mkDerivation {
-  name = "satyxin-package-fonts-dejavu";
-  outdir = "fonts-dejavu";
-  src = [
-    (pkgs.fetchzip {
-      name = "dejavu";
-      url = http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip;
-      sha256 = "sha256-eUV9CThmZLXMosUjvwvMwnWtZpgwFGZZws848kcOgE4=";
-    })
-    ./fonts.satysfi-hash
-    ./mathfonts.satysfi-hash
-  ];
-  unpackPhase = ''
-    for srcFile in $src; do
-      cp -r $srcFile $(echo $srcFile | cut --delimiter=- --fields=2-)
-    done
-  '';
-  installPhase = ''
-    mkdir -p $out/fonts/fonts-dejavu
+{pkgs, ...}: let
+  version = "20ebafa93bac3cce5c13934fe0600a4c50f0cd75";
+  root = pkgs.fetchFromGitHub {
+    owner = "zeptometer";
+    repo = "SATySFi-fonts-dejavu";
+    rev = version;
+    sha256 = "sha256-y2tigU06C8fs8s+ImxMPUcdQwdj9mGzyRHNdC+TNR+4=";
+  };
+in
+  pkgs.stdenv.mkDerivation {
+    inherit (version);
+    name = "satyxin-package-fonts-dejavu-${version}";
+    outdir = "fonts-dejavu";
 
-    for file in $(find $(echo $src | tr ' ' '\n' | grep -E ".*-dejavu")/ttf -name "*.ttf"); do
-        cp $file $out/fonts/fonts-dejavu
-    done
+    dontBuild = true;
+    dontUnpack = true;
 
-    mkdir -p $out/hash
-    cp $(echo $src | tr ' ' '\n' | grep -E "*-fonts.satysfi-hash") $out/hash/fonts.satysfi-hash
-    cp $(echo $src | tr ' ' '\n' | grep -E "*-mathfonts.satysfi-hash") $out/hash/mathfonts.satysfi-hash
-  '';
-}
+    installPhase = ''
+      mkdir -p $out/fonts/fonts-dejavu
+      cp -r ${pkgs.dejavu_fonts}/share/fonts/truetype/* $out/fonts/fonts-dejavu
+
+      mkdir -p $out/hash
+      cp ${"${root}/fonts.satysfi-hash"} $out/hash/fonts.satysfi-hash
+      cp ${"${root}/mathfonts.satysfi-hash"} $out/hash/mathfonts.satysfi-hash
+    '';
+  }
