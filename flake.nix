@@ -90,7 +90,7 @@
       in {
         packages = flake-utils.lib.flattenTree (
           rec {
-            satysfiDist = pkgs.satyxin.buildSatysfiDist {
+            satysfi-dist = pkgs.satyxin.buildSatysfiDist {
               packages = [
                 "uline"
                 "bibyfi"
@@ -105,7 +105,7 @@
               ];
             };
             example-basic = pkgs.satyxin.buildDocument {
-              satysfiDist = self.packages.${system}.satysfiDist;
+              satysfiDist = self.packages.${system}.satysfi-dist;
               satysfiLocal = ./.satysfi/local;
 
               name = "example-basic";
@@ -114,7 +114,7 @@
               output = "basic.pdf";
             };
             example-slide = pkgs.satyxin.buildDocument {
-              satysfiDist = self.packages.${system}.satysfiDist;
+              satysfiDist = self.packages.${system}.satysfi-dist;
               name = "example-slide";
               src = ./example/slide;
               entrypoint = "main.saty";
