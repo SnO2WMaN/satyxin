@@ -14,7 +14,7 @@
     deps = with pkgs.satyxinPackages; [
       base
       dist
-      fonts-junicode
+      psuedo-fonts-junicode
     ];
   }
 )
