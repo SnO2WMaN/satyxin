@@ -59,7 +59,7 @@
     pkg-satysfi-railway.url = "github:monaqa/satysfi-railway";
     pkg-satysfi-ruby.flake = false;
     pkg-satysfi-ruby.url = "github:puripuri2100/SATySFi-ruby";
-    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman";
+    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman/add-version";
     pkg-satysfi-uline.flake = false;
     pkg-satysfi-uline.url = "github:puripuri2100/SATySFi-uline";
   };
@@ -73,39 +73,42 @@
     ...
   } @ inputs:
     {
-      overlays.default = import ./overlay.nix {
-        inherit (pkg-satysfi-sno2wman.satyxinPackages) sno2wman;
-      };
+      overlays.default = import ./nix/make-overlay.nix inputs;
       overlay = self.overlays.default;
     }
-    // flake-utils.lib.eachDefaultSystem (
+    // flake-utils.lib.eachSystem [
+      "x86_64-linux"
+      "x86_64-darwin"
+    ] (
       system: let
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
             devshell.overlay
-            self.overlay
+            # satyxin package overlays
+            self.overlays.default
+            pkg-satysfi-sno2wman.overlays.default
           ];
         };
       in {
         packages = flake-utils.lib.flattenTree (
           rec {
-            satysfiDist = pkgs.satyxin.buildSatysfiDist {
-              packages = [
-                "uline"
-                "bibyfi"
-                "fss"
-                "derive"
-                "algorithm"
-                "chemfml"
-                "ruby"
-                "class-slydifi"
-                "easytable"
-                "sno2wman"
+            satysfi-dist = pkgs.satyxin.buildSatysfiDist {
+              packages = with pkgs.satyxinPackages; [
+                algorithm
+                bibyfi
+                chemfml
+                class-slydifi
+                derive
+                easytable
+                fss
+                ruby
+                sno2wman
+                uline
               ];
             };
             example-basic = pkgs.satyxin.buildDocument {
-              satysfiDist = self.packages.${system}.satysfiDist;
+              satysfiDist = self.packages.${system}.satysfi-dist;
               satysfiLocal = ./.satysfi/local;
 
               name = "example-basic";
@@ -114,7 +117,7 @@
               output = "basic.pdf";
             };
             example-slide = pkgs.satyxin.buildDocument {
-              satysfiDist = self.packages.${system}.satysfiDist;
+              satysfiDist = self.packages.${system}.satysfi-dist;
               name = "example-slide";
               src = ./example/slide;
               entrypoint = "main.saty";

@@ -1,12 +1,17 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "enumitem";
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
-    deps = with satyxinPkgs; [
+    version = inputs.pkg-satysfi-enumitem.rev;
+    sources = let
+      root = inputs.pkg-satysfi-enumitem;
+    in [
+      "${root}/src"
+    ];
+    deps = with pkgs.satyxinPackages; [
       base
     ];
   }

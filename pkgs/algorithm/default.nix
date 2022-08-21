@@ -1,12 +1,15 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "algorithm";
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
-    deps = with satyxinPkgs; [
+    version = inputs.pkg-satysfi-algorithm.rev;
+    sources = [
+      "${inputs.pkg-satysfi-algorithm}/src"
+    ];
+    deps = with pkgs.satyxinPackages; [
       dist
       base
       fss
