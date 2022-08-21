@@ -4,32 +4,36 @@
 
 [![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
 
-- [日本語](./README-ja.md)（おそらくこちらのほうが充実しています）
+- [English](./README.md)
+
+[SATySFi](https://github.com/gfngfn/SATySFi)による文書（以下，単に「文書」）を[Nix](https://nixos.org/)でビルドしたりするための様々を提供します．
 
 ## Example
 
 [![Status](https://github.com/SnO2WMaN/satyxin/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/SnO2WMaN/satyxin/actions/workflows/gh-pages.yml)
 
+実際にGitHub Actions上においてNixで文書をビルドした結果をGitHub Pagesに投げています．
+
 - [basic.pdf](https://sno2wman.github.io/satyxin/basic.pdf)
-  - [Source](https://github.com/SnO2WMaN/satyxinur/tree/main/example/basic)
+  - [ソースファイル](https://github.com/SnO2WMaN/satyxinur/tree/main/example/basic)
 - [slide.pdf](https://sno2wman.github.io/satyxin/basic.pdf)
-  - [Source](https://github.com/SnO2WMaN/satyxinur/tree/main/example/slide)
-  - Original source is [monaqa/slydifi](https://github.com/monaqa/slydifi/tree/e9d0f57c9e27c77888582eaa9ad8b9fd35a12828/doc)
+  - [ソースファイル](https://github.com/SnO2WMaN/satyxinur/tree/main/example/slide)
+  - オリジナルのソースは[monaqa/slydifi](https://github.com/monaqa/slydifi/tree/e9d0f57c9e27c77888582eaa9ad8b9fd35a12828/doc)から持ってきています．
 
 ## Usage
 
-**This flake is very unstable currently.** It may be useful to see also [template](https://github.com/SnO2WMaN/satysfi-nixtemplate) by author.
+**このFlakeは現在安定していないので記載した情報が古くなっている可能性も有ります．** 必要なら開発者による[テンプレート](https://github.com/SnO2WMaN/satysfi-nixtemplate)などを参考にしてください．（おそらく最新のバージョンに追随するようにしています．）
 
 ### Requirements
 
-- Nix (of course)
-- Enabling [Nix Flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes)
+- Nix (もちろん)
+- [Nix Flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes)の有効化
 - [nix-direnv](https://github.com/nix-community/nix-direnv)
-  - Not required but `SHOULD`.
+  - 必須ではありませんが，あったほうが都合が良いです．
 
 ### Setup
 
-Write `flake.nix` like below, then `nix build ".#main"` to build document to `result/main.pdf`.
+`flake.nix`に次の内容を記載することで，`nix build ".#main"`で`result/main.pdf`に生成されます.
 
 ```nix
 {
@@ -51,8 +55,8 @@ Write `flake.nix` like below, then `nix build ".#main"` to build document to `re
       in rec {
         packages = rec {
           satysfiDist = pkgs.satyxin.buildSatysfiDist {
-            # Add pacakges to build your document
-            # All avaliable packages https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            # 文書をビルドするために必要なパッケージを記載してください．
+            # 利用可能なすべてのパッケージは以下に存在します． https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
             packages = [
               "bibyfi"
               "sno2wman"
@@ -60,11 +64,11 @@ Write `flake.nix` like below, then `nix build ".#main"` to build document to `re
           };
           main = pkgs.satyxin.buildDocument {
             inherit satysfiDist;
-            satysfiLocal = ./.satysfi/local; # optional
+            satysfiLocal = ./.satysfi/local; # 必須ではありません
             name = "main";
             src = ./src;
             entrypoint = "main.saty";
-            output = "main.pdf"; # optional
+            output = "main.pdf"; # 必須ではありません
           };
         }
       }
@@ -72,7 +76,7 @@ Write `flake.nix` like below, then `nix build ".#main"` to build document to `re
 }
 ```
 
-Write `.envrc` by using direnv.
+次の内容を`.envrc`に書くと，direnvが読み取って`.satysfi/dist`以下に`satysfiDist`を生成します．**（書くべきです）**
 
 ```sh
 #!/usr/bin/env bash
@@ -84,6 +88,6 @@ nix build ".#satysfiDist"  --out-link "$(pwd)/.satysfi/dist"
 ## References
 
 - [AumyF/satyxin](https://github.com/AumyF/satyxin)
-  - Original version of this attempt.
+  - 改造元のリポジトリ
 - [na4zagin3/satyrographos](https://github.com/na4zagin3/satyrographos)
-  - Most major SATySFi package manager.
+  - 最もメジャーなSATySFi用パッケージマネージャ
