@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "figbox";
-    version = inputs.pkg-satysfi-figbox.rev;
+    version = "0.1.4";
     sources = let
-      root = inputs.pkg-satysfi-figbox;
+      root = pkgs.fetchFromGitHub {
+        owner = "monaqa";
+        repo = "satysfi-figbox";
+        rev = "v${version}";
+        sha256 = "sha256-2S0Mwh90QqxcMI/iG28VPS3xW39zJmibDQ3QeeDGUvc=";
+      };
     in [
       "${root}/src"
     ];

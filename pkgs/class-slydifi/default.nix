@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "class-slydifi";
-    version = inputs.pkg-satysfi-class-slydifi.rev;
+    version = "0.5.0";
     sources = let
-      root = inputs.pkg-satysfi-class-slydifi;
+      root = pkgs.fetchFromGitHub {
+        owner = "monaqa";
+        repo = "slydifi";
+        rev = "v${version}";
+        sha256 = "sha256-O/tEsr5H3llh4fETamzYxk63rwU82OUecxKS5rtw8Pg=";
+      };
     in [
       "${root}/src"
     ];

@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "code-printer";
-    version = inputs.pkg-satysfi-code-printer.rev;
+    version = "1.1.1";
     sources = let
-      root = inputs.pkg-satysfi-code-printer;
+      root = pkgs.fetchFromGitHub {
+        owner = "puripuri2100";
+        repo = "satysfi-code-printer";
+        rev = version;
+        sha256 = "sha256-QyA8XJKgZDQUEMyDfFJiDra9jYZ5+E3gYSdNTmTEYGw=";
+      };
     in [
       "${root}/src"
     ];

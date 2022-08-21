@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "enumitem";
-    version = inputs.pkg-satysfi-enumitem.rev;
+    version = "3.0.1";
     sources = let
-      root = inputs.pkg-satysfi-enumitem;
+      root = pkgs.fetchFromGitHub {
+        owner = "monaqa";
+        repo = "satysfi-enumitem";
+        rev = "v${version}";
+        sha256 = "sha256-daCBZg9ekY1/o+ey4hKjnrtlxrRYXKOb5huxf+0CsS0=";
+      };
     in [
       "${root}/src"
     ];

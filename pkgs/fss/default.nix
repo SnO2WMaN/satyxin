@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "fss";
-    version = inputs.pkg-satysfi-fss.rev;
+    version = "0.2.0";
     sources = let
-      root = inputs.pkg-satysfi-fss;
+      root = pkgs.fetchFromGitHub {
+        owner = "na4zagin3";
+        repo = "satysfi-fss";
+        rev = "v${version}";
+        sha256 = "sha256-9MLw4A5pF5f3KY5r7v+bDV9BAaPzKRh1Yi+dQi5QMPs=";
+      };
     in [
       "${root}/src/fss"
     ];

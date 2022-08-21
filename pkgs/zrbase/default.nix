@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {inputs, ...}: {
+  {pkgs, ...}: rec {
     name = "zrbase";
-    version = inputs.pkg-satysfi-zrbase.rev;
+    version = "0.4.0";
     sources = let
-      root = inputs.pkg-satysfi-zrbase;
+      root = pkgs.fetchFromGitHub {
+        owner = "zr-tex8r";
+        repo = "satysfi-zrbase";
+        rev = version;
+        sha256 = "sha256-waqV3IJEeFOoex0vqI8zPogc/t3nDF7gQalm3Gfu0cA=";
+      };
     in [
       "${root}/zexn0.satyg"
       "${root}/zfmt0.satyg"

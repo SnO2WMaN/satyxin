@@ -1,13 +1,16 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "algorithm";
-    version = inputs.pkg-satysfi-algorithm.rev;
-    sources = [
-      "${inputs.pkg-satysfi-algorithm}/src"
+    version = "1.0.0";
+    sources = let
+      root = pkgs.fetchFromGitHub {
+        owner = "pickoba";
+        repo = "satysfi-algorithm";
+        rev = version;
+        sha256 = "sha256-q6am7go4fNLfQVnupX0wav1esZGq0UG/UG/j5J6UfCQ=";
+      };
+    in [
+      "${root}/src"
     ];
     deps = with pkgs.satyxinPackages; [
       dist

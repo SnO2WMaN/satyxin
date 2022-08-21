@@ -1,10 +1,15 @@
 (import ../create-pkg.nix)
 (
-  {inputs, ...}: {
+  {pkgs, ...}: rec {
     name = "uline";
-    version = inputs.pkg-satysfi-uline.rev;
+    version = "0.2.2";
     sources = let
-      root = inputs.pkg-satysfi-uline;
+      root = pkgs.fetchFromGitHub {
+        owner = "puripuri2100";
+        repo = "SATySFi-uline";
+        rev = "v${version}";
+        sha256 = "sha256-94lChvMIkuIFHJgPoMbQCkivIGwz5EieCOKpcTaKThc=";
+      };
     in [
       "${root}/uline.satyh"
     ];

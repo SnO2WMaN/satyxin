@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "derive";
-    version = inputs.pkg-satysfi-derive.rev;
+    version = "1.0.0";
     sources = let
-      root = inputs.pkg-satysfi-derive;
+      root = pkgs.fetchFromGitHub {
+        owner = "yabaitechtokyo";
+        repo = "satysfi-derive";
+        rev = version;
+        sha256 = "sha256-E2Is9WDO/psnWEL1Nt43QkkSPZOL3uT0Xm54y1jZgfM=";
+      };
     in [
       "${root}/src"
     ];
