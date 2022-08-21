@@ -5,13 +5,12 @@
     ...
   }: {
     name = "easytable";
-    src = inputs.pkg-satysfi-easytable;
     version = inputs.pkg-satysfi-easytable.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-easytable;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
     ];

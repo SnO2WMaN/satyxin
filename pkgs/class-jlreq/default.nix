@@ -5,22 +5,21 @@
     ...
   }: {
     name = "class-jlreq";
-    src = inputs.pkg-satysfi-class-jlreq;
     version = inputs.pkg-satysfi-class-jlreq.rev;
-    sources = {
-      files = [
-        "./jlreq.satyh"
-        "./base.satyh"
-        "./jlreq0.satyh"
-        "./footnote.satyh"
-        "./heading.satyh"
-        "./lib.satyh"
-        "./paragraph.satyh"
-        "./theorem.satyh"
-        "./proof.satyh"
-        "./toc.satyh"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-class-jlreq;
+    in [
+      "${root}/jlreq.satyh"
+      "${root}/base.satyh"
+      "${root}/jlreq0.satyh"
+      "${root}/footnote.satyh"
+      "${root}/heading.satyh"
+      "${root}/lib.satyh"
+      "${root}/paragraph.satyh"
+      "${root}/theorem.satyh"
+      "${root}/proof.satyh"
+      "${root}/toc.satyh"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
       dist

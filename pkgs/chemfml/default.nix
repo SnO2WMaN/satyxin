@@ -5,13 +5,12 @@
     ...
   }: {
     name = "chemfml";
-    src = inputs.pkg-satysfi-chemfml;
     version = inputs.pkg-satysfi-chemfml.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-chemfml;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
       dist

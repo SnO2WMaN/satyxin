@@ -5,13 +5,12 @@
     ...
   }: {
     name = "figbox";
-    src = inputs.pkg-satysfi-figbox;
     version = inputs.pkg-satysfi-figbox.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-figbox;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
       dist

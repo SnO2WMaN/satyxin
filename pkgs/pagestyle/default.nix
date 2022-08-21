@@ -5,13 +5,12 @@
     ...
   }: {
     name = "pagestyle";
-    src = inputs.pkg-satysfi-pagestyle;
     version = inputs.pkg-satysfi-pagestyle.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-pagestyle;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
       dist

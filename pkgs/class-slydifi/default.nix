@@ -5,13 +5,12 @@
     ...
   }: {
     name = "class-slydifi";
-    src = inputs.pkg-satysfi-class-slydifi;
     version = inputs.pkg-satysfi-class-slydifi.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-class-slydifi;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [
       enumitem
       figbox

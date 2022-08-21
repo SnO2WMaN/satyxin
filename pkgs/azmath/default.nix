@@ -6,13 +6,12 @@
     ...
   }: {
     name = "azmath";
-    src = inputs.pkg-satysfi-azmath;
     version = inputs.pkg-satysfi-azmath.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-azmath;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [base];
   }
 )

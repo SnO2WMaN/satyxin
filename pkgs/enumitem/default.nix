@@ -5,13 +5,12 @@
     ...
   }: {
     name = "enumitem";
-    src = inputs.pkg-satysfi-enumitem;
     version = inputs.pkg-satysfi-enumitem.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-enumitem;
+    in [
+      "${root}/src"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
     ];

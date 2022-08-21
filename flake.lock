@@ -1422,11 +1422,11 @@
         "satyxin": "satyxin"
       },
       "locked": {
-        "lastModified": 1661103260,
-        "narHash": "sha256-GG77xMT0UqVpw0ShkrnRaMSKNuLROtnflZuJAVgUSlM=",
+        "lastModified": 1661107355,
+        "narHash": "sha256-Gvi/tFMCOZVl7xmTF62x369iz+mI0sGdwwA5Aor9cco=",
         "owner": "sno2wman",
         "repo": "satysfi-sno2wman",
-        "rev": "54ea9266f0e2542eaaf187c6c2308e0a2d48d8dc",
+        "rev": "adf3b8c81c8b19e37f34ba560d5c9aedeea91b0e",
         "type": "github"
       },
       "original": {

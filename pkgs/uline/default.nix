@@ -2,12 +2,11 @@
 (
   {inputs, ...}: {
     name = "uline";
-    src = inputs.pkg-satysfi-uline;
     version = inputs.pkg-satysfi-uline.rev;
-    sources = {
-      files = [
-        "./uline.satyh"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-uline;
+    in [
+      "${root}/uline.satyh"
+    ];
   }
 )

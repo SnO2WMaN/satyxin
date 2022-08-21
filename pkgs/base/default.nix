@@ -1,12 +1,11 @@
 (import ../create-pkg.nix) (
   {inputs, ...}: {
     name = "base";
-    src = inputs.pkg-satysfi-base;
     version = inputs.pkg-satysfi-base.rev;
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-base;
+    in [
+      "${root}/src"
+    ];
   }
 )

@@ -5,12 +5,11 @@
     ...
   }: {
     name = "class-stjarticle";
-    src = inputs.pkg-satysfi-class-stjarticle;
     version = inputs.pkg-satysfi-class-stjarticle.rev;
-    sources = {
-      files = [
-        "./stjarticle.satyh"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-class-stjarticle;
+    in [
+      "${root}/stjarticle.satyh"
+    ];
   }
 )

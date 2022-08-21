@@ -9,7 +9,7 @@ generator: {
   };
 in
   pkgs.satyxin.buildPackage rec {
-    inherit (g) name version src;
+    inherit (g) name version;
 
     outdir = name;
     deps = g.deps or [];

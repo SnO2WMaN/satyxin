@@ -5,13 +5,12 @@
     ...
   }: {
     name = "fss";
-    src = inputs.pkg-satysfi-fss;
     version = inputs.pkg-satysfi-fss.rev;
-    sources = {
-      dirs = [
-        "./src/fss"
-      ];
-    };
+    sources = let
+      root = inputs.pkg-satysfi-fss;
+    in [
+      "${root}/src/fss"
+    ];
     deps = with pkgs.satyxinPackages; [
       base
       dist
