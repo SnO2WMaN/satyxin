@@ -13,7 +13,7 @@
     ];
     deps = with pkgs.satyxinPackages; [
       base
-      fonts-dejavu
+      psuedo-fonts-dejavu
     ];
   }
 )
