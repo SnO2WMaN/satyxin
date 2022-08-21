@@ -535,6 +535,7 @@
       "original": {
         "owner": "puripuri2100",
         "repo": "stjarticle",
+        "rev": "9381bee930818464e76cdc4622eb381a1aba164f",
         "type": "github"
       }
     },
@@ -716,6 +717,7 @@
       "original": {
         "owner": "na4zagin3",
         "repo": "SATySFi-fonts-junicode",
+        "rev": "331911ba9102d7cc489549a576a60e33affacc76",
         "type": "github"
       }
     },
@@ -781,6 +783,7 @@
       "original": {
         "owner": "takagiy",
         "repo": "satysfi-karnaugh",
+        "rev": "ed38a3ec2afa09a383a2b4e9068ece4dd9bba715",
         "type": "github"
       }
     },
