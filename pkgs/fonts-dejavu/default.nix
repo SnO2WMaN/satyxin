@@ -1,10 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
-pkgs.stdenv.mkDerivation {
-  name = "satyxin-package-fonts-dejavu";
+{pkgs, ...}:
+pkgs.stdenv.mkDerivation rec {
+  name = "satyxin-package-fonts-dejavu-${version}";
+  version = "20ebafa93bac3cce5c13934fe0600a4c50f0cd75";
   outdir = "fonts-dejavu";
   src = [
     (pkgs.fetchzip {

@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {inputs, ...}: {
+  {pkgs, ...}: rec {
     name = "ruby";
-    version = inputs.pkg-satysfi-ruby.rev;
+    version = "0.1.2";
     sources = let
-      root = inputs.pkg-satysfi-ruby;
+      root = pkgs.fetchFromGitHub {
+        owner = "puripuri2100";
+        repo = "SATySFi-ruby";
+        rev = "v${version}";
+        sha256 = "sha256-GEOXhem78zZqtjx4I1iXNtiA+wy6AgU6Y1rJZZ3hLEA=";
+      };
     in [
       "${root}/ruby.satyh"
     ];

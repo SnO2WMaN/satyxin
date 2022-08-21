@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "class-jlreq";
-    version = inputs.pkg-satysfi-class-jlreq.rev;
+    version = "0.0.3";
     sources = let
-      root = inputs.pkg-satysfi-class-jlreq;
+      root = pkgs.fetchFromGitHub {
+        owner = "abenori";
+        repo = "satysfi-class-jlreq";
+        rev = version;
+        sha256 = "sha256-uDKUgpjHIocqIcln1QCDvR6965+MQqzOtZMIV5djB2w=";
+      };
     in [
       "${root}/jlreq.satyh"
       "${root}/base.satyh"

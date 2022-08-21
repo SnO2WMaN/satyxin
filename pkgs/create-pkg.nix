@@ -1,11 +1,6 @@
-generator: {
-  pkgs,
-  inputs,
-  ...
-}: let
+generator: {pkgs, ...}: let
   g = generator {
     inherit pkgs;
-    inherit inputs;
   };
 in
   pkgs.satyxin.buildPackage rec {

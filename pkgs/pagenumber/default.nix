@@ -1,13 +1,14 @@
 (import ../create-pkg.nix) (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "pagenumber";
-    version = inputs.pkg-satysfi-pagenumber.rev;
+    version = "1.0.0";
     sources = let
-      root = inputs.pkg-satysfi-pagenumber;
+      root = pkgs.fetchFromGitHub {
+        owner = "abenori";
+        repo = "satysfi-pagenumber";
+        rev = version;
+        sha256 = "sha256-6dUsx9dfxhpPF1NVcafenoi81uH7oacODeBeHIyfz5A=";
+      };
     in [
       "${root}/src"
     ];

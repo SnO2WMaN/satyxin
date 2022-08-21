@@ -1,14 +1,15 @@
 (import ../create-pkg.nix)
 (
-  {
-    pkgs,
-    inputs,
-    ...
-  }: {
+  {pkgs, ...}: rec {
     name = "azmath";
-    version = inputs.pkg-satysfi-azmath.rev;
+    version = "0.0.3";
     sources = let
-      root = inputs.pkg-satysfi-azmath;
+      root = pkgs.fetchFromGitHub {
+        owner = "monaqa";
+        repo = "satysfi-azmath";
+        rev = "v${version}";
+        sha256 = "sha256-RUgwrCLEBYPOQrKLaAWACSTePnauHZRgikDjHs5TR+o=";
+      };
     in [
       "${root}/src"
     ];

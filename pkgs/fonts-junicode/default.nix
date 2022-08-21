@@ -1,11 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{pkgs, ...}:
 pkgs.stdenv.mkDerivation rec {
   name = "satyxin-package-fonts-junicode-${version}";
-  version = inputs.pkg-satysfi-fonts-junicode.rev;
+  version = "331911ba9102d7cc489549a576a60e33affacc76";
   outdir = "fonts-junicode";
   src = [
     (pkgs.fetchzip {
