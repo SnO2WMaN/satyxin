@@ -19,8 +19,6 @@
     satysfi-language-server.url = "github:monaqa/satysfi-language-server";
     satysfi-language-server.flake = false;
 
-    pkg-satysfi-algorithm.flake = false;
-    pkg-satysfi-algorithm.url = "github:pickoba/satysfi-algorithm/1.0.0";
     pkg-satysfi-azmath.flake = false;
     pkg-satysfi-azmath.url = "github:monaqa/satysfi-azmath/v0.0.3";
     pkg-satysfi-base.flake = false;
