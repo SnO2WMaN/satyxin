@@ -1,24 +1,41 @@
-# satyxinur
+# satyxin
 
 > Are you [SATySFi](https://github.com/gfngfn/SATySFi)-ed with [Nix](https://nixos.org/)?
 
+[![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
+
 ## Example
 
-- [basic](https://github.com/SnO2WMaN/satyxinur/tree/main/example/basic)
-- [slide](https://github.com/SnO2WMaN/satyxinur/tree/main/example/slide)
-  - copied from [monaqa/slydifi](https://github.com/monaqa/slydifi/tree/e9d0f57c9e27c77888582eaa9ad8b9fd35a12828/doc)
+[![Status](https://github.com/SnO2WMaN/satyxin/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/SnO2WMaN/satyxin/actions/workflows/gh-pages.yml)
+
+- [basic.pdf](https://sno2wman.github.io/satyxin/basic.pdf)
+  - [Source](https://github.com/SnO2WMaN/satyxinur/tree/main/example/basic)
+- [slide.pdf](https://sno2wman.github.io/satyxin/basic.pdf)
+  - [Source](https://github.com/SnO2WMaN/satyxinur/tree/main/example/slide)
+  - Original source is [monaqa/slydifi](https://github.com/monaqa/slydifi/tree/e9d0f57c9e27c77888582eaa9ad8b9fd35a12828/doc)
 
 ## Usage
 
-In random `flake.nix`
+**This flake is very unstable currently.** It may be useful to see also [template](https://github.com/SnO2WMaN/satysfi-nixtemplate) by author.
+
+### Requirements
+
+- Nix (of course)
+- Enabling [Nix Flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes)
+- [nix-direnv](https://github.com/nix-community/nix-direnv)
+  - Not required but `SHOULD`.
+
+### Setup
+
+Write `flake.nix` like below, then `nix build ".#main"` to build document to `result/main.pdf`.
 
 ```nix
 {
   inputs = { 
-    satyxinur.url = "github:SnO2WMaN/satyxinur"; 
+    satyxin.url = "github:SnO2WMaN/satyxin";
   };
   outputs = { 
-    satyxinur, 
+    satyxin, 
     ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (
@@ -26,52 +43,45 @@ In random `flake.nix`
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ 
-            satyxinur.overlay 
+            satyxin.overlay
           ];
         };
       in rec {
-        packages.main = pkgs.satyxin.buildDocument {
-          name = "main";
-          src = ./src;
-          filename = "main.saty";
-          buildInputs = with pkgs.satyxinPackages; [
-            uline
-            bibyfi
-            fss
-          ];
-        };
+        packages = rec {
+          satysfiDist = pkgs.satyxin.buildSatysfiDist {
+            # Add pacakges to build your document
+            # All avaliable packages https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            packages = [
+              "bibyfi"
+              "sno2wman"
+            ];
+          };
+          main = pkgs.satyxin.buildDocument {
+            inherit satysfiDist;
+            satysfiLocal = ./.satysfi/local; # optional
+            name = "main";
+            src = ./src;
+            entrypoint = "main.saty";
+            output = "main.pdf"; # optional
+          };
+        }
       }
     );
 }
 ```
 
-Then, `nix build ".#main"` to build document.
+Write `.envrc` by using direnv.
 
-### `satyxin.buildDocument`
+```sh
+#!/usr/bin/env bash
+use flake
 
-```nix
-packages.main = pkgs.satyxin.buildDocument {
-  name = "main";
-  src = ./src;
-  filename = "main.saty";
-  output = "main.pdf"; # optional
-  buildInputs = with pkgs.satyxinPackages; [
-    uline
-    bibyfi
-    fss
-  ];
-};
+nix build ".#satysfiDist"  --out-link "$(pwd)/.satysfi/dist"
 ```
-
-### `satyxin.buildPackage`
-
-**TODO:**
 
 ## References
 
 - [AumyF/satyxin](https://github.com/AumyF/satyxin)
   - Original version of this attempt.
-- [SnO2WMaN/satyxin](https://github.com/SnO2WMaN/satyxin)
-  - Forked version of [AumyF/satyxin](https://github.com/AumyF/satyxin) (_Deprecated_)
-- [SnO2WMaN/satyxin](https://github.com/SnO2WMaN/satysfi-tools-nix)
-  - Nix flake for Useful SATySFi tools (_Deprecated_)
+- [na4zagin3/satyrographos](https://github.com/na4zagin3/satyrographos)
+  - Most major SATySFi package manager.
