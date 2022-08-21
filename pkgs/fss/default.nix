@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "fss";
+    version = inputs.pkg-satysfi-fss.rev;
     sources = {
       dirs = [
         "./src/fss"

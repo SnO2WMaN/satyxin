@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "class-jlreq";
+    version = inputs.pkg-satysfi-class-jlreq.rev;
     sources = {
       files = [
         "./jlreq.satyh"

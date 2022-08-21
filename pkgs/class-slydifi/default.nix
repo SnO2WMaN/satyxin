@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "class-slydifi";
+    version = inputs.pkg-satysfi-class-slydifi.rev;
     sources = {
       dirs = [
         "./src"

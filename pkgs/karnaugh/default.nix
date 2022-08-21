@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "karnaugh";
+    version = inputs.pkg-satysfi-karnaugh.rev;
     sources = {
       files = [
         "./karnaugh.satyh"

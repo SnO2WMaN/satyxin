@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "railway";
+    version = inputs.pkg-satysfi-railway.rev;
     sources = {
       dirs = [
         "./src"

@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "derive";
+    version = inputs.pkg-satysfi-derive.rev;
     sources = {
       dirs = [
         "./src"

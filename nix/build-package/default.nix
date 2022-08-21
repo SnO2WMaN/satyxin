@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   name,
+  version,
   src,
   outdir,
   sources ? {},
@@ -8,7 +9,8 @@
   inherit (import ../utils {inherit pkgs;}) merge-satysfi-hash;
 in
   pkgs.stdenv.mkDerivation {
-    inherit name src deps outdir;
+    inherit src deps outdir;
+    name = "satyxin-package-${name}-${version}";
     sources = builtins.toJSON sources;
 
     dontBuild = true;

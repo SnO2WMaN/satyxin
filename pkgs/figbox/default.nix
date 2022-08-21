@@ -5,7 +5,7 @@
     ...
   }: {
     name = "figbox";
-    version = inputs.pkg-satysfi-figbox.version;
+    version = inputs.pkg-satysfi-figbox.rev;
     sources = {
       dirs = [
         "./src"

@@ -1,7 +1,12 @@
 (import ../create-pkg.nix)
 (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "azmath";
+    version = inputs.pkg-satysfi-azmath.rev;
     sources = {
       dirs = [
         "./src"

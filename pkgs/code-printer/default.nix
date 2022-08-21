@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "code-printer";
+    version = inputs.pkg-satysfi-code-printer.rev;
     sources = {
       dirs = [
         "./src"

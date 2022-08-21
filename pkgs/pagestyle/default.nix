@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "pagestyle";
+    version = inputs.pkg-satysfi-pagestyle.rev;
     sources = {
       dirs = [
         "./src"

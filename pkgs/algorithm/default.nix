@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "algorithm";
+    version = inputs.pkg-satysfi-algorithm.rev;
     sources = {
       dirs = [
         "./src"

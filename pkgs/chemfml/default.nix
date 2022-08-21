@@ -1,6 +1,11 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "chemfml";
+    version = inputs.pkg-satysfi-chemfml.rev;
     sources = {
       dirs = [
         "./src"
