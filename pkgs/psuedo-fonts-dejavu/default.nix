@@ -9,7 +9,7 @@
 in
   pkgs.stdenv.mkDerivation {
     inherit (version);
-    name = "satyxin-package-fonts-dejavu-${version}";
+    name = "satyxin-package-psuedo-fonts-dejavu-${version}";
     outdir = "fonts-dejavu";
 
     dontBuild = true;

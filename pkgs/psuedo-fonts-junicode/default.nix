@@ -9,7 +9,7 @@
 in
   pkgs.stdenv.mkDerivation {
     inherit (version);
-    name = "satyxin-package-fonts-junicode-${version}";
+    name = "satyxin-package-psuedo-fonts-junicode-${version}";
     outdir = "fonts-junicode";
 
     dontBuild = true;
