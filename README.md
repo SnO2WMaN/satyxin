@@ -1,24 +1,47 @@
-# satyxinur
+# satyxin
 
 > Are you [SATySFi](https://github.com/gfngfn/SATySFi)-ed with [Nix](https://nixos.org/)?
 
+[![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
+
+- [English](./README.md)
+
+[SATySFi](https://github.com/gfngfn/SATySFi)による文書（以下，単に「文書」）を[Nix](https://nixos.org/)でビルドしたりするための様々を提供します．
+
 ## Example
 
-- [basic](https://github.com/SnO2WMaN/satyxinur/tree/main/example/basic)
-- [slide](https://github.com/SnO2WMaN/satyxinur/tree/main/example/slide)
-  - copied from [monaqa/slydifi](https://github.com/monaqa/slydifi/tree/e9d0f57c9e27c77888582eaa9ad8b9fd35a12828/doc)
+[![Status](https://github.com/SnO2WMaN/satyxin/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/SnO2WMaN/satyxin/actions/workflows/gh-pages.yml)
+
+実際にGitHub Actions上においてNixで文書をビルドした結果をGitHub Pagesに投げています．
+
+- [basic.pdf](https://sno2wman.github.io/satyxin/basic.pdf)
+  - [ソースファイル](https://github.com/SnO2WMaN/satyxinur/tree/main/example/basic)
+- [slide.pdf](https://sno2wman.github.io/satyxin/basic.pdf)
+  - [ソースファイル](https://github.com/SnO2WMaN/satyxinur/tree/main/example/slide)
+  - オリジナルのソースは[monaqa/slydifi](https://github.com/monaqa/slydifi/tree/e9d0f57c9e27c77888582eaa9ad8b9fd35a12828/doc)から持ってきています．
 
 ## Usage
 
-In random `flake.nix`
+**このFlakeは現在安定していないので記載した情報が古くなっている可能性も有ります．** 必要なら開発者による[テンプレート](https://github.com/SnO2WMaN/satysfi-nixtemplate)などを参考にしてください．（おそらく最新のバージョンに追随するようにしています．）
+
+### Requirements
+
+- Nix (もちろん)
+- [Nix Flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes)の有効化
+- [nix-direnv](https://github.com/nix-community/nix-direnv)
+  - 必須ではありませんが，あったほうが都合が良いです．
+
+### Setup
+
+`flake.nix`に次の内容を記載することで，`nix build ".#main"`で`result/main.pdf`に生成されます.
 
 ```nix
 {
   inputs = { 
-    satyxinur.url = "github:SnO2WMaN/satyxinur"; 
+    satyxin.url = "github:SnO2WMaN/satyxin";
   };
   outputs = { 
-    satyxinur, 
+    satyxin, 
     ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (
@@ -26,52 +49,45 @@ In random `flake.nix`
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ 
-            satyxinur.overlay 
+            satyxin.overlay
           ];
         };
       in rec {
-        packages.main = pkgs.satyxin.buildDocument {
-          name = "main";
-          src = ./src;
-          filename = "main.saty";
-          buildInputs = with pkgs.satyxinPackages; [
-            uline
-            bibyfi
-            fss
-          ];
-        };
+        packages = rec {
+          satysfiDist = pkgs.satyxin.buildSatysfiDist {
+            # 文書をビルドするために必要なパッケージを記載してください．
+            # 利用可能なすべてのパッケージは以下に存在します． https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            packages = [
+              "bibyfi"
+              "sno2wman"
+            ];
+          };
+          main = pkgs.satyxin.buildDocument {
+            inherit satysfiDist;
+            satysfiLocal = ./.satysfi/local; # 必須ではありません
+            name = "main";
+            src = ./src;
+            entrypoint = "main.saty";
+            output = "main.pdf"; # 必須ではありません
+          };
+        }
       }
     );
 }
 ```
 
-Then, `nix build ".#main"` to build document.
+次の内容を`.envrc`に書くと，direnvが読み取って`.satysfi/dist`以下に`satysfiDist`を生成します．**（書くべきです）**
 
-### `satyxin.buildDocument`
+```sh
+#!/usr/bin/env bash
+use flake
 
-```nix
-packages.main = pkgs.satyxin.buildDocument {
-  name = "main";
-  src = ./src;
-  filename = "main.saty";
-  output = "main.pdf"; # optional
-  buildInputs = with pkgs.satyxinPackages; [
-    uline
-    bibyfi
-    fss
-  ];
-};
+nix build ".#satysfiDist"  --out-link "$(pwd)/.satysfi/dist"
 ```
-
-### `satyxin.buildPackage`
-
-**TODO:**
 
 ## References
 
 - [AumyF/satyxin](https://github.com/AumyF/satyxin)
-  - Original version of this attempt.
-- [SnO2WMaN/satyxin](https://github.com/SnO2WMaN/satyxin)
-  - Forked version of [AumyF/satyxin](https://github.com/AumyF/satyxin) (_Deprecated_)
-- [SnO2WMaN/satyxin](https://github.com/SnO2WMaN/satysfi-tools-nix)
-  - Nix flake for Useful SATySFi tools (_Deprecated_)
+  - 改造元のリポジトリ
+- [na4zagin3/satyrographos](https://github.com/na4zagin3/satyrographos)
+  - 最もメジャーなSATySFi用パッケージマネージャ
