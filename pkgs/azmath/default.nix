@@ -1,12 +1,17 @@
 (import ../create-pkg.nix)
 (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "azmath";
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
-    deps = with satyxinPkgs; [base];
+    version = inputs.pkg-satysfi-azmath.rev;
+    sources = let
+      root = inputs.pkg-satysfi-azmath;
+    in [
+      "${root}/src"
+    ];
+    deps = with pkgs.satyxinPackages; [base];
   }
 )

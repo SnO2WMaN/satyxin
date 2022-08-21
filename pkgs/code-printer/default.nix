@@ -1,12 +1,17 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "code-printer";
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
-    deps = with satyxinPkgs; [
+    version = inputs.pkg-satysfi-code-printer.rev;
+    sources = let
+      root = inputs.pkg-satysfi-code-printer;
+    in [
+      "${root}/src"
+    ];
+    deps = with pkgs.satyxinPackages; [
       base
       fonts-dejavu
     ];

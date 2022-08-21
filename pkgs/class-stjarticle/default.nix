@@ -1,10 +1,15 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "class-stjarticle";
-    sources = {
-      files = [
-        "./stjarticle.satyh"
-      ];
-    };
+    version = inputs.pkg-satysfi-class-stjarticle.rev;
+    sources = let
+      root = inputs.pkg-satysfi-class-stjarticle;
+    in [
+      "${root}/stjarticle.satyh"
+    ];
   }
 )

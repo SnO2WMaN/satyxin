@@ -1,12 +1,17 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "class-slydifi";
-    sources = {
-      dirs = [
-        "./src"
-      ];
-    };
-    deps = with satyxinPkgs; [
+    version = inputs.pkg-satysfi-class-slydifi.rev;
+    sources = let
+      root = inputs.pkg-satysfi-class-slydifi;
+    in [
+      "${root}/src"
+    ];
+    deps = with pkgs.satyxinPackages; [
       enumitem
       figbox
       base

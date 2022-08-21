@@ -1,10 +1,11 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {inputs, ...}: {
     name = "ruby";
-    sources = {
-      files = [
-        "./ruby.satyh"
-      ];
-    };
+    version = inputs.pkg-satysfi-ruby.rev;
+    sources = let
+      root = inputs.pkg-satysfi-ruby;
+    in [
+      "${root}/ruby.satyh"
+    ];
   }
 )

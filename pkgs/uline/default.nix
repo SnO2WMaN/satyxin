@@ -1,11 +1,12 @@
 (import ../create-pkg.nix)
 (
-  {...}: {
+  {inputs, ...}: {
     name = "uline";
-    sources = {
-      files = [
-        "./uline.satyh"
-      ];
-    };
+    version = inputs.pkg-satysfi-uline.rev;
+    sources = let
+      root = inputs.pkg-satysfi-uline;
+    in [
+      "${root}/uline.satyh"
+    ];
   }
 )

@@ -1,11 +1,12 @@
 (import ../create-pkg.nix) (
-  {...}: {
+  {inputs, ...}: {
     name = "bibyfi";
-    sources = {
-      files = [
-        "./bibyfi.satyh"
-        "./bibyfi-IEEETran.satyh"
-      ];
-    };
+    version = inputs.pkg-satysfi-bibyfi.rev;
+    sources = let
+      root = inputs.pkg-satysfi-bibyfi;
+    in [
+      "${root}/bibyfi.satyh"
+      "${root}/bibyfi-IEEETran.satyh"
+    ];
   }
 )

@@ -1,12 +1,17 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "fss";
-    sources = {
-      dirs = [
-        "./src/fss"
-      ];
-    };
-    deps = with satyxinPkgs; [
+    version = inputs.pkg-satysfi-fss.rev;
+    sources = let
+      root = inputs.pkg-satysfi-fss;
+    in [
+      "${root}/src/fss"
+    ];
+    deps = with pkgs.satyxinPackages; [
       base
       dist
       fonts-junicode

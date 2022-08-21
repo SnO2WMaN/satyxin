@@ -1,17 +1,17 @@
 generator: {
   pkgs,
-  satyxinPkgs ? pkgs.satyxinPackages,
+  inputs,
+  ...
 }: let
-  g = generator {inherit satyxinPkgs;};
+  g = generator {
+    inherit pkgs;
+    inherit inputs;
+  };
 in
-  (import ../nix/build-package) {inherit pkgs;} rec {
-    inherit (g) name;
-    sources = g.sources or {};
-    deps = g.deps or [];
+  pkgs.satyxin.buildPackage rec {
+    inherit (g) name version;
 
-    src = with (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes."pkg-satysfi-${name}".locked;
-      pkgs.fetchFromGitHub {
-        inherit owner repo rev;
-        sha256 = narHash;
-      };
+    outdir = name;
+    deps = g.deps or [];
+    sources = g.sources or {};
   }
