@@ -1506,6 +1506,23 @@
         "type": "github"
       }
     },
+    "pkg-satysfi-zrbase": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1584866435,
+        "narHash": "sha256-waqV3IJEeFOoex0vqI8zPogc/t3nDF7gQalm3Gfu0cA=",
+        "owner": "zr-tex8r",
+        "repo": "satysfi-zrbase",
+        "rev": "c1df14b22b752d685aff2fbf38ede6f2dbfc43bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zr-tex8r",
+        "ref": "0.4.0",
+        "repo": "satysfi-zrbase",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "devshell": "devshell",
@@ -1534,6 +1551,7 @@
         "pkg-satysfi-ruby": "pkg-satysfi-ruby",
         "pkg-satysfi-sno2wman": "pkg-satysfi-sno2wman",
         "pkg-satysfi-uline": "pkg-satysfi-uline_3",
+        "pkg-satysfi-zrbase": "pkg-satysfi-zrbase",
         "satysfi": "satysfi_3",
         "satysfi-formatter": "satysfi-formatter_3",
         "satysfi-language-server": "satysfi-language-server_3"
