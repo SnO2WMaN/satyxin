@@ -1,12 +1,12 @@
 (import ../create-pkg.nix)
 (
-  {satyxinPkgs}: {
+  {pkgs, ...}: {
     name = "azmath";
     sources = {
       dirs = [
         "./src"
       ];
     };
-    deps = with satyxinPkgs; [base];
+    deps = with pkgs.satyxinPackages; [base];
   }
 )

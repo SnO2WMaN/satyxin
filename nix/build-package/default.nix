@@ -1,13 +1,14 @@
-{pkgs}: {
+{pkgs, ...}: {
   name,
   src,
+  outdir,
   sources ? {},
   deps ? [],
 }: let
   inherit (import ../utils {inherit pkgs;}) merge-satysfi-hash;
 in
   pkgs.stdenv.mkDerivation {
-    inherit name src deps;
+    inherit name src deps outdir;
     sources = builtins.toJSON sources;
 
     dontBuild = true;
@@ -90,17 +91,17 @@ in
       done
 
       for i in $(seq 0 $(($(echo $sources | jq ".files | length") - 1))); do
-          mkdir -p $out/packages/$name/
+          mkdir -p $out/packages/$outdir/
 
           path=`echo $sources | jq -r ".files[$i]"`
-          cp $src/$path $out/packages/$name/$path
+          cp $src/$path $out/packages/$outdir/$path
       done
 
       for i in $(seq 0 $(($(echo $sources | jq ".dirs | length") - 1))); do
-          mkdir -p $out/packages/$name/
+          mkdir -p $out/packages/$outdir/
 
           path=`echo $sources | jq -r ".dirs[$i]"`
-          cp -r $src/$path/* $out/packages/$name
+          cp -r $src/$path/* $out/packages/$outdir
       done
     '';
     buildInputs = with pkgs; [

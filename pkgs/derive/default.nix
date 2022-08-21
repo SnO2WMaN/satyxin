@@ -1,12 +1,12 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {pkgs, ...}: {
     name = "derive";
     sources = {
       dirs = [
         "./src"
       ];
     };
-    deps = with satyxinPkgs; [
+    deps = with pkgs.satyxinPackages; [
       base
     ];
   }

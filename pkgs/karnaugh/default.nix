@@ -1,5 +1,5 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {pkgs, ...}: {
     name = "karnaugh";
     sources = {
       files = [

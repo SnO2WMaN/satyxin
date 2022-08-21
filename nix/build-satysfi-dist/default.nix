@@ -6,10 +6,7 @@
 in
   pkgs.stdenv.mkDerivation {
     name = "satysfi-dist";
-    packages = builtins.toJSON (
-      (map (name: pkgs.satyxinPackages."${name}") packages)
-      ++ adhocPackages
-    );
+    packages = builtins.toJSON (packages ++ adhocPackages);
 
     dontUnpack = true;
 

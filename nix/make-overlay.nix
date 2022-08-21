@@ -9,7 +9,10 @@ inputs: final: prev: {
     listToAttrs (
       map (name: {
         name = name;
-        value = final.callPackage (import ../pkgs/${name}) {};
+        value = import ../pkgs/${name} {
+          pkgs = final;
+          inputs = inputs;
+        };
       }) [
         "algorithm"
         "azmath"

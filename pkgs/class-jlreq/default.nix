@@ -1,5 +1,5 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {pkgs, ...}: {
     name = "class-jlreq";
     sources = {
       files = [
@@ -15,7 +15,7 @@
         "./toc.satyh"
       ];
     };
-    deps = with satyxinPkgs; [
+    deps = with pkgs.satyxinPackages; [
       base
       dist
       pagenumber

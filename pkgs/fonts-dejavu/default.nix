@@ -1,6 +1,11 @@
-{pkgs, ...}:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 pkgs.stdenv.mkDerivation {
-  name = "fonts-dejavu";
+  name = "satyxin-package-fonts-dejavu";
+  outdir = "fonts-dejavu";
   src = [
     (pkgs.fetchzip {
       name = "dejavu";

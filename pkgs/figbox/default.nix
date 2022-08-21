@@ -1,12 +1,17 @@
 (import ../create-pkg.nix) (
-  {satyxinPkgs}: {
+  {
+    pkgs,
+    inputs,
+    ...
+  }: {
     name = "figbox";
+    version = inputs.pkg-satysfi-figbox.version;
     sources = {
       dirs = [
         "./src"
       ];
     };
-    deps = with satyxinPkgs; [
+    deps = with pkgs.satyxinPackages; [
       base
       dist
     ];
