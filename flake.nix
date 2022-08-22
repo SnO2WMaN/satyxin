@@ -16,8 +16,7 @@
 
     satysfi-formatter.url = "github:usagrada/satysfi-formatter";
     satysfi-formatter.flake = false;
-    satysfi-language-server.url = "github:monaqa/satysfi-language-server";
-    satysfi-language-server.flake = false;
+    satysfi-language-server.url = "github:SnO2WMaN/satysfi-language-server/nix-integrate";
   };
 
   outputs = {
@@ -25,6 +24,7 @@
     nixpkgs,
     flake-utils,
     devshell,
+    satysfi-language-server,
     ...
   } @ inputs:
     {
@@ -101,9 +101,23 @@
           }
         );
         devShell = pkgs.devshell.mkShell {
-          imports = [
-            (pkgs.devshell.importTOML ./devshell.toml)
+          commands = with pkgs; [
+            {
+              package = "treefmt";
+              category = "formatter";
+            }
           ];
+          packages =
+            (
+              with pkgs; [
+                alejandra
+                dprint
+                satysfi
+                satysfi-formatter-each
+                satysfi-language-server
+              ]
+            )
+            ++ [satysfi-language-server.packages.${system}.satysfi-language-server];
         };
         checks = self.packages.${system};
       }
