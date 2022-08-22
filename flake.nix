@@ -14,8 +14,7 @@
     satysfi.url = "github:gfngfn/SATySFi";
     satysfi.flake = false;
 
-    satysfi-formatter.url = "github:usagrada/satysfi-formatter";
-    satysfi-formatter.flake = false;
+    satysfi-formatter.url = "github:SnO2WMaN/satysfi-formatter/nix-integrate";
     satysfi-language-server.url = "github:SnO2WMaN/satysfi-language-server/nix-integrate";
   };
 
@@ -24,6 +23,7 @@
     nixpkgs,
     flake-utils,
     devshell,
+    satysfi-formatter,
     satysfi-language-server,
     ...
   } @ inputs:
@@ -41,6 +41,11 @@
           overlays = [
             devshell.overlay
             self.overlays.default
+            (final: prev: {
+              satysfi-language-server = satysfi-language-server.packages.${system}.satysfi-language-server;
+              satysfi-formatter = satysfi-formatter.packages.${system}.satysfi-formatter;
+              satysfi-formatter-write-each = satysfi-formatter.packages.${system}.satysfi-formatter-write-each;
+            })
           ];
         };
       in {
@@ -91,13 +96,6 @@
               key: value: (nameValuePair ("satyxin-package-" + key) value)
             )
             pkgs.satyxinPackages)
-          // {
-            inherit
-              (pkgs)
-              satysfi-formatter
-              satysfi-formatter-each
-              ;
-          }
         );
         devShell = pkgs.devshell.mkShell {
           commands = with pkgs; [
@@ -106,17 +104,15 @@
               category = "formatter";
             }
           ];
-          packages =
-            (
-              with pkgs; [
-                alejandra
-                dprint
-                satysfi
-                satysfi-formatter-each
-                satysfi-language-server
-              ]
-            )
-            ++ [satysfi-language-server.packages.${system}.satysfi-language-server];
+          packages = (
+            with pkgs; [
+              alejandra
+              dprint
+              satysfi
+              satysfi-language-server
+              satysfi-formatter-write-each
+            ]
+          );
         };
         checks = self.packages.${system};
       }
