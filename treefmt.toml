@@ -7,6 +7,10 @@ command = "dprint"
 options = ["fmt"]
 includes = ["*.json", "*.toml", "*.md"]
 
+[formatter.yamlfmt]
+command = "yamlfmt"
+includes = ["*.yml", "*.yaml"]
+
 [formatter.satysfi-fmt]
 command = "satysfi-fmt-write-each"
 includes = ["*.saty", "*.satyh"]

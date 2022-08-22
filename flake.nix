@@ -16,6 +16,8 @@
 
     satysfi-formatter.url = "github:SnO2WMaN/satysfi-formatter/nix-integrate";
     satysfi-language-server.url = "github:SnO2WMaN/satysfi-language-server/nix-integrate";
+
+    yamlfmt.url = "github:SnO2WMaN/yamlfmt/nix-intgl";
   };
 
   outputs = {
@@ -23,8 +25,6 @@
     nixpkgs,
     flake-utils,
     devshell,
-    satysfi-formatter,
-    satysfi-language-server,
     ...
   } @ inputs:
     {
@@ -41,11 +41,13 @@
           overlays = [
             devshell.overlay
             self.overlays.default
-            (final: prev: {
-              satysfi-language-server = satysfi-language-server.packages.${system}.satysfi-language-server;
-              satysfi-formatter = satysfi-formatter.packages.${system}.satysfi-formatter;
-              satysfi-formatter-write-each = satysfi-formatter.packages.${system}.satysfi-formatter-write-each;
-            })
+            (final: prev:
+              with inputs; {
+                satysfi-language-server = satysfi-language-server.packages.${system}.satysfi-language-server;
+                satysfi-formatter = satysfi-formatter.packages.${system}.satysfi-formatter;
+                satysfi-formatter-write-each = satysfi-formatter.packages.${system}.satysfi-formatter-write-each;
+                yamlfmt = yamlfmt.packages.${system}.yamlfmt;
+              })
           ];
         };
       in {
@@ -111,6 +113,7 @@
               satysfi
               satysfi-language-server
               satysfi-formatter-write-each
+              yamlfmt
             ]
           );
         };
