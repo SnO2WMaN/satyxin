@@ -13,7 +13,8 @@
         "markdown",
         "nix",
         "satysfi",
-        "toml"
+        "toml",
+        "yaml"
       ]
     }
   ],
@@ -33,6 +34,9 @@
     "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
   "[satysfi]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
+  "[yaml]": {
     "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
   "editor.unicodeHighlight.allowedCharacters": {
