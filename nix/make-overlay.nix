@@ -1,7 +1,4 @@
 inputs: final: prev: {
-  satysfi-formatter = final.callPackage ../tools/satysfi-formatter {};
-  satysfi-formatter-each = final.callPackage ../tools/satysfi-formatter/each.nix {};
-
   satyxin = import ./. {pkgs = final;};
 
   satyxinPackages = with final.lib; (
