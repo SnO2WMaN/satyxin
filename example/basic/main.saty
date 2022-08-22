@@ -6,7 +6,6 @@
 @require: fss/style
 @require: fss/fonts
 @require: chemfml/chemfml
-@require: sno2wman/sno2wman
 @require: derive/derive
 @require: algorithm/algorithm
 @require: algorithm/style/default
@@ -29,7 +28,7 @@ in
 open Derive in
     document(|
         title = { はじめての\SATySFi; };
-        author = { \SnO2WMaN; };
+        author = { SnO2WMaN };
         show-title = false;
         show-toc = false;
     |)'<
