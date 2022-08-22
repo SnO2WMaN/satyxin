@@ -18,8 +18,6 @@
     satysfi-formatter.flake = false;
     satysfi-language-server.url = "github:monaqa/satysfi-language-server";
     satysfi-language-server.flake = false;
-
-    pkg-satysfi-sno2wman.url = "github:sno2wman/satysfi-sno2wman/v1.0.0";
   };
 
   outputs = {
@@ -27,7 +25,6 @@
     nixpkgs,
     flake-utils,
     devshell,
-    pkg-satysfi-sno2wman,
     ...
   } @ inputs:
     {
@@ -43,9 +40,7 @@
           inherit system;
           overlays = [
             devshell.overlay
-            # satyxin package overlays
             self.overlays.default
-            pkg-satysfi-sno2wman.overlays.default
           ];
         };
       in {
@@ -61,7 +56,6 @@
                 easytable
                 fss
                 ruby
-                sno2wman
                 uline
               ];
             };

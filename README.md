@@ -91,3 +91,8 @@ nix build ".#satysfiDist"  --out-link "$(pwd)/.satysfi/dist"
   - 改造元のリポジトリ
 - [na4zagin3/satyrographos](https://github.com/na4zagin3/satyrographos)
   - 最もメジャーなSATySFi用パッケージマネージャ
+
+### External flakes for satyxin
+
+- [SnO2WMaN/satysfi-sno2wman](https://github.com/SnO2WMaN/satysfi-sno2wman)
+  - Add `satyxinPackages.sno2wman`
