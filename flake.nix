@@ -95,7 +95,6 @@
             inherit
               (pkgs)
               satysfi-formatter
-              satysfi-language-server
               satysfi-formatter-each
               ;
           }
