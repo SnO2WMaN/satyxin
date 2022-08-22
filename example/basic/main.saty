@@ -87,7 +87,7 @@ open Derive in
             +section{ algorithm }<
                 +p{ satysfi-algorithm }
                 +algorithmic<
-                    +Procedure{ Euclid }{ ${a , b} }<
+                    +Procedure{ Euclid }{ ${a, b} }<
                         +State{ ${r \gets a \bmod b} }
                         +While{ ${r \neq 0} }<
                             +State{ ${a \gets b} }
