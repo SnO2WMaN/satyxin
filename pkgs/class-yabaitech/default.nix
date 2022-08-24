@@ -12,12 +12,12 @@
     in [
       "${root}/src"
     ];
-    # deps = with pkgs.satyxinPackages; [
-    #   fonts-noto-sans
-    #   fonts-noto-serif
-    #   fonts-noto-sans-cjk-jp
-    #   fonts-noto-serif-cjk-jp
-    #   fonts-asana-math
-    # ];
+    deps = with pkgs.satyxinPackages; [
+      # fonts-noto-sans
+      # fonts-noto-serif
+      # fonts-noto-sans-cjk-jp
+      # fonts-noto-serif-cjk-jp
+      psuedo-fonts-asana-math
+    ];
   }
 )

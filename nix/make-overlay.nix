@@ -30,6 +30,7 @@ inputs: final: prev: {
         "pagenumber"
         "pagestyle"
         "psuedo-fonts-dejavu"
+        "psuedo-fonts-asana-math"
         "psuedo-fonts-junicode"
         "railway"
         "ruby"
