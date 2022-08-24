@@ -33,6 +33,7 @@ inputs: final: prev: {
         "psuedo-fonts-asana-math"
         "psuedo-fonts-junicode"
         "psuedo-fonts-noto-sans"
+        "psuedo-fonts-noto-serif"
         "railway"
         "ruby"
         "uline"
