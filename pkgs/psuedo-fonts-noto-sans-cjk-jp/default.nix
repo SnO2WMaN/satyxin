@@ -7,8 +7,8 @@
     sha256 = "sha256-5XM4Vs1MeFJy2dymxu4aq/krrD1dzSrHyzU3HmFM+3Q=";
   };
   fontfile = pkgs.fetchzip {
-    url = "https://github.com/zeptometer/noto-cjk/releases/download/NotoSansV2.001/NotoSerifCJKJp.zip";
-    sha256 = "sha256-Fyjbt7OP49Y2mEX3RKAyvi442Wq4Qsv8w7MIgV2/odQ=";
+    url = "https://github.com/zeptometer/noto-cjk/releases/download/NotoSansV2.001/NotoSansCJKJp.zip";
+    sha256 = "sha256-Ho9BvInst2U4Mf/szyg6ISZUbXA5qypK11sPjedLhUs=";
   };
 in
   pkgs.stdenv.mkDerivation {
