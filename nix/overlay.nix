@@ -1,14 +1,11 @@
-inputs: final: prev: {
+final: prev: {
   satyxin = import ./. {pkgs = final;};
 
   satyxinPackages = with final.lib; (
     listToAttrs (
       map (name: {
         name = name;
-        value = import ../pkgs/${name} {
-          pkgs = final;
-          inputs = inputs;
-        };
+        value = final.callPackage ../pkgs/${name} {};
       }) [
         "algorithm"
         "azmath"
