@@ -1,6 +1,7 @@
 {
   pkgs,
   stdenv,
+  fetchzip,
   fetchFromGitHub,
   ...
 }: let
@@ -11,7 +12,7 @@
     rev = version;
     sha256 = "sha256-lqkB8z1gh9gE8F6TgrBiMaXbgAwhewNLPbW1JwLfIpU=";
   };
-  fontfile = pkgs.fetchzip {
+  fontfile = fetchzip {
     url = "https://github.com/zeptometer/noto-fonts/releases/download/v2.7-NotoSlimVF/NotoSerif.zip";
     sha256 = "sha256-6ikZvMj1H74+egQLOjnJ7WSexlPKIE3Xy5g6x2yl5pk=";
   };

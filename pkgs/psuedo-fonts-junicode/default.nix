@@ -2,6 +2,7 @@
   pkgs,
   stdenv,
   fetchFromGitHub,
+  junicode,
   ...
 }: let
   version = "331911ba9102d7cc489549a576a60e33affacc76";
@@ -22,7 +23,7 @@ in
 
     installPhase = ''
       mkdir -p $out/fonts/fonts-junicode
-      cp -r ${pkgs.junicode}/share/fonts/junicode-ttf/* $out/fonts/fonts-junicode
+      cp -r ${junicode}/share/fonts/junicode-ttf/* $out/fonts/fonts-junicode
 
       mkdir -p $out/hash
       cp ${"${root}/fonts.satysfi-hash"} $out/hash/fonts.satysfi-hash

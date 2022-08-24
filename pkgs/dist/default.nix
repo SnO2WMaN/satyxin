@@ -1,6 +1,7 @@
 {
   pkgs,
   stdenv,
+  satysfi,
   ...
 }:
 stdenv.mkDerivation {
@@ -10,6 +11,6 @@ stdenv.mkDerivation {
   dontUnpack = true;
 
   installPhase = ''
-    cp -r ${pkgs.satysfi}/share/satysfi/dist $out
+    cp -r ${satysfi}/share/satysfi/dist $out
   '';
 }

@@ -1,6 +1,7 @@
 {
   pkgs,
   stdenv,
+  fetchzip,
   fetchFromGitHub,
   ...
 }: let
@@ -11,7 +12,7 @@
     rev = version;
     sha256 = "sha256-5XM4Vs1MeFJy2dymxu4aq/krrD1dzSrHyzU3HmFM+3Q=";
   };
-  fontfile = pkgs.fetchzip {
+  fontfile = fetchzip {
     url = "https://github.com/zeptometer/noto-cjk/releases/download/NotoSansV2.001/NotoSansCJKJp.zip";
     sha256 = "sha256-Ho9BvInst2U4Mf/szyg6ISZUbXA5qypK11sPjedLhUs=";
   };

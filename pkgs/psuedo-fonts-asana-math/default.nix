@@ -2,6 +2,7 @@
   pkgs,
   stdenv,
   fetchFromGitHub,
+  fetchurl,
   ...
 }: let
   version = "50f685d35897685da0b7462e7625ed23db1db8f0";
@@ -11,7 +12,7 @@
     rev = version;
     sha256 = "sha256-RBbHeki+1ND+kedYuSzEYQtP8qJcXSmQ5fLl7QUa2uU=";
   };
-  fontfile = pkgs.fetchurl {
+  fontfile = fetchurl {
     url = "http://mirrors.ctan.org/fonts/Asana-Math/Asana-Math.otf";
     sha256 = "b0d9e681c08ff1f4dc6ebf085cc962585ec12cdbd25dc6225890b9f8fd12d568";
   };
