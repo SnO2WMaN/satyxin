@@ -13,10 +13,11 @@
       "${root}/src"
     ];
     deps = with pkgs.satyxinPackages; [
+      base
       psuedo-fonts-noto-sans
       psuedo-fonts-noto-serif
-      # fonts-noto-sans-cjk-jp
-      # fonts-noto-serif-cjk-jp
+      psuedo-fonts-noto-sans-cjk-jp
+      psuedo-fonts-noto-serif-cjk-jp
       psuedo-fonts-asana-math
     ];
   }
