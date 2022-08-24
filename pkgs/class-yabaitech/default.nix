@@ -5,7 +5,7 @@
     satyxinPackages,
     ...
   }: rec {
-    name = "class-yabaitechtokyo";
+    name = "class-yabaitech";
     version = "0.0.9";
     sources = let
       root = fetchFromGitHub {
