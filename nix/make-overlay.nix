@@ -18,6 +18,7 @@ inputs: final: prev: {
         "class-jlreq"
         "class-slydifi"
         "class-stjarticle"
+        "class-yabaitech"
         "code-printer"
         "derive"
         "dist"
