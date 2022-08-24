@@ -1,14 +1,18 @@
-inputs: final: prev: {
-  satyxin = import ./. {pkgs = final;};
+final: prev: {
+  satyxin = {
+    buildSatysfiDist = final.callPackage ./build-satysfi-dist {};
+    buildDocument = final.callPackage ./build-document {};
+    buildPackage = final.callPackage ./build-package {};
+
+    # internal
+    internal = final.callPackage ./utils {};
+  };
 
   satyxinPackages = with final.lib; (
     listToAttrs (
       map (name: {
         name = name;
-        value = import ../pkgs/${name} {
-          pkgs = final;
-          inputs = inputs;
-        };
+        value = final.callPackage ../pkgs/${name} {};
       }) [
         "algorithm"
         "azmath"

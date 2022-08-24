@@ -1,17 +1,23 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  stdenv,
+  fetchzip,
+  fetchFromGitHub,
+  ...
+}: let
   version = "882b8c4b894b4a487e5a566f8f6c2f10a5e3bd29";
-  root = pkgs.fetchFromGitHub {
+  root = fetchFromGitHub {
     owner = "zeptometer";
     repo = "SATySFi-fonts-noto-sans";
     rev = version;
     sha256 = "sha256-TF7wOJnbcX36MPpofZNgtKJ+rfz5qLgmoOfJFIANYy0=";
   };
-  fontfile = pkgs.fetchzip {
+  fontfile = fetchzip {
     url = "https://github.com/zeptometer/noto-fonts/releases/download/v2.7-NotoSlimVF/NotoSans.zip";
     sha256 = "sha256-s3+l96VZvzFz/p5p5i+qOBYJL1atR19PVABwoaEZR+c=";
   };
 in
-  pkgs.stdenv.mkDerivation {
+  stdenv.mkDerivation {
     inherit (version);
     name = "satyxin-package-psuedo-fonts-noto-sans-${version}";
 

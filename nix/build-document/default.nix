@@ -1,5 +1,10 @@
-{pkgs}: let
-  inherit (pkgs.lib) removeSuffix hasSuffix;
+{
+  pkgs,
+  lib,
+  stdenv,
+  ...
+}: let
+  inherit (lib) removeSuffix hasSuffix;
 in
   {
     name,
@@ -9,7 +14,7 @@ in
     satysfiDist,
     satysfiLocal ? null,
   }:
-    pkgs.stdenv.mkDerivation {
+    stdenv.mkDerivation {
       inherit
         name
         src

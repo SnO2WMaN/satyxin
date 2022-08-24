@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "class-jlreq";
     version = "0.0.3";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "abenori";
         repo = "satysfi-class-jlreq";
         rev = version;
@@ -21,7 +26,7 @@
       "${root}/proof.satyh"
       "${root}/toc.satyh"
     ];
-    deps = with pkgs.satyxinPackages; [
+    deps = with satyxinPackages; [
       base
       dist
       pagenumber

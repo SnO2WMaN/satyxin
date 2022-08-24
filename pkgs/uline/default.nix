@@ -1,10 +1,15 @@
 (import ../create-pkg.nix)
 (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "uline";
     version = "0.2.2";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "puripuri2100";
         repo = "SATySFi-uline";
         rev = "v${version}";

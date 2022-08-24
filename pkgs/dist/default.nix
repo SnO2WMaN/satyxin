@@ -1,11 +1,16 @@
-{pkgs, ...}:
-pkgs.stdenv.mkDerivation {
+{
+  pkgs,
+  stdenv,
+  satysfi,
+  ...
+}:
+stdenv.mkDerivation {
   name = "satyxin-package-dist";
 
   dontBuild = true;
   dontUnpack = true;
 
   installPhase = ''
-    cp -r ${pkgs.satysfi}/share/satysfi/dist $out
+    cp -r ${satysfi}/share/satysfi/dist $out
   '';
 }

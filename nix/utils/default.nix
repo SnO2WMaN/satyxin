@@ -1,3 +1,3 @@
 {pkgs}: {
-  merge-satysfi-hash = (import ./merge-satysfi-hash.nix) {inherit pkgs;};
+  merge-satysfi-hash = pkgs.callPackage ./merge-satysfi-hash.nix {};
 }
