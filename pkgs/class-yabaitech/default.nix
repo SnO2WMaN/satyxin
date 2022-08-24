@@ -13,8 +13,8 @@
       "${root}/src"
     ];
     deps = with pkgs.satyxinPackages; [
-      # fonts-noto-sans
-      # fonts-noto-serif
+      psuedo-fonts-noto-sans
+      psuedo-fonts-noto-serif
       # fonts-noto-sans-cjk-jp
       # fonts-noto-serif-cjk-jp
       psuedo-fonts-asana-math
