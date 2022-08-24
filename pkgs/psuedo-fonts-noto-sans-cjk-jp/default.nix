@@ -19,8 +19,8 @@ in
     dontUnpack = true;
 
     installPhase = ''
-      mkdir -p $out/fonts/fonts-noto-sans-fonts-cjk-jp
-      cp -r ${fontfile}/* $out/fonts/fonts-noto-sans-fonts-cjk-jp
+      mkdir -p $out/fonts/fonts-noto-sans-cjk-jp
+      cp -r ${fontfile}/* $out/fonts/fonts-noto-sans-cjk-jp
 
       mkdir -p $out/hash
       cp ${"${root}/fonts.satysfi-hash"} $out/hash/fonts.satysfi-hash
