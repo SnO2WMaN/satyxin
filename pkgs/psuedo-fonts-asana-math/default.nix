@@ -1,6 +1,11 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  stdenv,
+  fetchFromGitHub,
+  ...
+}: let
   version = "50f685d35897685da0b7462e7625ed23db1db8f0";
-  root = pkgs.fetchFromGitHub {
+  root = fetchFromGitHub {
     owner = "zeptometer";
     repo = "SATySFi-fonts-asana-math";
     rev = version;
@@ -11,7 +16,7 @@
     sha256 = "b0d9e681c08ff1f4dc6ebf085cc962585ec12cdbd25dc6225890b9f8fd12d568";
   };
 in
-  pkgs.stdenv.mkDerivation {
+  stdenv.mkDerivation {
     inherit (version);
     name = "satyxin-package-psuedo-fonts-asana-math-${version}";
 

@@ -1,5 +1,12 @@
 final: prev: {
-  satyxin = import ./. {pkgs = final;};
+  satyxin = {
+    buildSatysfiDist = final.callPackage ./build-satysfi-dist {};
+    buildDocument = final.callPackage ./build-document {};
+    buildPackage = final.callPackage ./build-package {};
+
+    # internal
+    internal = final.callPackage ./utils {};
+  };
 
   satyxinPackages = with final.lib; (
     listToAttrs (

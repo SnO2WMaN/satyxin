@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "railway";
     version = "0.1.0";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "monaqa";
         repo = "satysfi-railway";
         rev = "v${version}";
@@ -12,7 +17,7 @@
     in [
       "${root}/src"
     ];
-    deps = with pkgs.satyxinPackages; [
+    deps = with satyxinPackages; [
       base
       dist
     ];

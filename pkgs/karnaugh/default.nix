@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "karnaugh";
     version = "ed38a3ec2afa09a383a2b4e9068ece4dd9bba715";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "takagiy";
         repo = "satysfi-karnaugh";
         rev = version;

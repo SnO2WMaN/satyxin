@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "pagenumber";
     version = "1.0.0";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "abenori";
         repo = "satysfi-pagenumber";
         rev = version;
@@ -12,7 +17,7 @@
     in [
       "${root}/src"
     ];
-    deps = with pkgs.satyxinPackages; [
+    deps = with satyxinPackages; [
       base
       dist
     ];

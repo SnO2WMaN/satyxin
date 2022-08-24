@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "class-yabaitechtokyo";
     version = "0.0.9";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "yabaitechtokyo";
         repo = "satysfi-class-yabaitech";
         rev = version;
@@ -12,7 +17,7 @@
     in [
       "${root}/src"
     ];
-    deps = with pkgs.satyxinPackages; [
+    deps = with satyxinPackages; [
       base
       psuedo-fonts-noto-sans
       psuedo-fonts-noto-serif

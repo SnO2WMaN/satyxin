@@ -1,13 +1,18 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  stdenv,
+  fetchFromGitHub,
+  ...
+}: let
   version = "20ebafa93bac3cce5c13934fe0600a4c50f0cd75";
-  root = pkgs.fetchFromGitHub {
+  root = fetchFromGitHub {
     owner = "zeptometer";
     repo = "SATySFi-fonts-dejavu";
     rev = version;
     sha256 = "sha256-y2tigU06C8fs8s+ImxMPUcdQwdj9mGzyRHNdC+TNR+4=";
   };
 in
-  pkgs.stdenv.mkDerivation {
+  stdenv.mkDerivation {
     inherit (version);
     name = "satyxin-package-psuedo-fonts-dejavu-${version}";
     outdir = "fonts-dejavu";

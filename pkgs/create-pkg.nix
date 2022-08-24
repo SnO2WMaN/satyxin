@@ -1,9 +1,11 @@
-generator: {pkgs, ...}: let
-  g = generator {
-    inherit pkgs;
-  };
+generator: {
+  pkgs,
+  satyxin,
+  ...
+} @ input: let
+  g = pkgs.callPackage generator {};
 in
-  pkgs.satyxin.buildPackage rec {
+  satyxin.buildPackage rec {
     inherit (g) name version;
 
     outdir = name;

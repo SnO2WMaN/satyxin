@@ -1,9 +1,14 @@
 (import ../create-pkg.nix) (
-  {pkgs, ...}: rec {
+  {
+    pkgs,
+    fetchFromGitHub,
+    satyxinPackages,
+    ...
+  }: rec {
     name = "easytable";
     version = "1.1.2";
     sources = let
-      root = pkgs.fetchFromGitHub {
+      root = fetchFromGitHub {
         owner = "monaqa";
         repo = "satysfi-easytable";
         rev = "v${version}";
@@ -12,7 +17,7 @@
     in [
       "${root}/src"
     ];
-    deps = with pkgs.satyxinPackages; [
+    deps = with satyxinPackages; [
       base
     ];
   }

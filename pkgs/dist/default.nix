@@ -1,5 +1,9 @@
-{pkgs, ...}:
-pkgs.stdenv.mkDerivation {
+{
+  pkgs,
+  stdenv,
+  ...
+}:
+stdenv.mkDerivation {
   name = "satyxin-package-dist";
 
   dontBuild = true;

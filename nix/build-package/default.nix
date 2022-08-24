@@ -1,11 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  stdenv,
+  ...
+}: {
   name,
   version,
   outdir,
   sources ? {},
   deps ? [],
 }:
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   inherit deps outdir;
   name = "satyxin-package-${name}-${version}";
   sources = builtins.toJSON sources;
@@ -16,7 +20,7 @@ pkgs.stdenv.mkDerivation {
   nativeBuildInputs = with pkgs; [
     jq
     moreutils
-    satyxin.mergeSatysfiHash
+    satyxin.internal.merge-satysfi-hash
   ];
   installPhase = ''
     for dep in $(echo $deps | tr ' ' '\n'); do

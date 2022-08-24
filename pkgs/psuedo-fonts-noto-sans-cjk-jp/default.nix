@@ -1,6 +1,11 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  stdenv,
+  fetchFromGitHub,
+  ...
+}: let
   version = "f39000af35a8056cfddd82fb5787d5c87b2bbca0";
-  root = pkgs.fetchFromGitHub {
+  root = fetchFromGitHub {
     owner = "zeptometer";
     repo = "SATySFi-fonts-noto-sans-cjk-jp";
     rev = version;
@@ -11,7 +16,7 @@
     sha256 = "sha256-Ho9BvInst2U4Mf/szyg6ISZUbXA5qypK11sPjedLhUs=";
   };
 in
-  pkgs.stdenv.mkDerivation {
+  stdenv.mkDerivation {
     inherit (version);
     name = "satyxin-psuedo-fonts-noto-sans-cjk-jp-${version}";
 
