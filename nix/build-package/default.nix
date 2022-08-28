@@ -10,8 +10,8 @@
   deps ? [],
 }:
 stdenv.mkDerivation {
-  inherit deps outdir;
-  name = "satyxin-package-${name}-${version}";
+  inherit deps outdir version;
+  pname = "satyxin-package-${name}";
   sources = builtins.toJSON sources;
 
   dontBuild = true;
