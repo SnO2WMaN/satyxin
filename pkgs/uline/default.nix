@@ -12,7 +12,7 @@
       root = fetchFromGitHub {
         owner = "puripuri2100";
         repo = "SATySFi-uline";
-        rev = "v${version}";
+        rev = version;
         sha256 = "sha256-94lChvMIkuIFHJgPoMbQCkivIGwz5EieCOKpcTaKThc=";
       };
     in [
