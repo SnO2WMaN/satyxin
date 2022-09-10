@@ -5,7 +5,8 @@
   satyxinPackages,
   ...
 }:
-satyxin.buildPackage rec {
+pkgs.callPackage ../../nix/build-package {}
+rec {
   pname = "satyxin-railway";
   version = "0.1.0";
 

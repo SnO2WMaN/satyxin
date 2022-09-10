@@ -5,7 +5,8 @@
   satyxinPackages,
   ...
 }:
-satyxin.buildPackage rec {
+pkgs.callPackage ../../nix/build-package {}
+rec {
   pname = "satyxin-enumitem";
   version = "3.0.1";
 

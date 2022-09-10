@@ -5,7 +5,8 @@
   satyxinPackages,
   ...
 }:
-satyxin.buildPackage rec {
+pkgs.callPackage ../../nix/build-package {}
+rec {
   pname = "satyxin-class-stjarticle";
   version = "9381bee930818464e76cdc4622eb381a1aba164f";
 

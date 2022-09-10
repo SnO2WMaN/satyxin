@@ -5,7 +5,8 @@
   satyxinPackages,
   ...
 }:
-satyxin.buildPackage rec {
+pkgs.callPackage ../../nix/build-package {}
+rec {
   pname = "satyxin-class-slydifi";
   version = "0.5.0";
 

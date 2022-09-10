@@ -5,7 +5,8 @@
   satyxinPackages,
   ...
 }:
-satyxin.buildPackage rec {
+pkgs.callPackage ../../nix/build-package {}
+rec {
   pname = "satyxin-class-yabaitech";
   version = "0.0.9";
 

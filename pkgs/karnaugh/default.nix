@@ -5,7 +5,8 @@
   satyxinPackages,
   ...
 }:
-satyxin.buildPackage rec {
+pkgs.callPackage ../../nix/build-package {}
+rec {
   pname = "satyxin-karnaugh";
   version = "ed38a3ec2afa09a383a2b4e9068ece4dd9bba715";
 
