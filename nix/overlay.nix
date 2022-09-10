@@ -12,7 +12,7 @@ final: prev: {
     listToAttrs (
       map (name: {
         name = name;
-        value = final.callPackage ../pkgs/${name} {};
+        value = final.callPackage ./packages/${name} {};
       }) [
         "algorithm"
         "azmath"
