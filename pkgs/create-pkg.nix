@@ -6,9 +6,10 @@ generator: {
   g = pkgs.callPackage generator {};
 in
   satyxin.buildPackage rec {
-    inherit (g) name version;
+    inherit (g) version;
 
-    outdir = name;
+    pname = g.name;
+    outdir = pname;
     deps = g.deps or [];
     sources = g.sources or {};
   }

@@ -3,15 +3,14 @@
   stdenv,
   ...
 }: {
-  name,
+  pname,
   version,
   outdir,
   sources ? {},
   deps ? [],
 }:
 stdenv.mkDerivation {
-  inherit deps outdir version;
-  pname = "satyxin-package-${name}";
+  inherit pname version deps;
   sources = builtins.toJSON sources;
 
   dontBuild = true;
@@ -99,13 +98,12 @@ stdenv.mkDerivation {
       fi
     done
 
-    mkdir -p $out/packages/$outdir
-    echo $sources
+    mkdir -p $out/packages/${outdir}
     for source in $(echo $sources | jq -r ".[]"); do
         if [ -d "$source" ]; then
-          cp -r $source/* $out/packages/$outdir
+          cp -r $source/* $out/packages/${outdir}
         else
-          cp $source $out/packages/$outdir
+          cp $source $out/packages/${outdir}
         fi
     done
   '';
