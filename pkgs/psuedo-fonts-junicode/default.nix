@@ -14,8 +14,8 @@
   };
 in
   stdenv.mkDerivation {
-    inherit (version);
-    name = "satyxin-package-psuedo-fonts-junicode-${version}";
+    inherit version;
+    pname = "satyxin-psuedo-fonts-junicode";
     outdir = "fonts-junicode";
 
     dontBuild = true;

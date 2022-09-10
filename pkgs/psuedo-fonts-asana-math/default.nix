@@ -18,8 +18,8 @@
   };
 in
   stdenv.mkDerivation {
-    inherit (version);
-    name = "satyxin-package-psuedo-fonts-asana-math-${version}";
+    inherit version;
+    pname = "satyxin-psuedo-fonts-asana-math";
 
     dontBuild = true;
     dontUnpack = true;

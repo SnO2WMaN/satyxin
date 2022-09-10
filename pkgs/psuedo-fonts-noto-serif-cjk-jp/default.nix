@@ -18,8 +18,8 @@
   };
 in
   stdenv.mkDerivation {
-    inherit (version);
-    name = "satyxin-package-psuedo-fonts-noto-serif-cjk-jp-${version}";
+    inherit version;
+    pname = "satyxin-pseudo-fonts-noto-serif-cjk-jp";
 
     dontBuild = true;
     dontUnpack = true;

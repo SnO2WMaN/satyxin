@@ -18,8 +18,8 @@
   };
 in
   stdenv.mkDerivation {
-    inherit (version);
-    name = "satyxin-package-psuedo-fonts-noto-sans-${version}";
+    inherit version;
+    pname = "satyxin-psuedo-fonts-noto-sans";
 
     dontBuild = true;
     dontUnpack = true;

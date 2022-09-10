@@ -14,8 +14,8 @@
   };
 in
   stdenv.mkDerivation {
-    inherit (version);
-    name = "satyxin-package-psuedo-fonts-dejavu-${version}";
+    inherit version;
+    pname = "satyxin-psuedo-fonts-dejavu";
     outdir = "fonts-dejavu";
 
     dontBuild = true;

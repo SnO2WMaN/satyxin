@@ -5,7 +5,8 @@
   ...
 }:
 stdenv.mkDerivation {
-  name = "satyxin-package-dist";
+  pname = "satyxin-dist";
+  version = satysfi.version;
 
   dontBuild = true;
   dontUnpack = true;
