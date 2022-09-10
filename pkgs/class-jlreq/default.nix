@@ -10,6 +10,13 @@ satyxin.buildPackage rec {
   version = "0.0.3";
 
   outdir = "class-jlreq";
+  src = fetchFromGitHub {
+    owner = "abenori";
+    repo = "satysfi-class-jlreq";
+    rev = version;
+    sha256 = "sha256-uDKUgpjHIocqIcln1QCDvR6965+MQqzOtZMIV5djB2w=";
+  };
+
   sources = let
     root = fetchFromGitHub {
       owner = "abenori";

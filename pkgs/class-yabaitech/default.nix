@@ -10,6 +10,12 @@ satyxin.buildPackage rec {
   version = "0.0.9";
 
   outdir = "class-yabaitech";
+  src = fetchFromGitHub {
+    owner = "yabaitechtokyo";
+    repo = "satysfi-class-yabaitech";
+    rev = version;
+    sha256 = "sha256-unDdYmmfHYIImbK2px6jAQrkXWuPF/Ksrnk5Qcw99dY=";
+  };
   sources = let
     root = fetchFromGitHub {
       owner = "yabaitechtokyo";

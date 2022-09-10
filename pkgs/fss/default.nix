@@ -10,6 +10,13 @@ satyxin.buildPackage rec {
   version = "0.2.0";
 
   outdir = "fss";
+  src = fetchFromGitHub {
+    owner = "na4zagin3";
+    repo = "satysfi-fss";
+    rev = "v${version}";
+    sha256 = "sha256-9MLw4A5pF5f3KY5r7v+bDV9BAaPzKRh1Yi+dQi5QMPs=";
+  };
+
   sources = let
     root = fetchFromGitHub {
       owner = "na4zagin3";

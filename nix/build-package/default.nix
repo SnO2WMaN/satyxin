@@ -5,12 +5,13 @@
 }: {
   pname,
   version,
+  src,
   outdir,
   sources ? {},
   deps ? [],
 }:
 stdenv.mkDerivation {
-  inherit pname version deps;
+  inherit pname version src deps;
   sources = builtins.toJSON sources;
 
   dontBuild = true;

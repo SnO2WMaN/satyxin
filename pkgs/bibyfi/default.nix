@@ -10,6 +10,13 @@ satyxin.buildPackage rec {
   version = "0.0.2";
 
   outdir = "bibyfi";
+  src = fetchFromGitHub {
+    owner = "namachan10777";
+    repo = "BiByFi";
+    rev = "v${version}";
+    sha256 = "sha256-ppX4i5924F/DTlSQmloXdGOeCaDMJJKq3M/NE2khVvA=";
+  };
+
   sources = let
     root = fetchFromGitHub {
       owner = "namachan10777";
