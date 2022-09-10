@@ -10,14 +10,7 @@ satyxin.buildPackage rec {
   version = "0.1.0";
 
   outdir = "railway";
-  src = fetchFromGitHub {
-    owner = "monaqa";
-    repo = "satysfi-railway";
-    rev = "v${version}";
-    sha256 = "sha256-DeMNMWeOLTUFXidi7sfDl5gsAdi+vBE5zJmTshjfieI=";
-  };
-
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "monaqa";
       repo = "satysfi-railway";

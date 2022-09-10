@@ -10,14 +10,7 @@ satyxin.buildPackage rec {
   version = "0.5.0";
 
   outdir = "class-slydifi";
-  src = fetchFromGitHub {
-    owner = "monaqa";
-    repo = "slydifi";
-    rev = "v${version}";
-    sha256 = "sha256-O/tEsr5H3llh4fETamzYxk63rwU82OUecxKS5rtw8Pg=";
-  };
-
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "monaqa";
       repo = "slydifi";

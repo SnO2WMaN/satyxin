@@ -10,14 +10,8 @@ satyxin.buildPackage rec {
   version = "0.0.3";
 
   outdir = "azmath";
-  src = fetchFromGitHub {
-    owner = "nyuichi";
-    repo = "satysfi-base";
-    rev = version;
-    sha256 = "sha256-KE75gamAeB+HVbA29eUv88FQQLglHDLWTT65E/EFgVo=";
-  };
 
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "monaqa";
       repo = "satysfi-azmath";

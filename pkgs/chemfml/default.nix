@@ -10,14 +10,7 @@ satyxin.buildPackage rec {
   version = "1.0.1";
 
   outdir = "chemfml";
-  src = fetchFromGitHub {
-    owner = "gw31415";
-    repo = "satysfi-chemfml";
-    rev = "v${version}";
-    sha256 = "sha256-HfWHyic7GGS6bua3G388Swmh6vnc74r4zfH8ps9B51M=";
-  };
-
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "gw31415";
       repo = "satysfi-chemfml";

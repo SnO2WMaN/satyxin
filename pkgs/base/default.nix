@@ -10,14 +10,7 @@ satyxin.buildPackage rec {
   version = "1.4.0";
 
   outdir = "base";
-  src = fetchFromGitHub {
-    owner = "nyuichi";
-    repo = "satysfi-base";
-    rev = version;
-    sha256 = "sha256-KE75gamAeB+HVbA29eUv88FQQLglHDLWTT65E/EFgVo=";
-  };
-
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "nyuichi";
       repo = "satysfi-base";

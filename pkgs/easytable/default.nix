@@ -10,14 +10,7 @@ satyxin.buildPackage rec {
   version = "1.1.2";
 
   outdir = "easytable";
-  src = fetchFromGitHub {
-    owner = "monaqa";
-    repo = "satysfi-easytable";
-    rev = "v${version}";
-    sha256 = "sha256-my6WLJrXeHSDfWrP4STAnr279kHNfLeKv5KIvbLc/s8=";
-  };
-
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "monaqa";
       repo = "satysfi-easytable";

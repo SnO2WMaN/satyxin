@@ -5,18 +5,16 @@
 }: {
   pname,
   version,
-  src,
   outdir,
-  sources ? {},
+  copyfrom ? [],
   deps ? [],
+  ...
 }:
-stdenv.mkDerivation {
-  inherit pname version src deps;
-  sources = builtins.toJSON sources;
+stdenv.mkDerivation rec {
+  inherit pname version outdir copyfrom deps;
 
   dontBuild = true;
   dontUnpack = true;
-
   nativeBuildInputs = with pkgs; [
     jq
     moreutils
@@ -99,13 +97,13 @@ stdenv.mkDerivation {
       fi
     done
 
-    mkdir -p $out/packages/${outdir}
-    for source in $(echo $sources | jq -r ".[]"); do
-        if [ -d "$source" ]; then
-          cp -r $source/* $out/packages/${outdir}
-        else
-          cp $source $out/packages/${outdir}
-        fi
+    mkdir -p $out/packages/$outdir
+    for file in $(echo $copyfrom | tr ' ' '\n'); do
+      if [ -d "$file" ]; then
+        cp -r $file/* $out/packages/$outdir
+      else
+        cp $file $out/packages/$outdir
+      fi
     done
   '';
 }

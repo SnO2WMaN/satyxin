@@ -10,14 +10,7 @@ satyxin.buildPackage rec {
   version = "1.0.0";
 
   outdir = "pagestyle";
-  src = fetchFromGitHub {
-    owner = "abenori";
-    repo = "satysfi-pagestyle";
-    rev = version;
-    sha256 = "sha256-tXtTyDlwtLHNjCthGapYwXlttXT37JwvUHf8Snibrac=";
-  };
-
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "abenori";
       repo = "satysfi-pagestyle";

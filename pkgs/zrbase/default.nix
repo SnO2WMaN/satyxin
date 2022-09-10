@@ -10,14 +10,8 @@ satyxin.buildPackage rec {
   version = "0.4.0";
 
   outdir = "zrbase";
-  src = fetchFromGitHub {
-    owner = "zr-tex8r";
-    repo = "satysfi-zrbase";
-    rev = version;
-    sha256 = "sha256-waqV3IJEeFOoex0vqI8zPogc/t3nDF7gQalm3Gfu0cA=";
-  };
 
-  sources = let
+  copyfrom = let
     root = fetchFromGitHub {
       owner = "zr-tex8r";
       repo = "satysfi-zrbase";
