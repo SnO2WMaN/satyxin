@@ -56,7 +56,7 @@
         packages = rec {
           satysfiDist = pkgs.satyxin.buildSatysfiDist {
             # 文書をビルドするために必要なパッケージを記載してください．
-            # 利用可能なすべてのパッケージは以下に存在します． https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            # 利用可能なすべてのパッケージは以下に存在します． https://github.com/SnO2WMaN/satyxin/tree/main/nix/packages
             packages = [
               "bibyfi"
               "sno2wman"

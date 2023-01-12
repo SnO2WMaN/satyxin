@@ -52,7 +52,7 @@ Write `flake.nix` like below, then `nix build ".#main"` to build document to `re
         packages = rec {
           satysfiDist = pkgs.satyxin.buildSatysfiDist {
             # Add pacakges to build your document
-            # All avaliable packages https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            # All available packages https://github.com/SnO2WMaN/satyxin/tree/main/nix/packages
             packages = [
               "bibyfi"
               "sno2wman"
