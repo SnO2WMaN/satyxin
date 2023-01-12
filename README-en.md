@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
 
-- [日本語](./README-ja.md)（おそらくこちらのほうが充実しています）
+- [日本語](./README.md)（おそらくこちらのほうが充実しています）
 
 ## Example
 
@@ -52,7 +52,7 @@ Write `flake.nix` like below, then `nix build ".#main"` to build document to `re
         packages = rec {
           satysfiDist = pkgs.satyxin.buildSatysfiDist {
             # Add pacakges to build your document
-            # All avaliable packages https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            # All available packages https://github.com/SnO2WMaN/satyxin/tree/main/nix/packages
             packages = [
               "bibyfi"
               "sno2wman"

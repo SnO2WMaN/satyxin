@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
 
-- [English](./README.md)
+- [English](./README-en.md)
 
 [SATySFi](https://github.com/gfngfn/SATySFi)による文書（以下，単に「文書」）を[Nix](https://nixos.org/)でビルドしたりするための様々を提供します．
 
@@ -56,7 +56,7 @@
         packages = rec {
           satysfiDist = pkgs.satyxin.buildSatysfiDist {
             # 文書をビルドするために必要なパッケージを記載してください．
-            # 利用可能なすべてのパッケージは以下に存在します． https://github.com/SnO2WMaN/satyxin/tree/main/pkgs
+            # 利用可能なすべてのパッケージは以下に存在します． https://github.com/SnO2WMaN/satyxin/tree/main/nix/packages
             packages = [
               "bibyfi"
               "sno2wman"
