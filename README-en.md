@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
 
-- [日本語](./README-ja.md)（おそらくこちらのほうが充実しています）
+- [日本語](./README.md)（おそらくこちらのほうが充実しています）
 
 ## Example
 

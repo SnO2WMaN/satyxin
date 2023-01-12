@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/github/license/SnO2WMaN/satyxin?style=flat)](https://github.com/SnO2WMaN/satyxin/blob/main/LICENSE)
 
-- [English](./README.md)
+- [English](./README-en.md)
 
 [SATySFi](https://github.com/gfngfn/SATySFi)による文書（以下，単に「文書」）を[Nix](https://nixos.org/)でビルドしたりするための様々を提供します．
 
