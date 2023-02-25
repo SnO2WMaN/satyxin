@@ -7,6 +7,7 @@
   inherit (lib) removeSuffix hasSuffix;
 in
   {
+    package ? pkgs.satysfi,
     name,
     src,
     entrypoint,
@@ -22,11 +23,7 @@ in
         satysfiLocal
         ;
 
-      buildInputs = with pkgs; [
-        satysfi
-        jq
-        moreutils
-      ];
+      buildInputs = (with pkgs; [jq moreutils]) ++ [package];
 
       entrypoint =
         if hasSuffix ".saty" entrypoint
